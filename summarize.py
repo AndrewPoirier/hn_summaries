@@ -63,7 +63,7 @@ def return_articles(date, generate_summaries=True, max_articles=int(settings["ma
         datestring = row.next_sibling.find("span", attrs={"class": "age"})["title"].split(" ")[0]
         
         # print the current item to the console
-        print(f"{rank}. + {title}")
+        print(f"{rank}. {title}")
         
         # create the Article class, which will do all the heavy-lifting
         article = Article(rank, title, article_link, score, user, article_id, datestring, generate_summaries)
