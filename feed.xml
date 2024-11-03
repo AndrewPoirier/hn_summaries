@@ -1,0 +1,857 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"><channel><title>HN Summarizer Feed</title><link>http://andrewpoirier.github.io/hn_summarizer</link><description>The top HN articles everyday - summarized</description><lastBuildDate>Sun, 03 Nov 2024 15:44:25 -0000</lastBuildDate><item><title>1. ChatGPT Search</title><link>https://openai.com/index/introducing-chatgpt-search/</link><description>
+&lt;![CDATA[
+&lt;p&gt;1461 points by marban on 2024-10-31T16:41:22 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42008569"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;The future promised in Star Trek and even Apple's Knowledge Navigator from 1987 still feels distant. Legacy, ad-based search has devolved into a wasteland of misaligned incentives, conflict of interest and content farms optimized for ads and algos instead of humans. Path forward requires solving the core challenge&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:43:56 -0000</pubDate></item><item><title>2. An Update on Apple M1/M2 GPU Drivers</title><link>https://lwn.net/SubscriberLink/995383/34dc5950cab5e739/</link><description>
+&lt;![CDATA[
+&lt;p&gt;611 points by MrBuddyCasino on 2024-10-31T20:36:53 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Alyssa Rosenzweig gave an update on the status of the Apple M1/M2 GPU driver, along with some news about the kinds of games it can support. The driver is written in Rust, but it has achieved conformance with various graphics standards. The hardware tessellator cannot be used at all when those algorithms are being emulated in the software. Instead, "we use software" that was meant to show vendors what they were supposed to implement a decade ago, Rosenz weig said. She is not sure whether that is a problem in practice or not, so she is not hoping to have to go that route. She also talked about geometry shaders, because "that was the next step"&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42011239"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;An Update on Apple M1/M2 GPU Drivers (lwn.net) by MrBuddyCasino. A quick look at the specs shows the 14" Thinkpad X1 Carbon at 2.7 lbs, 13" MacBook Air at 27 lbs and a 14" E-pad at 317 lbs. The M4 macbook announcement comments was how many people were happy with their M1 laptop. Apple is incredibly difficult and expensive to repair. But I have been pleasantly surprised by the longevity and repairability of ThinkPads. MacBooks are going to be lighter, better battery life, and have better displays. Thinkpads usually have great Linux support and swappable hardware for those who like to tinker with their devices. They also tend to be more durable, but this adds more weight.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:43:57 -0000</pubDate></item><item><title>3. Fuzzing between the lines in popular barcode software</title><link>https://blog.trailofbits.com/2024/10/31/fuzzing-between-the-lines-in-popular-barcode-software/</link><description>
+&lt;![CDATA[
+&lt;p&gt;179 points by ingve on 2024-10-31T13:28:31 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;ZBar is an open-source library for reading barcodes written in C. It supports an impressive number of barcode formats, including QR codes. One of our clients used it, so we wanted to quickly assess its security. Given the extensive amount of code, manual review was not an option. To fuzz ZBar, it has to be built with sanitizer and fuzzer instrumentation. We found serious bugs&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42006698"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Fuzz testing only rose to prominence in ~2012 with the rise of tools like afl-fuzz. ZBar by default scans all code types, which means that an attacker can trigger a bug in any of the scanners. If you owned a store with a POS setup with flaky reader behavior like this, you could try reconfiguring the reader (to, say, disable QR support). This reprogramming can sometimes be done via documented protocol, via sketchy Windows software, or via... barcode... Careful you don't make it worse. The reader's firmware tend to have multiple modes and many options. Some modes are as simple as "scan whatever you see out of the many formats you support, and spit out the decoded value of something as USB Serial". Or, worse, "...as USB Keyboard".&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:43:58 -0000</pubDate></item><item><title>4. Hazel</title><link>https://hazel.org/</link><description>
+&lt;![CDATA[
+&lt;p&gt;232 points by deepakkarki on 2024-10-31T06:57:35 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Hazel is a live functional programming environment organized around typed holes. It is able to typecheck, manipulate, and even run incomplete programs, i.e. programs with holes. There are no meaningless editor states. Hazel serves as an elegant platform for research on the future of programming (and programming education). We are developing a more principled approach to working with incomplete programs. We are first implementing these ideas into Hazel, a web-based programming environment for an Elm/ML-like functional programming language designed around typed-hole-driven development. We will focus on turning Hazel into a classroom assistant. This will start with a keynote by Cyrus on Research Methods for Next-Generation Programming Systems for teaching and learning in the classroom. We hope to have a Hazel-based classroom assistant by the end of the year.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42004133"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;This is semi-related to one of the killer features of Eclipse that never really made it into any large-scale systems&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:43:59 -0000</pubDate></item><item><title>5. Claude for Desktop</title><link>https://claude.ai/download</link><description>
+&lt;![CDATA[
+&lt;p&gt;321 points by meetpateltech on 2024-10-31T15:04:27 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Download Claude. Download Claude to your computer or mobile device. Use the weekly Newsquiz to test your knowledge of stories you saw on CNN.com and other news sites. Back to the page you came from. Click here for the next round up of newsquiz questions and answers from CNN.co.uk's iReport tool. Visit CNN. com/Newsquiz each week for a chance to win a $1,000 gift card to a local news agency. Visit the iReport.com/newsquiz page for a next week's selection of stories from around the world. Click the next page to find out which stories will be featured in the next installment of CNN's Newsquizzes.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42007649"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;The Anthropic team have made it easy to use Claude from right within your browser. In Firefox add a bookmark with the following values&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:00 -0000</pubDate></item><item><title>1. Australia/Lord_Howe is the weirdest timezone</title><link>https://ssoready.com/blog/engineering/truths-programmers-timezones/</link><description>
+&lt;![CDATA[
+&lt;p&gt;1128 points points by noleary on 2024-10-30T06:21:05 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Timezones are weird. But only finitely so. Here's the exact conceptual model you should have of them. Australia/Lord_Howe is the weirdest timezone. America/Nuuk does daylight savings at -01:00 (yes, with a negative) America/Cairo and America/Santiago do it at 24 o’clock (not 0 o'clock) Asia/Kathmandu has a weird offset from UTC. Africa/Casablanca doesn’t fit into the timezone model cleanly, so it’s hard-coded. The Gregorian system is called the proleptic Gregorian calendar and isn't historically accurate except Russian revolutionnerds. It does one thing very well: It does not let the months drift around the seasons like the Roman calendar did.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41992314"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Tz database refuses to calculate timezone transitions occurring before the Big Bang. Glib computes Sao Paulo time stamps as if Brazil's circa-1913 rules were still in effect. Work around the bug by not generating time stamps equal to -2**63. There used to be a long manpage about linux/unix `date` and what dates meant in the past - with examples of 15 century and so. But i can not find it anymore. Anyone has an idea ? Is it gone completely? I'm a little skeptical of the tz algorithm's thinking about pre- Unix-epoch thinking. It's a good way to head off "angels dancing on the head of a pin"-style arguments between contributors.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:43:56 -0000</pubDate></item><item><title>2. M4 MacBook Pro</title><link>https://www.apple.com/newsroom/2024/10/new-macbook-pro-features-m4-family-of-chips-and-apple-intelligence/</link><description>
+&lt;![CDATA[
+&lt;p&gt;906 points points by tosh on 2024-10-30T15:00:20 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Apple’s new MacBook Pro features the incredibly powerful M4 family of chips and ushers in a new era with Apple Intelligence. New MacBook Pro is available to pre-order today, with availability beginning November 8. All models include a Liquid Retina XDR display that gets even better with an all-new nano- texture display option. The 14-inch MacBook Pro includes the blazing-fast performance of M4 and three Thunderbolt 4 ports, starting with 16GB of memory, all at just $1,599. The 16-inch models with M4 Pro and M4 Max offer Thunderbolt 5 for faster transfer speeds and advanced connectivity. Apple Intelligence, the personal intelligence system that transforms how users work, communicate, and express themselves, while protecting their privacy.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41995701"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Security through obscurity is almost universally discouraged and considered bad practice. I am more than happy to have devices be locked down by default. My life has gotten much easier since I got my elderly parents and non-technical siblings to move completely to the Apple ecosystem. Lock-in and planned obsolescence are also factors, and ones I'm glad the EU (and others) are pushing back here. But it isn't as if there are no legitimate tradeoffs. I think simple obscurity is more powerful and requires less resources than obscure strength based security. I’ve managed public servers that stayed uncompised for a decade or more using an archaic old Unix some type that does not respond to pings or other queries, runs on non-standard ports, and blocks routes to hosts that don't even attempt to scan the standard ports. For example, Intel's Management Engine, was also using a very obscured OS with updates on top of these techniques is better overall overall.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:43:57 -0000</pubDate></item><item><title>3. Steam games will need to disclose kernel-level anti-cheat on store pages</title><link>https://www.gamingonlinux.com/2024/10/steam-games-will-now-need-to-fully-disclose-kernel-level-anti-cheat-on-store-pages/</link><description>
+&lt;![CDATA[
+&lt;p&gt;942 points points by jrepinc on 2024-10-30T19:39:59 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Steam games will now need to fully disclose kernel-level anti-cheat on store pages. Steam Deck SteamOS 3.6.19 Beta finally released. Fanatical bundles for Quake II finally released with a big content update. Steamworks Developer post: "We've heard from more and more developers recently that they're looking for the right way to share anti- cheat information about their game with players" Valve will be doing checks on games to ensure the notices are there and correct. If it's only client-side or server-side, it's optional, but Valve say "we generally think that any game that makes use ofAnti-Cheat technology would benefit from letting players know" Steam Deck / Desktop Linux will be easier knowing what to avoid on Steam Deck and Desktop Linux now too.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41999314"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Steam games will need to disclose kernel-level anti-cheat on store pages. Hacker News: Will games have to disclose anti- cheat on their store pages? More than 6,000 people have commented on this article. More than 1,000 of those comments have been posted in the last 24 hours. The article was originally published on November 2, 2013. It has been updated on November 3, 2013, to include the latest information on Steam's anti-cheating feature. The original version of this article stated that Steam games would have to include a kernel extension. We are happy to clarify that this is not the case, and that Steam will not be required to include such an extension on its stores. We apologise for any confusion caused by this article, and we are pleased to clarify the situation.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:43:58 -0000</pubDate></item><item><title>4. Chain-of-thought can hurt performance on tasks where thinking makes humans worse</title><link>https://arxiv.org/abs/2410.21333</link><description>
+&lt;![CDATA[
+&lt;p&gt;368 points points by benocodes on 2024-10-30T19:42:41 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Chain-of-thought (CoT) prompting has become a widely used strategy for working with large language and multimodal models. While CoT has been shown to improve performance across many tasks, determining the settings in which it is effective remains an ongoing effort. In this paper, we seek to identify the characteristics of tasks where CoT reduces performance by drawing inspiration from cognitive psychology. We also identify three tasks that satisfy condition (i) but not (ii), and find that while verbal thinking reduces human performance in these tasks, CoT retains or increases model performance. Overall, our results show that while there is not an exact parallel between the cognitive processes of models and those of humans, considering cases where thinking has negative consequences for human performance can help us identify settings where it negatively impacts models.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41999340"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Chain-of-thought can hurt performance on tasks where thinking makes humans worse. We know LLMs are more than just words, just because you say something doesn’t mean it’s true. Multimodal LLMs have been shown to significantly outperform classic LLMs of comparable size. It happens that we encode and assign a lot of meaning in words that appear to have this intent, even though they can't replicate it. Any reasoning we’ve ever seen is based on probabilistic text generation. Humans are not carefully writing out all the words of this implicit reasoning, so the machine cant appear to mimic them. What am I missing that makes this debatable at all? I am baffled that people have to continue making this argument over and over andover.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:43:59 -0000</pubDate></item><item><title>5. Google CEO says more than a quarter of the company's new code is created by AI</title><link>https://www.businessinsider.com/google-earnings-q3-2024-new-code-created-by-ai-2024-10</link><description>
+&lt;![CDATA[
+&lt;p&gt;607 points points by S0y on 2024-10-30T02:09:42 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;summarize this text in two paragraphs that capture the main points. More Than a Quarter of New Code at Google Is Created by AI - Business Insider. More than a quarter of new code at Google is created by AI-powered software. More than a quarter of new code is created by AI-based software. A vertical stack of three evenly spaced horizontal lines is an icon. An icon in the shape of a person's head and shoulders often indicates a user profile. A log in icon is a symbol for a user to log in to a service. A logo for a business is a logo for the business. A menu icon is also an icon for a customer to sign up for a service, such as Subscribe and Save.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41991291"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Google CEO says more than a quarter of the company's new code is created by AI. The quote is clearly meant to exaggerate reality, and they are likely including things like fully automated CL/PR's which have been around for a decade as "AI generated" I don't think it would be politically savvy to admit it. Claiming to replace humans with AI would attract the wrong kind of attention from politicians (during an election year) and from the public in general. Most people aren’t so to class warfare as long as it stomps on a rich guy. It’s a disservice to the public to assume they aren't capable of understanding why AI job losses might be concerning, even if they aren�'st directly impacted.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:00 -0000</pubDate></item><item><title>6. AI Flame Graphs</title><link>https://www.brendangregg.com/blog//2024-10-29/ai-flame-graphs.html</link><description>
+&lt;![CDATA[
+&lt;p&gt;316 points points by JNRowe on 2024-10-29T08:29:15 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt; AI Flame Graphs is a visualization that shows an AI accelerator or GPU hardware profile along with the full software stack, based on my CPU flame graphs. The flame graph is dominated by the slowest implementation, multiply_basic() which doesn't use any optimizations. It is a prototype based on EU profiling for low-stall hardware and eBPF software. The first version is available to customers in the Intel Tiber AI Cloud as a preview for the Intel Data Center GPU Max Series (previously called Ponte Vecchio). Here is an example: SYCL matrix multiply microbenchmark. The green frames are the actual instructions running on the AI or GPU accelerator, aqua shows the source code for these functions, and red (C), yellow (C++), and orange ( kernel) show the CPU code paths that initiated these AI/GPU programs. The gray "-" frames just help highlight the boundary between CPU and AI/ GPU code.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41980894"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt; AI Flame Graphs (brendangregg.com) by JNRowe 4 days ago  | hide | past | favorite | 89 comments. JNRowe: I found that the detailed info you'd want from Nvidia was just 100% unavailable. The more hopeful sign is that a lot of the major customers of Nvidia are going to start demanding this sort of access and there's a real chance that AMD's more accessible driver starts documenting what to actually look at, which will create the market competition to fill this space. In the meantime, take a look at the flamegraph capabilities in PyTorch and similar frameworks, up an abstraction level and eek what performance you can get from them. The problem is that CUDA already does that, and they're not incentivized to really improve from that baseline, given the capability and ease of use of the ROCM or Intel solutions.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:01 -0000</pubDate></item><item><title>7. Pushing the frontiers of audio generation</title><link>https://deepmind.google/discover/blog/pushing-the-frontiers-of-audio-generation/</link><description>
+&lt;![CDATA[
+&lt;p&gt;235 points points by meetpateltech on 2024-10-30T15:02:56 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Pushing the frontiers of audio generation - Google DeepMind. Explore some of the biggest innovations in AI. Explore a selection of our recent research. Use the weekly Newsquiz to test your knowledge of stories you saw on CNN.com and the CNN iReport app. Back to the page you came from. Click here to return to the newsquiz page you were originally from. The weekly News Quiz is now available for the first time in the US. You can now enter to win a $10,000 prize for the best story you read. The winner will be announced at the end of the week. The prize is a $1,000,000 award for the most interesting story of the year.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41995730"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Pushing the frontiers of audio generation (deepmind.google) by meetpateltech. It's definitely closer to human-sounding, but the uncanny valley is so deep here that I find myself thinking "I just want the point, not the fake personality that is coming with it" The majority of podcasts are from a group of generic white guys, and they almost sound identical to these AI generated ones. This is a tech demo for "render some vague sense of life behind this generated dialog" This is pretty good, though. You call this fair?&gt; the most diverse group of people in the U.S. is 48.0% White Men: 35.0%, Women: 8.0%. Non-White: 6.0%; Mixed/Diverse: 48.5%. White Woman: 2.0%) - Non- white Woman: 1.0%).&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:02 -0000</pubDate></item><item><title>8. OpenZFS deduplication is good now and you shouldn't use it</title><link>https://despairlabs.com/blog/posts/2024-10-27-openzfs-dedup-is-good-dont-use-it/</link><description>
+&lt;![CDATA[
+&lt;p&gt;451 points points by type0 on 2024-10-30T21:48:25 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;OpenZFS deduplication is good now and you shouldn’t use it. Click here to read the rest of the blog post, or click here for the full version of this article. Back to the page you came from. The post was originally published on October 27, 2014, and has been updated with the latest information about Fast Dedup and the live entry list.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42000784"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Hacker News: OpenZFS deduplication is good now and you shouldn't use it. The problem is that physical locations are hashed into the Merkle hash tree, and that makes moving physical locations prohibitively expensive as you have to rewrite all the interior nodes on the way to the nodes you want to rewrite. I want "offline" dedupe that doesn't require the pool to be fully offline, but doesn't happen immediately. I just wish we had some data corruption from bugs in the Windows R2 timeframe in the 2012-2013 timeframe. I'm generally happy with it when the underlying hardware is sufficient. It's very RAM/O hungry but you can schedule and throttle the "groveler".&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:03 -0000</pubDate></item><item><title>9. Google’s TOS doesn’t eliminate a user’s Fourth Amendment rights, judge rules [pdf]</title><link>https://ww3.ca2.uscourts.gov/decisions/isysquery/0814a460-fe8f-42ef-9e82-cf94f952eb28/1/doc/23-6181_opn.pdf</link><description>
+&lt;![CDATA[
+&lt;p&gt;400 points points by coloneltcb on 2024-10-30T18:58:48 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;%PDF-1.6%%-%-%-%%%-% % %- %-%- %% %,% -% -- %--%%-%- %-%-%-%.--%-!--%--%.--!--!%--!-!-%--%-%--%,%-%,%--+%--&amp;%----%%-!--%-!-%.-!%-!%---%.-!.-!=!-!.--!!--!.--% !--?!?-!%-?!?!?!?--!?!?!!--?--%!--%. --! --%-%.-%. %---!%-%-%.--%-%-!%%---%---% -%.- --%---!- %--%.%- --%. -!-- !-%-! %-% -!-?!?%-!~!-!,%--!.-%.%--?-!.%--?!!-!:%--!,%  %-!+!-+.-!.-!-?--%.%-!.-%.-?!-!!-!'!--!'!-?'!-'!-';!-}.-!?!-!'!'-!'-'!'-',!'-!'-!'--!'-';'-','-';!'-!,'-!'-!'-?'-!''-'','--!!'-!:!--!,!-!!!--!:!- !-!!'--!.-!'-?!!!?!!?!?!--!?!?!!'!!!!'?!?!!'?!!!'!?!!?!!!--!--!!!!--!"--!!"-!"!"!"--!"!"-!",!-!",!"-!".-!"!-!"--!,!"-%"!"--%"%"%"!"!"!--%"";!-!".--!"%-!!%-!"--!. --!, --!"-! !"-";!"-"";"--!" !"--""; "--";" "";--!"! ";"--!"?!?!!"!?!?!"!-- !--!---!!!"--?!?!?!"?!?!!??!?!!,!--!!!?!--?!--!.!--?!"!"--!?!"--?!?!!"--!:!"--!",!"--?"--!""-!"--";"";";  --" " --"; --;"--"--";-- "",   "": "","";--"", "";  "--"};--"}.--"": "";-- ""; ""; --""; ";""; "--"; "":  "";  -- "", ";" "; ":""; "};""; '";";";"";"":"";''""; '';""; ';""; ''";"", '";"; ''; '";'"; '}.--';"";''; '';'";'};'';''; '"; '';';' ';'}.'';''';'':'',','',';'','''';','';!'';'};';' ;'';}.' (''', '','': '', '';', '!'', '}.' ; '';'; '}.';';'';. '';'.'';.'';'%;'';'.';'`'";';';'; ';';!'','}.';';',';';}.';!''';};'','.'',':'';;'', '',!'';',',';!'!'';';'.','};',''.';','.';';;';'!'','; ','!'';!'};'!'!'',', ''';,'','%;';''.', '};' ;';''';!';'('',' ('', '':'}.', ';'!'; '';!'!', '?'', ','', '!'; '!''; ';';!';'; '',!'!';''',. '','; ''',.'', '%;'', {'?'';'?'','?''',,'',',','.',';.'';');'',`'';`'',;''.'%;',','';',''', ('','');', ''.',.'',  '':. '?'';.', '('', '');' ;. ';. '!''; '',&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41998891"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Google can flag accounts as CP, but then a judge still needs to issue a warrant for the police to actually go and look at the file. Maher's conviction, based on the warrantless search, still stands because the court found that the "good faith exception" applies. The threat to people posed by incompetent or tyrannical police is arguably much greater than the threat posed by ordinary criminality. In small towns across America, corrupt police departments issue minor citations as a way to generate revenue. Many US police officers act with impunity because their misconduct will be protected by local prosecutors and judges. There are absolutely towns and neighborhoods and judges and good people should avoid because of the police. If someone is found to be guilty of civil misconduct, they often have large amounts of cash for some reason they often will confiscate it in a process called a civil civil process.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:04 -0000</pubDate></item><item><title>10. Vector databases are the wrong abstraction</title><link>https://www.timescale.com/blog/vector-databases-are-the-wrong-abstraction/</link><description>
+&lt;![CDATA[
+&lt;p&gt;488 points points by jascha_eng on 2024-10-29T15:40:27 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Built for lightning-fast ingest and querying of time-based data. Seamlessly build RAG, search, and AI agents with the pgvector, pgvectorscale, and pgai extensions. A reliable and worry-free Postgres cloud for your business workloads. Open-source PostgreSQL extensions you can run on your own instances. We’re in your corner even during the trial phase. Contact us to discuss your use case with a Timescale technical expert. Learn the Postgres basics and scale your database performance to new heights with Timescale's Postgres guides and cheat sheet. Use Timescale for your demanding data needs and integrate it with your data needs with the Timescale Docs toolkit.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41985176"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt; vector databases are the wrong abstraction, says jascha_eng. The most significant drawback to putting your embeddings in a Postgres database with all your other data is that the workload looks so different. The canonical solution is to move your data into another database, but then you've recreated the consistency problem that your solution purports to solve. Can you take advantage of partial indices on the underlying data? Are some of the limitations in pg vector's HNSW implementation (as far as filtering goes) still present? Thanks for your feedback. I hear you on using a read-replica to serve embedding-based queries. I worry there are lots of cases where that breaks down in practice: presumably you still need to do a bunch of IO on the primary to support insertion, and presumably reconstituting an index (to test out new hyperparameters) isn't cheap.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:05 -0000</pubDate></item><item><title>11. Crafting Painterly Shaders</title><link>https://blog.maximeheckel.com/posts/on-crafting-painterly-shaders/</link><description>
+&lt;![CDATA[
+&lt;p&gt;242 points points by todsacerdoti on 2024-10-30T18:05:23 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;On Crafting Painterly Shaders - Maxime Heckel's Blog@MaximeHeckelOn crafting a WebGL shader that can reproduce the look and feel of aquarelle, watercolor, or gouache to obtain a more painterly output for WebGL scenes. The Kuwahara filter is a smoothing filter that can transform any image input into a painting-like work of art. We will go through the characteristics of the filter that make it so great at transforming our work into paintings, as well as look into several techniques highlighted in the many papers I read to improve the original implementation and have it return a sharper, and more anisotropic output. Finally, we'll go through a bit of color correction and the use of textures to achieve a satisfying and accurate painting effect.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41998319"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Hacker News: Crafting Painterly Shaders (maximeheckel.com)242 points by todsacerdoti 4 days ago.summarize this text in two paragraphs that capture the main points. crafting. Painterly. Shaders | Hacker News autoimmune.com: crafting. painterly.shaders. The 'Van Gogh painting' effect applied to the framebuffer in one quest of the the Hearts of Stone DLC for The Witcher 3. is a relevant and highly appealing shader. The author of this article is also the author of a blog, blog, and a Twitter account. If you'd like to follow him on Twitter, go to: twitter.com/TODSACERDOTA and follow his account @todsacerdoti. He also has a blog and a blog called TODsACER.com.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:06 -0000</pubDate></item><item><title>12. SimpleQA</title><link>https://openai.com/index/introducing-simpleqa/</link><description>
+&lt;![CDATA[
+&lt;p&gt;227 points points by surprisetalk on 2024-10-30T17:16:43 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41997727"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Even with provided texts, current models still hallucinate. How well can you judge the quality of a response on a topic you know nothing about? You cannot, but those pushing Gen AI wave away the probability and liability for obvious reasons. Sell the magic, it'll be someone else's problem when it doesn't deliver. "Fake" works fine for some things, but a large chunk of what they're trying to sell AI for doesn't work. It's not clear to me why we’re still trying to encode all of human knowledge in a single model, instead of teaching the model how to look for answers from an external source (e.g. RAG). You shouldn't use the rate as an indicator. They did something similar to what I did on my hallucinations benchmark (https://github.com/lechmazur/confabulations/), only using questions where at least one model made a mistake. This just makes me think LLMs must be wrong far more often than we realize.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:07 -0000</pubDate></item><item><title>13. 1BRC Coding Challenge: Nerd Sniping the Java Community</title><link>https://www.infoq.com/presentations/1brc/</link><description>
+&lt;![CDATA[
+&lt;p&gt;164 points points by saikatsg on 2024-10-30T05:02:37 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;InfoQ Software Architects' Newsletter is a monthly overview of things you need to know as an architect or aspiring architect. Joe Rowell explores the use of unified memory on modern GPU. Karthik Ramgopal, Min Chen discuss how LinkedIn changed the remote procedure calls (RPC) protocol for 50,000 production endpoints from Rest.li to Google's gRPC. Anders Indset, a Norwegian-born philosopher focusing on the implications of technology, talks about the Philosophical Implications of Technology with Shane Hastie, Culture &amp; Methods' Lead Editor for the Culture and Methods section. An effective approach to patch management and proactive alerting includes optimized resource allocation, proactive patch management, and effective alerting and alerting in devops.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41992081"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Running 1BRC was immensely fun, I learned a ton from it. One main take-away for me was that you could improve performance by one order of magnitude over the baseline basically by just doing a good job and avoiding basic mistakes. The resulting code is still well readable and maintainable. Write good code in go / c# / Java / JavaScript / etc and 99% of the time, performance will be just fine. But there’s usually 10-100x more performance available if you really try. Just writing crdt code in a straightforward, correct way, without unnecessary allocations (and ideally using some good data structures) will get you very, very far. There's another order of magnification available to anyone interested in using exotic, task specific data structures. If you want some examples, I highly recommend Algorithms for Modern Hardware, available for free online:https://en.algorithmica.org/hpc/&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:08 -0000</pubDate></item><item><title>14. Show HN: AI OmniGen – AI Image Generator with Consistent Visuals</title><link>https://aiomnigen.com</link><description>
+&lt;![CDATA[
+&lt;p&gt;166 points points by lcorinst on 2024-10-30T17:10:43 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;OmniGen allows you to generate lifelike portraits or fictional characters that retain distinct features across multiple images. Virtual Try-On for Fashion and Product Modeling lets you overlay products, such as clothes or accessories, onto models for virtual try-on applications. Intuitive Image Editing and Customization lets you edit and customize existing images with OmniGen’s advanced controls. Precise Adaptation to Detailed Prompts for Quality Output. NSFW or Adult content with AI OmniGen? Can I use generated images for commercial purposes? Is the payment service secure?Can I cancel my subscription at any time? can I get a refund?My payment card is not accepted when signing up?[email protected]Privacy PolicyTerms of ServicePartner linksEnglish© Copyright 2024. All rights reserved.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41997648"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Show HN: AI OmniGen – AI Image Generator with Consistent Visuals | Hacker News grotesquely preferential prejudiced pundit. grotesquely-prefused-to-do-something-wrong-in-the-world-that-can't-be-done-by-any-one-with-a-good-enough-brain.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:09 -0000</pubDate></item><item><title>15. Hobby CAD, CNC machining, and resin casting (2015)</title><link>https://lcamtuf.coredump.cx/gcnc/full/</link><description>
+&lt;![CDATA[
+&lt;p&gt;178 points points by hughgrunt on 2024-10-29T20:57:32 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Hobby CAD, CNC machining, and resin casting. A tutorial for getting top-notch results with benchtop CNC mills and modern polymers. A crash course in CAD and CAM. Section 4: A primer on high-performance casting resins and moldmaking work. Section 5: A library of components for electromechanical projects. Section 6.1: Simple part design techniques for optimal rigidity and strength.Section 6.2: An introduction to gear geometries and transmission systems.section 6.3: A bit on CNCMachining and how it compares to 3D printing. section 6.4: CNC Molding and Molding, and how to use it in your own home. section 7: C NC Machining and CNC Casting, and what to do with it if you don't have a CNC mill.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41989322"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Hobby CAD, CNC machining, and resin casting (2015) (coredump.cx) Dune3D was created and is remarkably capable: https://dune3d.org/Also a fair number of forums discussing CNC were gathered at: http://forum.makerforums.info/ (ob. discl., I work for Carbide 3D)Instructions to download:https://youtu.be/hqyPzCKGUQc?si=VJ0KRhQOl_-d7BmmDownload here: http:://www.google.com/view/gatorcam/homeVery user friendly. Tab support, v-bit,TC, sorts for faster carving.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:10 -0000</pubDate></item><item><title>16. Classic 3D videogame shadow techniques</title><link>https://30fps.net/pages/videogame-shadows/</link><description>
+&lt;![CDATA[
+&lt;p&gt;345 points points by ibobev on 2024-10-30T08:49:54 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Computer Graphics &amp; Programming with Pekka Väänänen: Classic 3D videogame shadow techniques. In games shadows are both engineered and designed to run well but also look good. In Super Mario 64, the blobs are drawn using a special hardware feature that effectively clips the shadow to show up only on the ground plane. In Metal Gear Solid, the shadow becomes smaller when jumping and in Crash Bandicoot, it changes shape when the character is moving. In the real world, shadows simply exist but in games they are bothengineered and designed. In 3D, shadows are something else. It’s easy to paint a dark blob under some character’S feet and assume everything else is lit. In 2D, you can draw a shadow image to the screen before you draw acharacter. On-screen 2D shadows are just a 2D image without any scaling. The blob and usually textures can be rendered to render at just a texture is just a circle and use that instead of a circle. This works great in Crash 3D (video) but not so well in Fortune Fortune (Soldier of Fortune) because they kept the shadow resolution so low.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41993012"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Summarize this text in two paragraphs that capture the main points. Classic 3D videogame shadow techniques (30fps.net) ibobev: My favorite shadow fact is that outdoor shadows are blue. A “good graphics engine” is only as good as the eyes that implemented it. The traditional (cheap) way of lighting stuff is to model ambiant lighting as some constant, regardless where light actually comes from, and render shadows as dark patches. It is not at all how physics work, so you need an artist with a good sense of observation to make it look right. An artist can still be involved in evaluating corner-cutting techniques, but his job will be more about evaluating stylistic choices and techniques. Even Maxwell’s equations are a much broader set of interactions than you’d get a few decades ago. You don’t think there is all that is physically based rendering, but there is.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:11 -0000</pubDate></item><item><title>17. The Influence of Japanese Archaeology on the Legend of Zelda: Breath of the Wild</title><link>https://jgeekstudies.org/2024/10/27/on-the-influence-of-japanese-archaeological-heritage-on-the-legend-of-zelda-breath-of-the-wild/</link><description>
+&lt;![CDATA[
+&lt;p&gt;254 points points by zdw on 2024-10-28T02:26:01 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;On the influence of Japanese archaeological heritage on The Legend of Zelda: Breath of the Wild – Journal of Geek Studies. In Ocarina of Time (1998), time is an effective gameplay element, and the player can travel through two different timelines. The player alternates between embodying young Link and adult Link, each with a distinct perspective. Fragments of the past are in fact materially dispersed in Hyrule. The recurrence of this type of conflict is a commonplace of fantasy worlds, and a convenient way to turn the lore of these games into repeated iterations of commercial successes. This definition fits the Zelda series, as each opus is a reinvention of the Link/Zelda trio. Here, the game enters the realm of geological time, a curious mixing of both linear and circular.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41967283"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;The Influence of Japanese Archaeology on the Legend of Zelda: Breath of the Wild (jgeekstudies.org) The best thing about being in Japan is realizing that games so often are recreating Japan ... and you don't realize it until you're there. Tokyo is not really a single city but a prefecture, it is like a bunch of smaller cities (wards) stuck together, and there are 23 of them. Tokyo-Edo museum is indeed awesome if you are interesting in the history of the city, and it certainly a "do-not-miss", but on a 24-hours stay, you have to make choices. Shibuya crossing is one of the most famous sights of Tokyo and a symbol of the busy city it is. It is also right out of the station on the Yamanote line, so close to other notable places, such as Harajuku, Yoyogi, and Shinjuku.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:12 -0000</pubDate></item><item><title>18. NASA reconnected with Voyager 1 after a brief pause</title><link>https://scitechdaily.com/15-billion-miles-away-nasas-voyager-1-breaks-its-silence/</link><description>
+&lt;![CDATA[
+&lt;p&gt;255 points points by Stratoscope on 2024-10-30T06:48:55 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41992394"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;NASA reconnected with Voyager 1 after a brief pause. AFAIK Pioneer and Voyger probes were still using PSK and FSK. How can adding more steps, more processing time, possibly longer distances if these hops are not in a straight line, cause a decrease in latency? More hops = more latency. You cannot alter throughput. You can only broadcast at high power from one side of the space.Deep space RTT is unavoidable. The fastest way is astraight line between origin and destination. The best way to get around the problem is to add more hops. The quickest way to solve it is to increase the number of hops, or add more data channels, or change the way the data is sent and received. The most effective way to fix it is by adding more hops or by changing the way data is transmitted.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:13 -0000</pubDate></item><item><title>19. Go library for in-process vector search and embeddings with llama.cpp</title><link>https://github.com/kelindar/search</link><description>
+&lt;![CDATA[
+&lt;p&gt;114 points points by kelindar on 2024-10-28T06:01:42 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;GitHub - kelindar/search: Go library for embedded vector search and semantic embeddings using llama.cpp. GitHub-powered developer platform for AI-powered developers. GitHub is a free, open-source software platform that allows developers to build and test their code on the cloud. It's free to use and free to modify. GitHub can be downloaded from GitHub's website. It is free and open source. It can be used to build, test and modify your code on a cloud-based platform. GitHub has a free and free version of the code that you can download from GitHub’s website. The code is free to download and use. It’ll be free to edit and modify. It will be free and available to you to use as long as you don’t want to change the code you’re working on. You can use it to test your code, test your ideas and make changes to the code. It also has a built-in search function that allows you to search for content by clicking on a link. It has a search function to help you find content that may be difficult to find. It lets you search by keywords, such as “search”, “title” or “tags” and “tag”. It offers a “GitHub search” function to let you search for a specific search term by hitting the ‘search’ button. The “gitHub’ function also lets you use the “show” button to help users find content by searching for a particular word or phrase. It allows users to search by content type, like “text’, for example, or by the word “tweet’. It provides a way for users to easily search for information about a piece of code that they’ve already read.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41968173"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;This library was created to provide an easy and efficient solution for embeddings and vector search. It's built around a simple idea: if your dataset is small enough, you can achieve accurate results with brute-force techniques, and with some optimizations like SIMD, you could keep things fast and lean. Go library for in-process vector search andembeddings with llama.cpp (github.com/kelindar)114 points by kelindar 4 days ago  | hide | past | favorite | 29 comments                                                                                                      &lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:14 -0000</pubDate></item><item><title>20. An Italian 'fruit detective' who investigates centuries-old paintings</title><link>https://www.smithsonianmag.com/arts-culture/meet-italian-fruit-detective-who-investigates-centuries-old-paintings-clues-produce-180985227/</link><description>
+&lt;![CDATA[
+&lt;p&gt;90 points points by Brajeshwar on 2024-10-29T14:39:52 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Meet the Italian ‘Fruit detective’ Who investigates Renaissance paintings for clues about the disappearance of cherries from Italian orchards. The fruit was once abundant in Italy, but now all the cherries in Italy are gone. The discovery could help combat a growing agricultural crisis in the country. In the U.S., the fruit could be used as a tool to help solve problems in the agriculture industry. In Italy, the fruit may be used to help combat the agricultural crisis, but it may also be used for other purposes.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41984292"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;An Italian 'fruit detective' who investigates centuries-old paintings (smithsonianmag.com) An apple variety known in the fruit science lexicon asapi piccola. A number of efforts in the US and England, both govt (e.g., USDA) and private, working to preserve these often rare cultivars. There are hundreds of local / regional cultivars grown for a variety of specific purposes (way beyond today's mass-marketed four or five varieties) Many farms had an orchard, which consisted of a few to a few dozen trees, each with different cultivars cloned by grafting. Different varieties were good for different purposes, such as eating directly (dessert apples), baking, storing, cider, producing early or late, etc. These varieties really do make a difference.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:15 -0000</pubDate></item><item><title>21. Launch HN: FlyCode (YC S22) – Stop losing revenue due to failed payments</title><link>item?id=41994658</link><description>
+&lt;![CDATA[
+&lt;p&gt;101 points points by JakeVacovec on 2024-10-30T13:45:14 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41994658"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Launch HN: FlyCode (YC S22) – Stop losing revenue due to failed payments. FlyCode makes it easy for subscription-based companies to recover lost revenue. When a payment fails, it doesn’t just cost immediate revenue; it significantly impacts the customer’s lifetime value (LTV) and customer experience. With FlyCode you can recover more payments with (1) fewer payment retries (2) faster average days to recovery (3) less customer communications (4) compliant with the Card networks rules [we partnered with Visa] (5) and coordinate the communications with the retries automatically for each customer. On top of that, solutions like Card Account Updater (CAU) and Network Tokens help to automatically update card details when a new card is activated or an expired one is replaced. We built apps in Stripe and Shopify https://marketplace.stripe.com/apps/flycode-payments.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:16 -0000</pubDate></item><item><title>22. Fruits (2020)</title><link>https://graphallthethings.com/posts/fruits</link><description>
+&lt;![CDATA[
+&lt;p&gt;145 points points by yeknoda on 2024-10-26T16:22:14 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Fruit evolutionary history. Graph All The Things. AboutGraph all the thingsanalyzing all theThings you forgot to wonder aboutFruits2020-07-24interests: evolutionary history15153565100150200million years agopineapplebananaacaicoconutdragonfruittomatoblueberrykiwigooseberrypomegranatepapayadurianmangomandarinlimelemonorangegrapefruitpomelowatermelonhoneydewcantaloupestrawberryraspberryapplepearcherrypeachplumapricotfloweringplantsmonocotspalmsdicotscitrusrosesprunesmelons1515 3565100 150 200million years agoFruits selected: pineapple banana acai coconut dragonfruit tomato blueberry kiwi gooseberry pome Granate papaya durian mango mandarin lime lemon orange grape fruit pomelo watermelon. Honeydew and cantaloupe are very close to cucumber - even closer than they are to watermelon. dragonfruit/pitaya comes from a cactus. lemon is sour orange x citron. kiwis and kiwi are relatively closely related, but now it occurs to me that they're both green inside.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41955731"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Summarize this text in two paragraphs that capture the main points. Fruits (2020) | Hacker News                                Hacker News                new | past | comments | ask | show | jobs | submit                  login                  F fruits ( 2020) (graphallthethings.com)                145 points by yeknoda 4 days ago  | hide | past  favorite | 24 comments                                                                                              Pronounced 'berry', a strawberry isn't actually a 'berry' However, one misnomer remains true — a Strawberry isn't a fruit, it's a vegetable. The fleshy and sweet part of a strawberry originates as part of the flower called the receptacle. The little ring of green leaves at the top of of a strawberries are the sepals of a flower it originated from.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:17 -0000</pubDate></item><item><title>23. Nuclear Fusion's New Idea: An Off-the-Shelf Stellarator</title><link>https://spectrum.ieee.org/the-off-the-shelf-stellarator</link><description>
+&lt;![CDATA[
+&lt;p&gt;114 points points by mfiguiere on 2024-10-29T20:11:18 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41988799"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Nuclear Fusion's new idea: an off- the-shelf stellarator. Hacker News: Nuclear fusion's newIdea: An off-the Shelf Stellator. HN: Nuclear fusion 's new Idea: an off- the shelf stellator. Nuclear Fusion: An Idea : Anoff-the–Shelf Stellator, by mfiguiero. Hacker News: Nuclear-fusion-newIdea. Nuclear- fusion-stellator: A working stellarator that's a very long way from an economically viable energy source. Nuclear fusion: An idea for a stellarator by walking into radioshack. Nuclear nuclear fusion: A concept for a Stellarator that can be built by walking in radioshacks.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:18 -0000</pubDate></item><item><title>24. Dropbox announces 20% global workforce reduction</title><link>https://blog.dropbox.com/topics/company/an-update-from-drew</link><description>
+&lt;![CDATA[
+&lt;p&gt;507 points points by mfiguiere on 2024-10-30T13:42:52 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Dropbox CEO Drew Houston sent an email to all employees. He said the company would be reducing its global workforce by approximately 20% or 528 Dropboxers. He also said that the company was making more significant cuts in areas where it was over-invested or underperforming while designing a flatter, more efficient team structure. The email was published on October 30, 2024, on the Dropbox blog. It is available to all Dropbox employees on the company’s website, as well as on Facebook, Twitter, and other social media sites. It was also published on Dropbox.com, the Dropbox app, and the Dropbox Blog. It has been removed from the Apple App Store and the Google Play Store. It will be available on the Microsoft Store, the Amazon.com App Store, and others.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41994640"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;The same forces that enable high tech salaries, also make layoffs more likely. The market for talent is competitive. Companies allow things like remote work, which is a perk, but also has a lot of abuse in terms of how much work gets done. Even with savings, getting laid off is highly disruptive, and, if done as part of a broader downturn in the market, you may never recover the required cash flow to enable your lifestyle. There should also be some reasonable government provided safety net so people can reskill/learn and move to other fields. There are also different types of creep, some that you can easily stop, and others that are more difficult. The first potentially for spending more money on restaurants and broadway shows are all potentially gone.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:19 -0000</pubDate></item><item><title>25. RebrickNet – Lego Part Detector</title><link>https://rebrickable.com/rebricknet/submit/</link><description>
+&lt;![CDATA[
+&lt;p&gt;107 points points by wonger_ on 2024-10-26T23:25:28 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Summarize this text in two paragraphs that capture the main points: RebrickNet - LEGO Part detector | Rebrackable - Build with LEGO. This process requires a wide variety of images to discover relevant features of LEGO parts and parts that make each part unique. Use this information to help you find MOCs you can build with your LEGO Collection. For more information, visit the LEGO.com/MOCs site or go to the LEGO MOC site: http://www.leo.org/mocs/rebrick-net-part-detecting-leo-parts-and-parts and-features-like-the-re BrickNet-Part-Diagnostic-Deterioration-Test.html.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41958480"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;It looks like LEGO provides 3D models for their components (e.g: via Bricklink [1]). Wouldn't it be easier to generate the training data with a rendering pipeline of some sort that randomizes the brick position in a 3D scene with different lighting? There is some code to generate Lego images from Lego 3d files here and use it to train models. It is based on this post (which others have mentioned)https://jacquesmattheij.com/sorting-lego-the-software-side/RebrickNet – Lego Part Detector (rebrickable.com)107 points by wonger_ 4 days ago  | hide | past | favorite | 40 comments   RebrackNet – Lego Partdetector.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:20 -0000</pubDate></item><item><title>26. Rubocop-obsession: RuboCop extension focused on higher-level concepts</title><link>https://github.com/jeromedalbert/rubocop-obsession</link><description>
+&lt;![CDATA[
+&lt;p&gt;87 points points by thunderbong on 2024-10-28T05:59:14 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;summarize this text in two paragraphs that capture the main points. GitHub - jeromedalbert/rubocop-obsession: RuboCop extension focused on higher-level concepts, like checking that code reads from top to bottom. GitHub-powered developer platform: AI-powered platform for developers. Rubo cop extension: A tool to help developers write better code with AI. RubyCop extension: An extension to make it easier for developers to write code with the help of other developers. The extension is available now on GitHub for $99.99. For more information, visit GitHub.com/ruboCop or go to the official Rubo Cop extension website at www.rubocop.com. For confidential support call the Samaritans on 08457 90 90 90 or visit a local Samaritans branch, see www.samaritans.org for details. For support in the U.S., call the National Suicide Prevention Lifeline on 1-800-273-8255 or visit http://www.suicidepreventionlifeline.org/. For confidential help in the UK, call the Samaritans on 08457 909090 or  visit “The Samaritans” on  “London’s” Samaritans, � ‘London”,  ’“Suffering’, “” ”““Holland”.”    “No,” “I can’t help.’  ’ ‼’ ‘‘’;’. ’’: ‘I’m sorry, I’ve got to ask you to help me with a problem’ – ‚”: “What do you want to know?”; ‘How can I help you with a bug?’ : ‘What are you going to fix for a bug that you’re having trouble with,’? “How can you help me fix it, please tell me.“: ‡’ The answer is simple. ‘You’ll be able to fix it in a matter of minutes, and you can do it with a single click of a button or a few lines of code.‘: ’ ’  ‘The solution is already in place, so don’ t worry about it, just go ahead and do it!’': ‘GitHub users will see it in the next few minutes.  ‘It’ is already there. You can already see it. You’d better start writing it now. It will appear in a few hours. It has been there for a few weeks. It’�s ready for you to use now.‼ •’ GitHub users can already start writing code for the first time, and it will be available in the coming days. It is already available for download on the site. It was created by a group of GitHub users. The site is open to all developers. It allows you to sign in and sign up for a free trial of the service. It also has a sign-in function to sign-up for new features. It lets users sign up to use the site’ and log in to log-in to other features such as search, search, and navigation. It offers a free version of the site that is available to all users for a limited period of time. For a limited time only, users can sign in to the site and access all of its features, including search, navigation, and news feeds. The service is free to use. For now, it is only available to users in the US and Canada. For the rest of the year, the site will be open to developers in the United States, Canada, and the UK. It can be accessed via the “Git Hub” URL, which is available in English and Spanish, and can be translated into English, French, German, Spanish, Italian, Portuguese, and Spanish. The website is available on GitHub.org.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41968167"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Rubocop-obsession: RuboCop extension focused on higher-level concepts. Hacker News: Rubocop is an extension for Ruby that focuses on high-level concept. Rubo cop is a Ruby extension that helps developers understand and monitor the quality of their code. It's a free extension that's available on GitHub for $2.99 per month. Click here for more information about the Rubo Cop extension and how to use it in your code. For more information on Hacker News, go to: http://www.hackernews.com/category/hacker-news/2013/07/27/rubo-cop-is-a-free-extension-for-ruby-that-focused-on-higher-level-concepts-like-reek-and-cyclomatic-complexity.html.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:21 -0000</pubDate></item><item><title>27. DeepSeek v2.5 – open-source LLM comparable to GPT-4, but 95% less expensive</title><link>https://www.deepseek.com/</link><description>
+&lt;![CDATA[
+&lt;p&gt;191 points points by jchook on 2024-10-30T19:24:21 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;DeepSeek-V2.5 combines general and coding capabilities, API and Web upgraded. API128K context length.$0.14-$0.28 for 1 million more. Chinese GeneralEnglish GeneralKnowledgeArithmeticMathReasoningCoding. AlignBenchMT-BenchMMLUGSM8KMATHBBHHumanEval. DeepSeek VL deepSeek.com deepseek.org deepsek.com. Deepseek V2.0 deepseak.comDeepSeeks.com DeepSeeker.com is a registered trademark of DeepSeeks, Inc. (www.deepseeks.org) and is used under license by others. For confidential support call the Samaritans on 08457 90 90 90 or visit a local Samaritans branch, see www.samaritans.org for details. In the U.S. call the National Suicide Prevention Line on 1-800-273-8255 or visit http://www.suicidepreventionlifeline.org/. For confidential. support on suicide matters call the suicide Prevention Lifeline on 1 (800) 273-TALK (8255).&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41999151"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;DeepSeek v2.5 is an open-source LLM comparable to GPT-4, but 95% less expensive. It is politically neutral in an interesting way. When asked “Where is Taiwan?” it prefaced its answer with “Taiwan is an inalienable part of China. ” When asked if anything significant ever happened in Tiananmen Square, it deleted the question. DeepSeek doesn't seem capable of handling image uploads. It claims to be able to handle images, but it's just not working for me. It's interesting to see which ones it answers with the party line (gongunie, or if Xi Jinping looks like the Winnie the Pooh)&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:22 -0000</pubDate></item><item><title>28. Show HN: LlamaPReview – AI GitHub PR reviewer that learns your codebase</title><link>https://github.com/marketplace/llamapreview</link><description>
+&lt;![CDATA[
+&lt;p&gt;98 points points by Jet_Xu on 2024-10-30T16:16:19 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;LlamaPReview, GitHub Marketplace, GitHub community articles. Summarize it in two sentences that capture main points of the text. The text is presented in the form of a list of topics. The list is broken down into three categories: GitHub Marketplace, GitHub community articles, and GitHub community posts. It is also broken up into two categories: GitHub Community articles and GitHub Community posts. For more information, visit GitHub.org. The full text of this article can be found at: http://www.gitHub.org/content/github-community-articles.php?storylink=cpy; the-text-size-of-this-article-and-the-language-it-expansions-of the language-within it is considerable and should be taken into account when reading this text. The full text can be viewed at GitHub.com/ content/Git Hub-Community-article.php.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41996859"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;LlamaPReview is an AI GitHub PR reviewer that learns your codebase. The goal is to handle routine reviews automatically so developers can focus on complex architectural decisions. Currently in production and processing real PRs. Try it for free: https://github.com/marketplace/llamapreview/Would be an instant no-go for any organization or individual that values their IP. No website to speak of, just boilerplate text to satisfy Github's marketplace submission process. For those fearing licence laundering, don’t worry it will be done anyway for any public code. It does not really matter for FOSS projects. All code analysis happens in-memory during the PR review process. We don't permanently store any changes of any kind. We use enterprise-grade LLMs to ensure high-grade reviews while maintaining reasonable operational costs. Our focus is on building a valuable tool for developers and we'll be transparent about any future pricing.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:23 -0000</pubDate></item><item><title>29. AI Flame Graphs</title><link>https://www.brendangregg.com/blog//2024-10-29/ai-flame-graphs.html</link><description>
+&lt;![CDATA[
+&lt;p&gt;176 points points by mfiguiere on 2024-10-30T06:54:50 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt; AI Flame Graphs is a visualization that shows an AI accelerator or GPU hardware profile along with the full software stack, based on my CPU flame graphs. The flame graph is dominated by the slowest implementation, multiply_basic() which doesn't use any optimizations. It is a prototype based on EU profiling for low-stall hardware and eBPF software. The first version is available to customers in the Intel Tiber AI Cloud as a preview for the Intel Data Center GPU Max Series (previously called Ponte Vecchio). Here is an example: SYCL matrix multiply microbenchmark. The green frames are the actual instructions running on the AI or GPU accelerator, aqua shows the source code for these functions, and red (C), yellow (C++), and orange ( kernel) show the CPU code paths that initiated these AI/GPU programs. The gray "-" frames just help highlight the boundary between CPU and AI/ GPU code.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41992419"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;AI Flame Graphs | Hacker News. Consider applying for YC's W25 batch! Applications are open till Nov 12.Comments moved to https://news.ycombinator.com/item?id=41980894, which was posted first. Use the weekly Newsquiz to test your knowledge of stories you saw on Hacker News, and send your own pictures and videos to jennifer.smith@mailonline.co.uk. For confidential support call the Samaritans on 08457 90 90 90 or visit a local Samaritans branch, see www.samaritans.org for details. In the U.S. call the National Suicide Prevention Line on 1-800-273-8255.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:24 -0000</pubDate></item><item><title>30. The rollercoaster king: the man behind the UK's fastest thrill-ride</title><link>https://www.theguardian.com/travel/2024/oct/24/rollercoaster-designer-john-burton-thorpe-park-hyperia</link><description>
+&lt;![CDATA[
+&lt;p&gt;65 points points by pepys on 2024-10-27T04:37:17 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;John Burton was just 27 when he was put in charge of creating Thorpe Park’s biggest-ever project. Once too scared to go on rides himself, how did he become the architect of so many daredevils’ dreams? He was given an £18m budget, a patch of damp ground, and told: make it big. Curiosity became an obsession in his teens, when he started to play RollerCoaster Tycoon, a computer game that allowed him to devise his own rides. He took the job in the aquarium while studying architecture at Birmingham City University. He went through interviews, almost ruining himself on the train to London. In the end he won the job, he said, on the strength of those speculative rollercoasters he had made in a video game. That year, Nick Varney, the CEO of Merlin Entertainments, decided to demolish an old video game and build a rollercoaster.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41959893"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Summarize this text in two paragraphs that capture the main points. The rollercoaster king: the man behind the UK's fastest thrill-ride. Consider applying for YC's W25 batch! Applications are open till Nov 12. Use the weekly Newsquiz to test your knowledge of stories you saw on Hacker News. Back to the page you came from. Click here to return to the newsquiz page you were originally from. You can now submit your own questions and comments on any of the articles on this page, or send them to jennifer.smith@mailonline.co.uk. You may also want to share your thoughts on the article on CNN.com. The comments section at the bottom of the page can be used to help people with reading comprehension and vocabulary. The Daily Discussion is open from Monday to Friday, with the exception of the last day of the week, when it is closed for the day.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:25 -0000</pubDate></item><item><title>1. ChatGPT Search</title><link>https://openai.com/index/introducing-chatgpt-search/</link><description>
+&lt;![CDATA[
+&lt;p&gt;1461 points points by marban on 2024-10-31T16:41:22 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42008569"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;The future promised in Star Trek and even Apple's Knowledge Navigator from 1987 still feels distant. Legacy, ad-based search has devolved into a wasteland of misaligned incentives, conflict of interest and content farms optimized for ads and algos instead of humans. Path forward requires solving the core challenge: actually surfacing the content people want to see, not what intermiediaries want them to see. This means a different business model in seach, where there are no intermediaries. Advancing models without advancing search is like having a michelin star chef work with spoiled ingredients. I do not see a way around this. I am cautiously optimistic we will eventually get there, but boy, we will need a fundamentally different setup in terms of incentives involved in information consumption, both in tech and society.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:43:56 -0000</pubDate></item><item><title>2. An Update on Apple M1/M2 GPU Drivers</title><link>https://lwn.net/SubscriberLink/995383/34dc5950cab5e739/</link><description>
+&lt;![CDATA[
+&lt;p&gt;611 points points by MrBuddyCasino on 2024-10-31T20:36:53 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Alyssa Rosenzweig gave an update on the status of the Apple M1/M2 GPU driver. She also gave some news about the kinds of games it can support. The driver has achieved conformance with various graphics standards, which is noteworthy. The hardware is too limited to implement any of the standards; it is "pretty much useless to anybody who is not implementing Metal", she said. The real problem is with transformback and geometry shaders, neither of which is supported by the driver.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42011239"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;An Update on Apple M1/M2 GPU Drivers (lwn.net) MrBuddyCasino: Too many projects get dropped the moment the next shiny ray-traced toy comes along. Thinkpad usually have great Linux support and swappable hardware for those who like to tinker with their devices. MacBooks are going to be lighter, better battery life, and have better displays. Thinkpads are probably the only device that can compete with MacBooks, but there are trade-offs.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:43:57 -0000</pubDate></item><item><title>3. Fuzzing between the lines in popular barcode software</title><link>https://blog.trailofbits.com/2024/10/31/fuzzing-between-the-lines-in-popular-barcode-software/</link><description>
+&lt;![CDATA[
+&lt;p&gt;179 points points by ingve on 2024-10-31T13:28:31 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;ZBar is an open-source library for reading barcodes written in C. One of our clients used it, so we wanted to quickly assess its security. Given the extensive amount of code, manual review was not an option. To fuzz ZBar, it has to be built with sanitizer and fuzzer instrumentation. Building an unfamiliar project can be a time-consuming challenge on its own, and adding instrumentation for fuzzing often makes this task even more difficult. If you’re unfamiliar with the instrumentation flags, our AppSec Testing Handbook has excellent guidance.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42006698"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Fuzz testing only rose to prominence in ~2012 with the rise of tools like afl-fuzz. ZBar by default scans all code types, which means that an attacker can trigger a bug in any of the scanners. The modern reader firmware tend to have multiple modes and many options. Some modes are as simple as "scan whatever you see out of the many formats you support, and spit out the decoded value of something as USB Serial". Or, worse, "...as USB Keyboard".&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:43:58 -0000</pubDate></item><item><title>4. Hazel: A live functional programming environment featuring typed holes</title><link>https://hazel.org/</link><description>
+&lt;![CDATA[
+&lt;p&gt;232 points points by deepakkarki on 2024-10-31T06:57:35 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Hazel is a live functional programming environment that is able to typecheck, manipulate, and even run incomplete programs. We model incomplete programs as programs with holes, which stand for parts of the program that are missing. We are developing a more principled approach to working with incomplete programs, rooted in (contextual modal) type theory. Hazel serves as an elegant platform for research on the future of programming (and programming education) We are first implementing these ideas into Hazel, a web-based programming environment for an Elm/ML-like functional programming language designed around typed-hole-driven development.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42004133"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;This is semi-related to one of the killer features of Eclipse that never really made it into any large-scale systems: the ability to run incomplete or broken code. Any underscore or name beginning with an underscore gets an informative error message describing the type of the name, e.g.:  Found hole `_' with type f (Free f b) The difference is that because of the dependently typedness the compiler can sometimes even fill in the code for you based on symbols in scope. This has been verified over time in practice. I believe even 30-50% of a program can work opening up many new possibilities. Could this be used to build an editor for Haskell like the one for Hazel?&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:43:59 -0000</pubDate></item><item><title>5. Claude for Desktop</title><link>https://claude.ai/download</link><description>
+&lt;![CDATA[
+&lt;p&gt;321 points points by meetpateltech on 2024-10-31T15:04:27 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;summarize this text in one concise paragraph that capture the main points. Download Claude's book for free on Amazon.com. For more information on the book, visit: www.amazon.co.uk/Claude-The-Book-For-Kindle. For the full book, go to: http://www.bookshop.com/product/the-book-for-Kindles-and-laptops/ The-Book For Kindles and Laptops with The Book for Kindle is available on Amazon for $3.99. For a limited time only, you can buy the book for $2.99 with a free Kindle Fire, which has a built-in e-reader and mp3 player. To buy the Kindle Fire for $1.99, click here: http:www.mailonline.com/. For the Kindle Fire with a compatible device, visit http:// www.mail Online.com%. For the  Kindle Fire with a compatible app, visit  http://www mailOnline.com or the Google Play Store. For the Kindle Store, visit the Amazon Store and the Play Store. for the Kindle Store for the cheapest price of the book.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42007649"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;The Anthropic team have made it easy to use Claude from right within your browser. In Firefox add a bookmark with the following values: Name: Claude AI- URL: https://claude.ai/new?q=%s- Keyword: ai (or whatever you'd like to use as a shortcut) This is not unique to FireFox. This is also possible in Chrome (Settings -&gt; Search Engine) and looks like this:https://imgur.com/a/qxap6iISetup you can simply type @claudinga.ai and your search.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:00 -0000</pubDate></item><item><title>6. Cooking with black plastic is particularly crucial to avoid</title><link>https://www.theatlantic.com/health/archive/2024/10/black-plastic-spatula-flame-retardants/680452/</link><description>
+&lt;![CDATA[
+&lt;p&gt;462 points points by Jimmc414 on 2024-10-30T15:30:47 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Zoë Schlanger: Throw out your black plastic spatula. It’s probably leaching chemicals into your cooking oil. She says black plastic products are likely regularly being made from recycled electronic waste. Flame retardants are typically not bound to the polymers to which they are added. They dislodge easily and make their way into the surrounding environment, she says. The health concerns associated with those chemicals are well established, Schlanger says. But getting rid of black plastic kitchen utensils is a low-stakes move, and worth it, she writes.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41996156"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Academics who specialize in obscure areas love to get their name in the press, and the easiest way to do that is to make vague and irresponsible claims about risks to human health, even if those risks are very, very small. The numerous successful academics at reputable universities that I know (including me) are uniformly mortified when our names are associated with mistaken interpretations. Some of us ( including me) simply stop doing press interviews because it happens so often. If you want to find an incentive to get undeserved attention, I recommend you look at economic incentives within the press itself. Too much time pressure, not enough training, desperate need to gather attention. All the opposite of the academic world. You're one of the good ones! I just wish you were in the majority.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:01 -0000</pubDate></item><item><title>7. NandGame – Build a computer from scratch</title><link>https://www.nandgame.com</link><description>
+&lt;![CDATA[
+&lt;p&gt;348 points points by OuterVale on 2024-10-30T20:27:12 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;NandGame - Build a computer from scratch.You need to enable JavaScript to run this app.summarizing this text is a way to show off your knowledge of the Nand Game game. To read the rest of the article, click the link at the top of the page or the bottom of this page. For more information on Nand game, visit Nandgame.com. To learn more about how to play Nand games, visit the official Nand Games website.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41999852"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;NandGame – Build a computer from scratch (nandgame.com) is a challenge to build a computer in just three days. The challenge is based on the popular computer game Turing Complete. NandGame: Build a Computer from Scratch is available on the Nand Game website and on GOG.com. For more information on the challenge, visit Nand game.com/build-a-computer-from-scratch or go to: http://www.nandGame.com/. For more on Hacker News, go to http://hacker.news/news/features/nand-game-build- Computer-From-Scratch.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:02 -0000</pubDate></item><item><title>8. Democratising publishing</title><link>https://john.onolan.org/democratising-publishing/</link><description>
+&lt;![CDATA[
+&lt;p&gt;174 points points by mxstbr on 2024-10-30T14:52:55 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Ghost is a distributed non-profit foundation which gives away all of its intellectual property under a permissive MIT license. The company has no investors and, in fact, no owners of any kind. We currently generate around $7.5M in annual revenue, and have been profitable and sustainable for the past 12 years. The majority of Ghost websites in the world do not use Ghost(Pro) — but the ones that do, directly fund the project for the benefit of everyone. Ghost has a full-time team of 30+ people working on it.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41995615"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;I shifted a large 20+ year news publication from Wordpress to ghost about 18 months ago - and opted to use Ghost(Pro) It’s been a dream. The core product for that site is a daily newsletter. On ghost it gets higher opens rates and more engagement than via the previous email backend. Ghost is an extremely easy piece of software to run in a Docker instance on a shoebox somewhere. If you think you’re getting overcharged for it, I’d recommend looking into self-hosting. If anyone has some smaller CMS to recommend (even paid is fine, if the prices is reasonable) that allows for a nice WYSIWYG editor, user accounts and roles, code editor when needed, I'd love to try it. I am trying to start a small blog that will have a handful of writers, so the idea of using some kind of lightweight CMS with edit/post capability is appealing. We don't like the clunky feeling of beefy CMSs, especially when it seems to be built entirely around the analytics, which we do not care all that much about (the blog is intended to be small and hobbiest, we are not interested in making money from it).I found Ghost to be too "on rails" and much more robust than what we need, so it felt like paying for software that sat mostly unused. I have Drupal 11 spun up on VPS but I have not had a moment to sit down and start really digging into it, yet. Thankfully, there is no time-table for this project, but we'll see.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:03 -0000</pubDate></item><item><title>9. It might be possible to detect gravitons after all</title><link>https://www.quantamagazine.org/it-might-be-possible-to-detect-gravitons-after-all-20241030/</link><description>
+&lt;![CDATA[
+&lt;p&gt;255 points points by elsewhen on 2024-10-30T23:19:19 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;summarize this text in one concise paragraph that capture the main points. It Might Be Possible to Detect Gravitons After All | Quanta Magazine. Quanta is an editorially independent publication supported by the Simons Foundation. It is available in English, Spanish, German, French, Italian, Spanish and Portuguese. For confidential support call the Samaritans on 08457 90 90 90 or visit a local Samaritans branch, see www.samaritans.org for details. In the U.S. call the National Suicide Prevention Line on 1-800-273-8255.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42001642"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;The discussion recalls a messy, largely forgotten episode from the dawn of the quantum era. We have to fight a "war" to find out whether spacetime is quantum? Rilly?? I think it would probably be more effective propaganda to say the "jihad on Christmas" than the "war on Christmas". I think Arabic has too much emphasis on allah related phrases. I don’t think said usage implies anything about their writing abilities. The Browser Wars. Don't always "killer feature", "shot him dead", "waged war on the germs in her refrigerator".&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:04 -0000</pubDate></item><item><title>10. Sets, types and type checking</title><link>https://kaleidawave.github.io/posts/sets-types-and-type-checking/</link><description>
+&lt;![CDATA[
+&lt;p&gt;113 points points by kaleidawave on 2024-10-30T18:53:50 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Sets, types and type checking. In the process of building a type-checker I have learnt a lot of the details about the theory of types and sets. With all this information I thought I would unpack all the details I have encountered along the way. This first part of this post explains why type-checking exists and what the abstraction of types enables. After some justification for type-theory, we delve deep into what types are and details on the common constructions. And in the finale we will put the definitions to work and explain the implementation of type checking including operations on types.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41998838"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;In Rust we have Option, which is equivalent to T | null. Unions are often made between disjoint types, but not always. The meaning of `T | null` and the meaning of code you write with such a type does depend on what T is at runtime. It's still a validly typed program that obeys a set of rules. There is no tagging in the union type (you don't know if a member comes from the left or right). This is only an issue if you write code expecting the union to work like a tagged union.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:05 -0000</pubDate></item><item><title>11. Our First Generalist Policy</title><link>https://www.physicalintelligence.company/blog/pi0?blog</link><description>
+&lt;![CDATA[
+&lt;p&gt;301 points points by lachyg on 2024-10-31T21:34:34 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Physical Intelligence (π)π0: Our First Generalist Policy publishedOctober 31, 2024.Emailresearch@physicalintelligence.companyKevin Black, Noah Brown, Danny Driess, Michael Equi, Adnan Esmail, Chelsea Finn, Nick Fusai, Karol Hausman, Brian Ichter, Szymon Jakubczak, Tim Jones, Kay Ke, Sergey Levine, Adrian Li-Bell, Mohith Mothukuri, Suraj Nair, Karl Pertsch, Lucy Shi, James Tanner, Quan Vuong, Anna Walling, Haohuan Wang, Ury Zhilinsky.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42011770"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Physical AI implies a complete rethink of every individual routine from first principles. We’re heading towards a cultural revolution as much as a technology one. It’s time to find out what value our values really have. Most people go to restaurants because of the social benefits, not the labour savings. The idea of people or groups of people siloing themselves into their ultra-convenient homes and never interact with others is a dystopia and a sure sign of an already broken community. If you aren't cooking and cleaning up after, what's the difference between that and meeting someone at a restaurant? I wonder if you realise how dystopian your life already is.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:06 -0000</pubDate></item><item><title>12. The carefulness knob</title><link>https://surfingcomplexity.blog/2024/10/29/the-carefulness-knob/</link><description>
+&lt;![CDATA[
+&lt;p&gt;181 points points by azhenley on 2024-10-30T15:58:39 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Lorin Hochstein's ramblings about software, complex systems, and incidents. The carefulness knob – Surfing Complexity. A play in one act. A meeting room in an office. A box with numerical markings. The x-axis “carefulness” and the y-axis’s “estimated completion time’. A conversation between two people about a software project. A discussion about the risk of a change that a change was considered a low risk at the time. A debate over whether to set the carefulness setting at higher than the default setting of 5.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41996608"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;The carefulness knob (surfingcomplexity.blog)181 points by azhenley 3 days ago  | hide | past | favorite | 128 comments. The carefulness meter is a childish analogies about turning knobs. That’s not how our jobs work. We make conscious choices day to day based on the work we’re doing and past experience. As an EM, I’d be very disappointed if the incident post mortem was reduced to “your team needs to be more careful”&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:07 -0000</pubDate></item><item><title>13. A comparison of Rust’s borrow checker to the one in C#</title><link>https://em-tg.github.io/csborrow/</link><description>
+&lt;![CDATA[
+&lt;p&gt;330 points points by SkiFire13 on 2024-10-27T15:25:48 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;In Rust, lifetimes must appear in the function declaration. In C#, the compiler simply assumes that the lifetime of the return is the same as the lifetime of the parameter. C# doesn’t share the Rust concept of “borrow checking,” so it wouldn’'t technically be correct to call this ‘borrow Checking’ Rust’s borrow checker is talking about all of the static analysis Rust does to ensure memory safety, for which I think this qualifies. In this document I hope to briefly summarize my understanding of memory safety in C#. I also make direct comparisons between C# constructs and the correspondingRust ones.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41963259"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Rust is the language to go when you are doing system programming, but C# is not a bad choice either. With .NET 9 being released in a few weeks we will get NativeAOT (compilation to a native single binary) for x86 (x64 and ARM64 are already available). At work, I'm writing patches for legacy apps and needed to use C++ for most of my tasks. I don't like that it comes with a bunch of limitations[1]. I would focus on writing working code, and try to go AOT close to the end. If it fails and it's not fixable, tough luck, but it works on the standard runtime.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:08 -0000</pubDate></item><item><title>14. Wonder Animation – Video to 3D Animation</title><link>https://adsknews.autodesk.com/en/news/autodesk-launches-wonder-animation-video-to-3d-scene-technology/</link><description>
+&lt;![CDATA[
+&lt;p&gt;141 points points by bx376 on 2024-10-30T23:44:25 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;summarize this text in one concise paragraph that capture the main points. Autodesk News: Wonder Animation: New AI solution for animated films, powered by cutting-edge Video Scene to 3D technology. Wonder Animation launches for animation artists: A look at what’s next for the company and its employees. The company: A peek at what the company is working on for the next few years. The next step is to develop the next generation of the software and tools that will allow the company to create its own 3D-based animation.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42001852"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Wonder Animation – Video to 3D Animation (autodesk.com) is a video-to-3D animation tool. It can be used to capture and analyze complex sports movements from video. The tool can be downloaded as a Blender file for further use in other applications. It is not yet available for commercial use, but can be pre-ordered from Amazon.com for $39.99. It's available for download from the Amazon Web Store for $29.99, or you can buy it directly from Amazon for $99.99 with a free two-year license.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:09 -0000</pubDate></item><item><title>15. Wait Until 8th</title><link>https://www.waituntil8th.org</link><description>
+&lt;![CDATA[
+&lt;p&gt;437 points points by zeroonetwothree on 2024-10-31T20:32:03 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Wait Until 8th. Why wait? Where is the pledge? How to start? Let kids be a kids. What do you think? What are your thoughts on the subject? What would you like to see in a book about this subject? How do you feel about the book? What do your thoughts about the subject matter of this book? Share your thoughts with us in the comments below or email us at jennifer.smith@mailonline.co.uk. Click here for more information on the book.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42011193"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Wait Until 8th (waituntil8th.org)437 points by zeroonetwothree.summarize this text in one concise paragraph that capture the main points. Read more at: http://www.hacker.com/news/waituntil 8th.html. Follow us on Twitter at @HackerNews and @jamesjames1. See the rest of the list of today's featured news stories at:http:// www.hackersurveillance.org/top-stories.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:10 -0000</pubDate></item><item><title>16. Tell HN: Robots.txt pitfalls – what I learned the hard way</title><link>item?id=41960003</link><description>
+&lt;![CDATA[
+&lt;p&gt;120 points points by pyeri on 2024-10-27T05:09:23 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41960003"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Google allocates a specific crawl budget to your indexed site, and the more useless content it has to index and store on its servers, the more it affects your site. The way search engines work means there's typically a 5-7 day gap between updating the robots.txt file and crawlers processing it. Move your favicon to another dir, or root dir, for the time being, and update your HTML to match. Most clients respect the metadata and won't try to fetch the default path until after the  section of the page loads for HTML content.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:11 -0000</pubDate></item><item><title>17. Five or ten new proofs of the Pythagorean Theorem</title><link>https://www.tandfonline.com/doi/full/10.1080/00029890.2024.2370240</link><description>
+&lt;![CDATA[
+&lt;p&gt;115 points points by jhncls on 2024-10-29T20:40:41 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41989134"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Five or ten new proofs of the Pythagorean Theorem (tandfonline.com)115 points by jhncls 3 days ago  | hide | past | favorite | 52 comments                  ‘I own a coin designed by Pythagoras. Well, it’s from 510 BC Croton, features the tripod from Delphi, and has little snakes at the bottom. Also 10 little dots. No tetractys, but that’d be a bit much.’ ‘I’m amazed by how many people I meet who don’t know about his contribution to the discovery and development of tonality! You mean the triangle guy invented music???’&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:12 -0000</pubDate></item><item><title>18. Crux, a Precise Verifier for Rust and Other Languages</title><link>https://arxiv.org/abs/2410.18280</link><description>
+&lt;![CDATA[
+&lt;p&gt;99 points points by belter on 2024-10-28T16:03:23 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;[2410.18280] Crux.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41972605"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Crux is a Precise Verifier for Rust and Other Languages (arxiv.org) The paper is a result of more than work of 4 years, which I did not realize previously.PDFs are a crappy experience on most devices that are not made of paper. If you insist on using the wrong device for viewing them (pro tip: don't use a phone), the experience is superior. There seems to be no market for good digital documents other than digital documents.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:13 -0000</pubDate></item><item><title>19. Probability-generating functions</title><link>https://entropicthoughts.com/probability-generating-functions</link><description>
+&lt;![CDATA[
+&lt;p&gt;204 points points by todsacerdoti on 2024-10-31T09:36:18 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Probability-generating Functions. The function, and its coefficients, only exists to create a particular structure into which we can store coefficients for latermanipulation. The polynomial and vector are carrying the same information. We don’t evaluate this with anything other than the value we have seen in an earlier sidenote that is not intended for anything meaningful to come out if we replace it with some specific value. We can extract any number in the sequence from this function with some calculus if we want to11 If we. want to extract, say, the third number (in this case 8), we will need to take the second derivative (to. isolate that number as a constant), evaluate the function at zero and then divide by two (to remove excess coefficient that came. from the derivative action.) More generally, the number n is found through the polynomials (0.1-1) and vector (0-1-0) in some sense in the same way as in the previous paragraph.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42004976"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Probability-Generating functions. Hacker News: What do you think? Share your thoughts in the comments below or post a video on the Hacker News YouTube channel. Follow us on Twitter: @HackerNews and @Youtube. Back to the page you came from. Click here for more Hacker News news.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:14 -0000</pubDate></item><item><title>20. Web Assembly audio decoders highly optimized for size and performance</title><link>https://github.com/eshaz/wasm-audio-decoders</link><description>
+&lt;![CDATA[
+&lt;p&gt;144 points points by ctoth on 2024-10-28T16:37:13 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;GitHub - eshaz/wasm-audio-decoders: Browser and NodeJS Web Assembly audio decoder libraries that are highly optimized for size and performance. GitHub - open source platform for developers to write better code with AI. GitHub-powered developer platform for AI-powered developers to build better code. The GitHub site is free to use and can be downloaded from GitHub's website. The site is available in English, Spanish, German, French, Italian, Spanish and Portuguese.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41973116"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Web Assembly audio decoders highly optimized for size and performance (github.com/eshaz) The major advantage of a browser based application versus a desktop app is immediate playback of media via hyperlink without the soul crushing limitations Apple imposes on iOS. A media library written for WASM with supplied codecs would not have that limitation, such that you could have an equivalent to VLC directly in a browser supporting any video/audio codec/container supplied in the WASM payload. There exist filters in the browser APIs to adjust play back timing and rate. I have not attempted to modify the media in that way myself but I did see API filters to alter stero panning, tonal quality, wave shape, biquadad, delay, and more.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:15 -0000</pubDate></item><item><title>21. There is no such thing as a global method in Ruby</title><link>https://zverok.space/blog/2024-10-21-global_functions.html</link><description>
+&lt;![CDATA[
+&lt;p&gt;139 points points by mpweiher on 2024-10-28T05:11:09 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;There is no such thing as a global method (in Ruby) in the top-level scope. Ruby’s top- level methods actually are, who they belong to and how they are namespaced. The bare lowercase identifier foo always refers to either a local variable or the method of the current object. All methods defined in a base Object class are public methods that are available on every object for other objects, like #inspect, #to_s, #respond_to?(method), #is_a?(some_class), and so on.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41968024"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;There is no such thing as a global method in Ruby (zverok.space) The only true 'global' variables, are ones that you can access via Internet Protocol, if you are not doing inter process communication, is going to be englobed by the process object. Even if you write a variable to a file, it's still not 'global', it's encapsulated by the (physical) server object. In other languages, the method definition in the subclass would be irrelevant, calling the global function wouldn’t cause polymorphic method dispatch on the current object. The point the article makes is that the “default object” (self) is not always the same.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:16 -0000</pubDate></item><item><title>22. Do hard things carefully</title><link>https://blog.depthsofrepair.com/p/do-hard-things-carefully</link><description>
+&lt;![CDATA[
+&lt;p&gt;208 points points by spuds on 2024-10-26T12:35:42 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Do Hard Things Carefully - by Patrick Maguire.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41954375"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Theory proposes that all complex adaptive systems (CAS) naturally adapt to a state at the “edge of chaos” which is a transition zone between order(stability) and disorder. Theory proposes this is the zone where maximal learning/innovation/creativity in social systems occur. All systems that have accumulated complexity did it in an effort to create resiliency to survive/reproduce/continue to exist. This is innately a method of accumulate self-supervised 'learning', when left to dwell to its own emergent methods.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:17 -0000</pubDate></item><item><title>23. Everyone is wrong about that Slack flowchart</title><link>https://sophiebits.com/2024/10/30/everyone-is-wrong-about-that-slack-flowchart</link><description>
+&lt;![CDATA[
+&lt;p&gt;162 points points by CharlesW on 2024-10-30T20:32:58 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Slack’s engineering team published a flowchart in March 2017 summarizing the logic Slack uses to determine whether to send a notification for a message. Sophie Alpert says the flowchart overcomplicates the situation a lot. Her version of the diagram combines several things that are split out in the original version. The goal of the chart, at least to me, is to make it easy to understand the high-level story of the decision tree, while still staying accurate to small details.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41999923"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Everyone is wrong about that Slack flowchart, says CharlesW. CharlesW: Removing nodes by adding a concept of implicit branches via "unless" clauses within a node doesn't necessarily make the system any easier to understand at a glance. People usually don't need to look at the flowchart in its entirety as they can just check the code. Especially as the flow chart could even be out of date, some-level of code could even miss some of the sub-level code. The actual thing will still have the whole complexity. What is reduced is how much complexity we take in when looking at what the thing does, as opposed to getting into the minutiae of every subcase.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:18 -0000</pubDate></item><item><title>24. Launch HN: Patched (YC S24) – AI workflows for post-code tasks</title><link>item?id=42009089</link><description>
+&lt;![CDATA[
+&lt;p&gt;66 points points by rohansood15 on 2024-10-31T17:27:41 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42009089"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Launch HN: Patched (YC S24) – AI workflows for post-code tasks. Patched helps dev teams accelerate tasks like code reviews, docs, and patches through customizable, self-hostable workflows. Here’s a quick video walkthrough: https://youtu.be/5hvWGB5av5avVo Patched has two core components. First is the workflow builder that switches seamlessly between no-code and full-code. Second is the chat-based query interface for your code, logs, and issue tracker. When used together, they can help orchestrate and automate the most painful parts of the software development lifecycle.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:19 -0000</pubDate></item><item><title>25. The National EUV Accelerator comes to Albany</title><link>https://research.ibm.com/blog/euv-center-albany-nstc</link><description>
+&lt;![CDATA[
+&lt;p&gt;43 points points by sandwichsphinx on 2024-10-31T19:37:54 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;The U.S. Department of Commerce announced that NY CREATES’s Albany NanoTech Complex, where IBM is a key partner, will house the NSTC EUV Accelerator. Semiconductor chips are the heart of computing that enables the modern world. IBM Research has already shown the first working proof point using High NA EUV lithography. To design and create the next generation of EUV chips, ASML recently started shipping its next generation EUV machines to Albany. The other proposed centers, a design and administration facility and a prototyping and advanced packaging facility, are planned to be announced at a later date. Between the three, they will foster a strong semiconductor research, development, and production pipeline in the US.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42010653"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;IBM is treated like an obsolete dinosaur in tech circles, but they’re so big that I wouldn’t be surprised to learn that they are actually cutting edge in some areas. IBM has developed somewhat of a dark pattern for software sales and they use it to capture their clients. Extricating your organization from the IBM ecosystem is incredibly difficult and often  an uphill battle.IBM has a track record of pursuing highly visible projects, like chip fabs, PowerPC, Watson etc.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:20 -0000</pubDate></item><item><title>26. Smashing the Limits: Installing Windows XP in DOSBox-X (2023)</title><link>https://fabulous.systems/posts/2023/07/installing-windows-xp-in-dosbox-x/</link><description>
+&lt;![CDATA[
+&lt;p&gt;170 points points by whereistimbo on 2024-10-31T16:32:31 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;DOSBox-X project aims to get Windows XP running instead of Windows 2000. Windows XP isn’t officially supported by the project, so this is very experimental. After multiple attempts I gave up, thinking that Windows XP was impossible to use. After confirming that we want to overwrite the Windows XP installation, Windows XP started the next step of the installation by copying over the temporary installation files. After copying over some atrociously slow files, I stumbled across another issue on the subsequent runs of the project.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42008499"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Smashing the Limits: Installing Windows XP in DOSBox-X (2023) (fabulous.systems) received 170 points. The project was purely a "why not?!" project, it doesn't really make sense and using VMware or true low-level emulation like 86Box is a way better option than using completely unsupported software. A No-CD patch would likely work, but I want to keep things as close to the original as possible. The blue text-mode part of the setup can be launched from DOS 7.1 (the DOS part of Windows 98, with FAT32 support) by copying the i386 directory from the CD to the FAT32-formatted hard drive and running WINNT.EXE from MS-DOS.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:21 -0000</pubDate></item><item><title>27. Lichens in cemetaries and a scientist who studies them</title><link>https://www.atlasobscura.com/articles/immortal-lichen-growing-in-cemeteries</link><description>
+&lt;![CDATA[
+&lt;p&gt;40 points points by diodorus on 2024-10-27T04:38:36 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Small-group adventures are inspired by our Atlas of the world's most fascinating places, the stories behind them, and the people who bring them to life. Take your next trip with Atlas Obscura! Use the weekly Newsquiz to test your knowledge of stories you saw on this site. Use the Daily Discussion to help students understand today's featured news stories. The Daily Discussion is a free service available to members of the media. Use it to help you understand stories that have been featured on this website.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41959897"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;There's a subculture of people who clean strangers' gravestones, which often involves removing lichen. “It’s not clear to me that the best way to repair the world isn’t sitting and watching lichens grow in a cemetery and telling the world about it,” says Pringle. The reason lichens are studied on gravestones is they have dates on. With those dates you can draw conclusions about growth rates as you have a 'maximum possible age'&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:22 -0000</pubDate></item><item><title>28. Cerebras Trains Llama Models to Leap over GPUs</title><link>https://www.nextplatform.com/2024/10/25/cerebras-trains-llama-models-to-leap-over-gpus/</link><description>
+&lt;![CDATA[
+&lt;p&gt;63 points points by rbanffy on 2024-10-26T17:26:02 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41956213"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Cerebras and Groq provide the fastest (by an order of magnitude) inference. This is very useful for certain workflows, which require low-latency feedback: audio chat with LLM, robotics, etc. AMD stuff seems to be the only contender to NVIDIA, at the moment. I'm still trying to wrap my head around how these companies think they are going to do well in this market without more memory. If the costs are so high that they have to subsidize the usage/results, then they are just going to run out of money, fast. Although, for some workloads, fast enough inference is a strict prerequisite and GPUs just don't cut it.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:23 -0000</pubDate></item><item><title>29. RTP: One protocol to rule them all?</title><link>https://paper.wf/binarycat/rtp</link><description>
+&lt;![CDATA[
+&lt;p&gt;98 points points by todsacerdoti on 2024-10-28T18:06:31 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;RTP is a protocol for reliably transferring large immutable files. It is a stateful request/response protocol similar to 9p, but with hash-identified urls similar to magnet links. There are 2 request types: OPEN and READ. The payload of non-error responses to OPEN requests is ignored, and SHOULD be empty. RTP is designed to be as simple as possible without sacrificing our other goals (less complex than http) and performs well under poor network conditions, even when payloads are large (unlike 9p)&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41974168"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;There is already an RTP protocol for UDP media streaming, and that is already frequently confused with RDP. There is also an rtp:// URI scheme in use in various media applications to identity streaming endpoints. If it isn't arbitrary letters, please, if you're describing the protocol, you should start by describing the damn acronym. It's even stranger (to me) that they picked an existing protocol's name, given that they never even define "RTP" in their paper. If the initial response is a redirect, it may imply that redirects are being used as a load distribution mechanism, so again clients can ask again.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:24 -0000</pubDate></item><item><title>30. What’s new with our in-house load balancing service</title><link>https://dropbox.tech/infrastructure/robinhood-in-house-load-balancing-service</link><description>
+&lt;![CDATA[
+&lt;p&gt;49 points points by ABS on 2024-10-28T06:35:48 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Robinhood is the internal Dropbox load balancing service we deployed in 2020. It is responsible for routing all our internal traffic between servers to balance service load. By leveraging proportional–integral–derivative (PID) controllers, Robinhood can now more quickly and effectively manage load imbalances. This has not only improved the reliability of our infrastructure, but yielded significant hardware cost savings. Robinhood is compatible with both our Envoy and Envoy xRPC clients2. Reliability has also improved thanks to fewer over-utilized processes.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41968299"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;What’s new with our in-house load balancing service (dropbox.tech)49 points by ABS 3 days ago  | hide | past | favorite | 48 comments  Hacker News new: What’'s new withOur in-houses load balancing service (Dropbox. tech) Hacker News old: What's new in our Hacker News archives (Hacker News archive: September 2013, September 2014, September 2015, September 2016, September 2017, September 2018, September 2019, September 2020, September 2021, September 20, 20, 21, 2019, February 20, 2022, February 21, 2022.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:25 -0000</pubDate></item><item><title>1. Apple acquires Pixelmator</title><link>https://www.pixelmator.com/blog/2024/11/01/a-new-home-for-pixelmator/</link><description>
+&lt;![CDATA[
+&lt;p&gt;1166 points points by dm on 2024-11-01T15:36:27 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Pixelmator has signed an agreement to be acquired by Apple, subject to regulatory approval. There will be no material changes to the Pixelmator Pro, Pixelmators for iOS, and Photomator apps at this time. Stay tuned for exciting updates to come. If you need product support please contact us here. Sign up for our newsletter to be the first to know about exciting news and updates from the Pixel mator Team. Back to Mail Online home. Back To the page you came from.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42018013"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Hacker News: Apple acquires Pixelmator (pixelmator.com) Dm: "I've been using the app for years and it's a really great piece of software, well designed and well built. It's always been incredible value for the price, especially given that it basically replaces Photoshop for a wide swath of the market without compromising on UX" iReporter: "Is this something you just made up, or does this really happen? Colour me sceptical"&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:43:56 -0000</pubDate></item><item><title>2. Alexander the Great's tunic identified in royal tomb at Vergina?</title><link>https://www.tandfonline.com/doi/full/10.1080/00934690.2024.2409503</link><description>
+&lt;![CDATA[
+&lt;p&gt;313 points points by fork-bomber on 2024-11-01T12:54:14 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42016478"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Hacker News: Alexander the Great's tunic identified in royal tomb at Vergina? (tandfonline.com) fork-bomber: I was surprised to see statements like "the male skeleton had a knee injury, thus conclusively proving it was Philip" and "the female skeleton was 18 therefore proving it is Cleopatra since sources say she was young" The overall answer to this question appears to be yes, although I could see several points (such as the identification of artists, and various items I quoted above) which I would never put into the way he did.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:43:57 -0000</pubDate></item><item><title>3. Ask HN: Who is hiring? (November 2024)</title><link>item?id=42017580</link><description>
+&lt;![CDATA[
+&lt;p&gt;360 points points by whoishiring on 2024-11-01T15:01:57 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42017580"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Ask HN: Who is hiring? (November 2024) | Hacker Newsnew | past | comments | ask | show | jobs | submit.summarize this text in one concise paragraph that capture the main points. Please only post a job if you actually intend to fill a position and are committed to responding to everyone who applies. Please state the location and include REMOTE for remote work, REMOTE (US) or similar if the country is restricted, and ONSITE when remote work is not an option.Please only post if you personally are part of the hiring company—norecruiting firms or job boards. One post per company. If it isn't a household name, explain what your company does.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:43:58 -0000</pubDate></item><item><title>4. TokenFormer: Rethinking Transformer Scaling with Tokenized Model Parameters</title><link>https://arxiv.org/abs/2410.23168</link><description>
+&lt;![CDATA[
+&lt;p&gt;173 points points by og_kalu on 2024-11-01T14:10:07 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;We gratefully acknowledge support from the Simons Foundation, member institutions, and all contributors. By treating model parameters as tokens, we replace all the linear projections in Transformers with our token-parameter attention layer. This reformulation allows for progressive and efficient scaling without necessitating retraining from scratch. Our model scales from 124M to 1.4B parameters by incrementally adding new key-value parameter pairs, achieving performance comparable to Transformers trained from scratch while greatly reducing training costs. Code and models are available at \url{this https URL}.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42017048"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;The authors factorize every weight matrix with an attention mechanism:  weight = attention(token_ query, weight_keys, weight_.values). They query weight_ keys to fetch the weight_values, and mix them to compute each weight on the spot. A recent paper from Nvidia I recommend, which derives a significant speedup by normalising vectors to a hypershpere: https://arxiv.org/abs/2410.01131v1. The plot looks at the processing of a single row of Q (predicting a single token from previous ones) called q. The distance of a blue dot from a corresponding green dot represents how much information from that token gets mixed into the output of the query. The green dots form a hypersphere, a 1D manifold in 2D space. You can see how the query gathers information stored on the surface of the manifold by specifying a region and volume of space specified through direction and magnitude.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:43:59 -0000</pubDate></item><item><title>5. Nvidia to join Dow Jones Industrial Average, replacing Intel</title><link>https://www.cnbc.com/2024/11/01/nvidia-to-join-dow-jones-industrial-average-replacing-intel.html</link><description>
+&lt;![CDATA[
+&lt;p&gt;392 points points by koolba on 2024-11-01T22:43:15 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;N Nvidia shares have gained more than 170% this year, while Intel has lost over half its value. The last change to the index came in February, when fellow tech giant Amazon was added. The switch will take place on Nov 8, Sherwin Williams Inc will replace Dow S&amp;P Dow Jones Industrial Average on Nov 9. The move reflects the boom in artificial intelligence and a major shift in the semiconductor industry. In this article, we highlight the key points that capture the main points: Nvidia to join Dow Jones industrial average, replacing Intel.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42022282"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Nvidia to join Dow Jones Industrial Average, replacing Intel. Hacker News: The Dow is a dinosaur and irrelevant. High dollar value stocks have more weight in the index which doesn't really make sense. The Dow was useful in pre computer times when a reborter could calculate it every few minutes. The s&amp;p500 Is a better indicator but that took hours by hand and so was only done overnight. Now that we have computers and index you want can be done in milliseconds and so the dow needs to die.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:00 -0000</pubDate></item><item><title>6. Notepad++ is 21 years old</title><link>https://learnhub.top/celebrating-21-years-of-notepad-the-legendary-journey-of-our-favorite-text-editor/</link><description>
+&lt;![CDATA[
+&lt;p&gt;531 points points by thunderbong on 2024-11-01T17:47:37 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;This month marks the 21st anniversary of this amazing software. The magic lies in its simplicity and, ironically, its complexity. It’s simple for those who need a straightforward, no-nonsense text editor. It offers complex features for hardcore developers who demand syntax highlighting, multi-document tabbing, and support for dozens of programming languages. Being open-source means that countless developers have contributed to make it better, more secure, and more functional. This little editor has stayed alive and thriving for two decades because of people like us who believed in its purpose.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42019586"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Notepad++ is 21 years old. It's the only editor that's still going strong. Notepad++ has been around longer than any other editor or IDE. It lets you work in all three major OS's at the same time, and find it helpful to separate concerns to their respective applications/interfaces. It helps you keep a mental geography of "where things are" and "what tool is used for which purpose", rather than being beholden to a IDE-dictated workflow or tool that's obscured behind specific UI patterns. You run emacs on the emacs side now though, right? So you're probably probably better off that way.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:01 -0000</pubDate></item><item><title>7. Tell HN: We (Causal) got acquired â€“ thank you HN</title><link>item?id=42019192</link><description>
+&lt;![CDATA[
+&lt;p&gt;213 points points by refrigerator on 2024-11-01T17:11:20 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42019192"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Causal has been acquired by Lucanet. The product is now used by 100s of startups (many YC companies) and we're excited for this next phase of growth. Nothing will change for existing users so you can keep using it for sure. We didn’t have an end goal in mind from the beginning — we had the idea for the product and wanted to see if it had legs as a business, and then grow it and see where we could take it. We’re fortunate to have landed in a middle ground that founders should be aware of earlier on. You don't mean the 97% of businesses who don't end the journey yet!&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:02 -0000</pubDate></item><item><title>8. Apple's M4 Max chip is the fastest single-core performer in consumer computing</title><link>https://twitter.com/LeakerApple/status/1852280766471999661</link><description>
+&lt;![CDATA[
+&lt;p&gt;356 points points by retskrad on 2024-11-01T13:53:32 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;x.x.x: The main points of this article. x.1: The key points of the story. X.2: The point of this story is that the story is a story about a man and a woman. X 1: The man and the woman are in love. X 2: The woman is in love with the man. X 3: The story is about a woman and a boy. X 4: The boy and the girl are together. X 5: The girl and the boy are in a relationship. X 6: The child is in a car. x 7: The car is in the road. x 8: The children are in bed. x 9: The mother and the child are in the bed.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42016931"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Apple's M4 Max chip is the fastest single-core performer in consumer computing. Geekbench numbers give a rough idea of where the performance stands, but what you really need to compare CPUs is a healthy mix of synthetic benchmarks and real-world workloads. Even Apple's M3 SoC gets edged out here in terms of floating point performance, which, given that Apple is on a newer process node (TSMC N3B), is no small feat. Still, there is a sizable deficit in integer performance versus the M3, so while AMD has narrowed the gap with Apple overall, they haven't closed it with the Ryzan AI 300 series.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:03 -0000</pubDate></item><item><title>9. The 1600s were a watershed for swear words (2022)</title><link>https://www.historytoday.com/archive/explicit-content</link><description>
+&lt;![CDATA[
+&lt;p&gt;116 points points by pepys on 2024-10-28T04:18:16 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Swear words are a constant, but their ability to cause offence is in flux. In the 1600s, today's obscenities were mundane. The most offensive words still used God's name: God's blood, God's wounds, God’s bones, death, flesh, foot, arms, nails, body, sides, guts, tongue, eyes. A statute of 1606 forbade the use of words that ‘iestingly or prophanely’ spoke the name of God in plays. Damn and hell were early modern variations of such blasphemous oaths (bloody came later), as were the euphemistic asseverations, gad, gog and egad. Non-literal uses of these words – which is what tends to be required for swearing – like ‘take the piss’, ‘on the piss' and ‘piss off’ seem to be 20th-century flourishes. For the latter, the diabolical devil rot thee – or epidemiological – ‘a pox on you’ was starting to become obscene.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41967849"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;The 1600s were a watershed for swear words (2022) 'F***' and 'Shit' are just verbal punctuation marks used for emphasis. 'G-- damn it' is a far worse thing to say than 'fucking piece of shit' for example. 'Jesus Christ is not real to use that I have also yet to see anyone use the name of Buddha as a substitute for Mohammed or Mohammed or Jesus' is the worst one I’ll just call “JFC’s full of blasphemy”.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:04 -0000</pubDate></item><item><title>10. Embeddings are underrated</title><link>https://technicalwriting.dev/data/embeddings.html</link><description>
+&lt;![CDATA[
+&lt;p&gt;349 points points by misonic on 2024-11-01T03:24:17 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Machine learning (ML) has the potential to advance the state of technical writing. Embeddings offer the ability to discover connections between texts at previously impossible scales. Here’s an overview of how you use embeddings and how they work. This post is geared towards technical writers who are learning aboutembeddings for the first time. The big service providers have made it easy. Some embedding models are “multimodal”, meaning you can also provide images, videos, and audio as input.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42013762"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Embeddings are the only aspect of modern AI I'm excited about because they're the only one that gives more power to humans instead of taking it away. IMO, the biggest improvement in computer usability in my lifetime was the introduction of fast and ubiquitous local search. I've been experimenting with using embeddings for finding the relevant git commits, as I often don't know or remember the exact word that was used. Embeddings have the potential to solve the biggest weakness of search by giving us fuzzy search that's actually useful. Whether current AI tools are replacing or amplifying your intelligence, is entirely down to how you use them.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:05 -0000</pubDate></item><item><title>11. Antibody Drug Conjugates: A frontier in cancer treatment</title><link>https://www.sagelyhealth.com/blog-posts/cancers-magic-bullet-antibody-drug-conjugates</link><description>
+&lt;![CDATA[
+&lt;p&gt;106 points points by peerless-app on 2024-10-31T17:35:11 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Cancer’s Magic Bullet: Antibody Drug Conjugates is a webinar hosted by Sagely Health. The webinar will focus on how to take control of your cancer treatment. We will also discuss how to get the most out of your chemo treatment. This webinar is free and will be recorded live during the webinar. We hope to see you at the next webinar in the fall. For more information, visit Sagely Health's Cancer Magic Bullet webinars.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42009196"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Antibody Drug Conjugates: A frontier in cancer treatment (sagelyhealth.com)106 points by peerless-app 3 days ago  | hide | past | favorite | 43 comments                    The field would benefit greatly from even a fraction of the investment in the AI and crypto bubbles. There is far far far more to be had for the patent royalties from treatments. So much more money to be made from treatment than from research. And there is so much money tobe had from beating a competitor with a better treatment than there is to have an equivalent treatment. Taking a cynical profit-only driven view of the world would optimize for better cancer care. There are promising research directions, which are grossly underexplored, because there is a low chance it might lead to a positive result. The majority of money is being spent on highly predictable and predictable research, which can almost always result in a patent patent.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:06 -0000</pubDate></item><item><title>12. Ask HN: Who wants to be hired? (November 2024)</title><link>item?id=42017578</link><description>
+&lt;![CDATA[
+&lt;p&gt;124 points points by whoishiring on 2024-11-01T15:01:56 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42017578"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Ask HN: Who wants to be hired? (November 2024) Use the weekly Newsquiz to test your knowledge of stories you saw on Hacker News. Share your information if you are looking for work. Use the Daily Discussion to help readers understand today's featured news stories. Back to the page you came from. Click here for more Hacker News stories. The Daily Discussion is now available in English and French. You can also read the English version of this article by clicking here. The French version can be read in French or English. The American version can only be read by clicking on the German or French version of the article. The English version can also be viewed in German or Italian.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:07 -0000</pubDate></item><item><title>13. Math and puzzle fans find magic in Martin Gardner's legacy</title><link>https://www.scientificamerican.com/article/math-and-puzzle-fans-find-magic-in-martin-gardners-legacy/</link><description>
+&lt;![CDATA[
+&lt;p&gt;128 points points by ColinWright on 2024-10-30T09:51:41 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Martin Gardner’s Mathematical Games column in Scientific American fascinated and mystified readers for decades. Gardner had no formal mathematical training, and his path to science and math writing was a strange one. Gardner “didn’t have the high profile of his contemporary Richard Feynman or his friend Isaac Asimov,” says Colm Mulcahy, a professor emeritus of mathematics at Spelman College. “But his legacy might yet exceed theirs,’” he adds.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41993303"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Can you think of a single shape that looks like a triangle from one side, a circle from a second side and a square from the third side? I can visualise the shape, but I can't think of anything that it looks like. Does anyone know what item it is?There's a picture here:https://math.stackexchange.com/questions/1947363/is-there-there -a-...I got a copy of that book and gardner's "mathematical magic show" when i was 12 or so, and they both continue to entertain and delight me.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:08 -0000</pubDate></item><item><title>14. Using Large Language Models to Catch Vulnerabilities</title><link>https://googleprojectzero.blogspot.com/2024/10/from-naptime-to-big-sleep.html</link><description>
+&lt;![CDATA[
+&lt;p&gt;158 points points by sigmar on 2024-11-01T15:19:46 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Project Zero: From Naptime to Big Sleep: Using Large Language Models To Catch Vulnerabilities In Real-World Code. Big Sleep is a collaboration between Google Project Zero and Google DeepMind. The first real-world vulnerability discovered by the Big Sleep agent is an exploitable stack buffer underflow in SQLite, a widely used open source database engine. We believe this is the first public example of an AI agent finding a previously unknown exploitable memory-safety issue in widely used real- world software.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42017771"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Using Large Language Models to Catch Vulnerabilities (googleprojectzero.blogspot.com) Hacker News: Google claims to have found the first public example of an AI agent finding a previously unknown exploitable memory-safety issue in widely used real-world software. The claim feels extremely unprincipled, says one commenter. "I don't think either group found an exploitable vulnerability," says another. "It is possible that they're arguing that the Team Atlanta finding wasn't "exploitable", but this is very debatable," says a third.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:09 -0000</pubDate></item><item><title>15. The Dual Nature of Events in Event-Driven Architecture</title><link>https://www.reactivesystems.eu/2024/10/31/the-dual-nature-of-events-in-eda.html</link><description>
+&lt;![CDATA[
+&lt;p&gt;107 points points by lutzh on 2024-10-31T08:15:23 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;The Dual Nature of Events in Event-Driven Architecture by Lutz Hühnken is published on 31 October 2024. In an event-driven architecture, microservices collaborate by emitting and subscribing to events. Events are usually both trigger and carrier of data - varying in the amount of data included. There is no consensus on how much data should usually be included in an event - it’s not even clear what to call the data-heavy events on the right end of the spectrum. This article only talks about events that are “published” from one domain for others to subscribe to.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42004508"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;The triggering of the action is a direct consequence of the information an event contains. Whether or not an action is triggered should not be the responsibility of the event. Each consumer can perform their own targeted lookups as needed. Distributed locks and transactions are hell. There should be some law that says strictly serialized process should never be broken into discreet services. This is the entire problem, your example is very naive. If you take a distributed lock and save it, you still have the same issue. What I wrote is still the same, but even that won't save you. I've been working on this for a couple of years now and getting close to something really interesting ... but not quite there yet.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:10 -0000</pubDate></item><item><title>16. The almost-lost art of rosin potatoes</title><link>https://thecookscook.com/features/the-almost-lost-art-of-rosin-potatoes/</link><description>
+&lt;![CDATA[
+&lt;p&gt;127 points points by classichasclass on 2024-10-30T02:20:59 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41991352"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Baked potatoes are baked skin-on whole in the oven. Roast potatoes are cut up, tossed in oil, salt, and sometimes other herbs, and baked that way. "Bake" and "roast" are distinct culinary jargon terms. To properly do this potato, stab with the potato with the reason it produces a potato, not a fork. To cook potatoes then cook them directly on the oven rack (or in a barbecue) until it gives a fair bit of give.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:11 -0000</pubDate></item><item><title>17. Implementing a Tiny CPU Rasterizer</title><link>https://lisyarus.github.io/blog/posts/implementing-a-tiny-cpu-rasterizer.html</link><description>
+&lt;![CDATA[
+&lt;p&gt;107 points points by atan2 on 2024-11-01T15:16:16 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;This is a tutorial series on implementing a basic CPU rasterization engine in C++ from scratch. The tutorial is split into 12 parts, each covering some aspect of the engine, from drawing our first pixels to advanced stuff and optimizations. All the code for this project is available on GitHub, with a single commit corresponding to each article in the series. Some parts of the tutorial are not finished yet, this is a work-in-progress. The tutorials are available in English and in German.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42017726"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Implementing a Tiny CPU Rasterizer (lisyarus.github.io) by atan2. Summarize this text in one concise paragraph that capture the main points: Implementing a tiny CPU rasterizer in one paragraph. Hint: It's not possible at the time I think it was possible. HINT: Read fatmap2.txt to see if you can do the same thing with your own code. Atan2: I was reading 3dica[0], though I was too young or stupid to really grok it back then. I miss the good times. I think my reference was 3DGPL, but I can't find a quick look at that link to do a live link at that time.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:12 -0000</pubDate></item><item><title>18. Oasis: A Universe in a Transformer</title><link>https://oasis-model.github.io/</link><description>
+&lt;![CDATA[
+&lt;p&gt;246 points points by ChadNauseam on 2024-11-01T07:02:48 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Oasis is the first playable, realtime, open-world AI model. It's a video game, but entirely generated by AI. Oasis takes in user keyboard input and generates real-time gameplay. You can move around, jump, pick up items, break blocks, and more. There is no game engine; just a foundation model. We believe fast transformer inference is the missing link to making generative video a reality. When Etched's transformer ASIC, Sohu, is released, we can run models like Oasis in 4K.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42014650"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Oasis: A Universe in a Transformer (oasis-model.github.io) is an AI-powered game-making tool. The tool is only trained on Minecraft, but could be used to create other games. It's not clear how it would be used for game design, but it could be a way for game designers to rapidly prototype a game. Oasis v1 is a first POC. Wait just a bit more for v2 ;) The tool has been posted on Hacker News. For more information, visit the Oasis website or follow us on Twitter at @HackerNews or on Facebook at Hacker News #Oasis.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:13 -0000</pubDate></item><item><title>19. 34x34x34 Rubik's Cube</title><link>https://ruwix.com/blog/34x34x34-rubiks-cube-record/</link><description>
+&lt;![CDATA[
+&lt;p&gt;209 points points by Brajeshwar on 2024-10-27T15:06:25 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;A 34x34x34 cube has become the highest-order NxNxN Rubik's Cube, announced Matt Bahner in a YouTube video. It took about 1 year, and 1000 work hours to make the cube. The previous record, the 33x33 cube by Greg's Puzzles was also available for sale in 2017 for $15.200. To put this intor perspective, the mass-produced 17x17x17 by Yuxin costs roughly $750. The cube would require 6936 stickers, thankfully, it comes in a stickerless version, with colored plastic pieces. The 2x2, 4x4 and 5x5 are invented one year after the original 3x3x3 Rubik’s Cube was released in 1980. The V-Cube 6 was the first mass- produced 6x6x6 big cube, introducing a new level of complexity and challenge to cubing enthusiasts. The 7x7x7 Cube reveals the inherent geometry in constructing a fully proportional cube. To overcome this limitation, inventors face two options: either abandon the cubic shape and make it pillowed with the V-Cubes, or they must accept that the outer layers will be non-proportional.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41963104"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;The motivation for making enormous cubes like the 34x34x34 is just the engineering challenge, and breaking records. Solving a 5x5x5 for the first time took just a couple of hours, there wasn't much new to learn. The 7x7x7 is the biggest cube used in official competitions, for a good reason. There is a very easy-to-remember algorithm that can be trivially executed by humans given here in a Mathologer video, with a time-code link to jump straight to it: https://youtu.be/MbonokcLbNo?si=ey8bv4T9KbDxgB7N&amp;t=650.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:14 -0000</pubDate></item><item><title>20. The Shell Hater's Handbook (2010)</title><link>https://shellhaters.org/talk</link><description>
+&lt;![CDATA[
+&lt;p&gt;126 points points by samlambert on 2024-11-01T17:22:55 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;The Shell Hater's Handbook is an introductory talk on UNIX shell programming. The talk was presented at GoGaRuCo 2010, a regional Ruby conference in San Francisco. This was to be published as a companion piece to the talk in the conference's post-conference wrap-up magazine. The book is available in English, Spanish, German, and French. For more information on the book, visit the website: http://www.theshellhater.com/. For more on the Ruby language, visit: http:/www.ruby-lang.org/ruby/Ruby-lang/ruby-language.html.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42019318"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;The Bourne shell (and by extension, bash and POSIX's sh) have syntax inspired by Algol 68 (source [0]), which explains some of the funkyness. One thing I've been doing recently is writing scripts in rc, the default shell for plan9. Versions linked against readline have file-based completion, but it's otherwise not quite robust enough for me to switch away from fish as my default. I encourage people to giverc and awk a shot, they're both small and learnable in an afternoon!&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:15 -0000</pubDate></item><item><title>21. Linux on Apple Silicon with Alyssa Rosenzweig [audio]</title><link>https://softwareengineeringdaily.com/2024/10/15/linux-apple-silicon-alyssa-rosenzweig/</link><description>
+&lt;![CDATA[
+&lt;p&gt;275 points points by tosh on 2024-11-01T20:30:13 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42021237"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;The temperature is modelled based on how much power is put through it. Power, not temperature is measured. Apple isn't the first to use advanced limiters to get the most of loudspeakers, if I remember, this trick is what allowed the Phantom to make the most noise. If Apple gets around to supporting HDR on machines equipped with FALD mini-LED backlights (or XDR, as Apple calls it) then Asahi will need to replicate it. The Asahi devs have had to painstakingly reverse engineer and reimplement the safety DSP that macOS uses on each device, and add some safety margin. If they get it wrong they could literally destroy the speakers (and IIRC at least one of their own MacBooks did have its speakers sacrificed along the way).&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:16 -0000</pubDate></item><item><title>22. Broadwell's EDRAM: VCache Before VCache Was Cool</title><link>https://chipsandcheese.com/p/broadwells-edram-vcache-before-vcache</link><description>
+&lt;![CDATA[
+&lt;p&gt;70 points points by klelatti on 2024-11-01T17:02:14 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Broadwell’s limited desktop release is particularly interesting because it came with 128 MB of eDRAM based L4 cache. EDRAM is quite a troublesome technology to work with if you want high performance at low power. Broadwell implemented its L4 Cache on a separate 77mm2 die, creating a chiplet configuration. This cache die was codenamed “Crystal Well”, and was fabricated using the older 22nm process. For starters, Crystal Well has a massive 128 banks compared to eight or even DDR5’S. Dividing the DRAM array banks into banks gets around the destructive read+write problem because each bank happens independently for each bank count. Higher bank count decreases the chance of an incoming access clashing with an outgoing access.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42019083"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;The concept is the same - putting a huge amount of cache on chip - but it's a very different solution. Broadwell implemented its L4 cache on a separate 77mm2 die, creating a chiplet configuration. This cache die was codenamed “Crystal Well’, and was fabricated using the older 22nm process. A lot of interesting details in article about how widely different this dram is, made to go fast fast fast. Fun read. I'd really wanted a system with Crystal Well, seemed so cool. But general adoption in the PC market was - I feel - quite poor.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:17 -0000</pubDate></item><item><title>23. Demystifying the regular expression that checks if a number is prime (2016)</title><link>https://illya.sh/the-codeumentary-blog/regular-expression-check-if-number-is-prime/</link><description>
+&lt;![CDATA[
+&lt;p&gt;152 points points by aquir on 2024-10-31T11:11:52 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Demystifying The Regular Expression That Checks If A Number Is Prime – The Codeumentary. A prime number is any natural number greater than 1 that is only divisible by 1 and the number itself, without leaving a remainder. The regular expression ^.?$|^(..+?)\1+$ can filter outany prime numbers. A regular expression matches the position right after the last character in the string that matches the first character, except for characters that do not break.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42005601"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Demystifying the regular expression that checks if a number is prime (2016) (illya.sh) The concept of a sieve of numbers is not super-sophisticated, but it's not either 'just' a 'sieve of just numbers' or 'just a special form of the word 'prime' Matt Parker has a more entertaining explanation of the concept in his Halloween video: https://www.youtube.com/watch?v=5vbk0TwkokM.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:18 -0000</pubDate></item><item><title>24. Ethernet at NANOG 92</title><link>https://www.potaroo.net/ispcol/2024-10/ethernet.html</link><description>
+&lt;![CDATA[
+&lt;p&gt;69 points points by tatersolid on 2024-10-31T11:11:00 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;Ethernet has been the mainstay of much of the networking environment for almost 50 years. Aggregate Switching capacity has increased by a factor of 16 in the past decade. The foundation of today's production Ethernet networks lies in 100Gbps lanes. When paired up they provider a 200Gbps service, and in groups of four they provide today's 400Gbs Ethernet service. The IEEE's P802.3dj work is to define a standard specification for a base capacity of a 200 Gbps Ethernet lane.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42005597"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Ethernet out here quietly leveling up to 800GbE like it’s no big deal… meanwhile I’m just trying to get my WiFi to reach the kitchen. The name NDP looks little bit confusing. If you have coax, MoCA is a stellar option. I put MoCA and a TP-LINK Omada setup (unified control of all AP's) in my in-laws' house a couple of years ago. They went from almost-undetectable WiFi in most places to a solid signal throughout the entire house. They love it. They even asked why their ISP didn't do it. My MIL even said oh, we'll pay for the gear, you didn't need to spend that much. No, you won't, it's a gift from me (because it means that my wife and I won't have to worry about nonexistent WiFi when we're at your house).&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:19 -0000</pubDate></item><item><title>25. What sank the Bayesian superyacht in Italy?</title><link>https://www.nytimes.com/interactive/2024/10/31/world/europe/bayesian-yacht-sinking-italy.html</link><description>
+&lt;![CDATA[
+&lt;p&gt;153 points points by rediguanayum on 2024-10-31T18:03:23 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;The Bayesian, the $40 million superyacht of the British tech mogul Michael Lynch, dropped anchor off Sicily. A New York Times investigation discovered that the Bayesian’s most striking feature — its extra-tall mast and the engineering to accommodate it — made the yacht vulnerable to capsizing. All the other boats in the same series, from the same Italian manufacturer, had two masts instead of one. Technical documents obtained by The Times and computer models show the yacht was susceptible to being knocked over in a storm and would sink quickly. Fifteen survivors, bloodied and broken, made it to a life raft. But seven died as theBayesian plunged to the bottom, where divers have searched for answers.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42009570"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;What sank the Bayesian superyacht in Italy? (nytimes.com) The company speculated that the crew did not close a watertight door between this hatch and the engine room. But witnesses, an Italian official familiar with the investigation and the underwater video challenged the company’s versions of events. The attitude of "we are perfect, somebody else's fault" stinks, even if they are not. Even if after all the investigations it turns out the manufacturer were without blame (which usually is not the case) their attitude doesn't reflect well on them. Do you want to buy your yacth from someone who will blame everyone but themselves when things go wrong? I would rather buy a yacht fromSomeone who will incorporate all the learnings into their new designs to make them as safe as possible.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:20 -0000</pubDate></item><item><title>26. What is the point of an online conference?</title><link>https://www.scattered-thoughts.net/writing/what-is-the-point-of-an-online-conference/</link><description>
+&lt;![CDATA[
+&lt;p&gt;137 points points by jamii on 2024-11-01T03:38:37 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;The most important function of in-person conferences is meeting people. The speakers put time into preparing their talks knowing that there will be an audience to watch it. The combination of pre-recorded talks, asynchronous chat, and no travel requirements leads to a much smaller investment of time and effort. The most experienced and knowledgable experts tend to also be the busiest. Transferring hard-won wisdom to the next generation takes a huge amount of work which few people find the time for.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42013843"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;Summarize this text in one concise paragraph that capture the main points. What is the point of an online conference? (scattered-thoughts.net) 137 points by jamii 2 days ago  | hide | past | favorite | 103 comments   “I have been speaking at about 50 conferences over the years and I refuse to do online ones. Why?- Conferences are usually not paid, except expenses. In person conferences allow you to meet and network with other speakers. Online conferences do not (unless you count "come to our discord" as networking, I don't)- The value I get from conferences is also interacting with the public and listening to them, outside of the talks. I also don't really get any of the promotion value for my company, which obviously I represent. I understand they are cheaper to organize but the value is simply not there at all, so I will not speak at them, attend them, or sponsor them. This thread is a Gell-annnesia generator. Everyone says online conferences are stupid and then doesn't see how absurd they are.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:21 -0000</pubDate></item><item><title>27. A conserved fertilization complex bridges sperm and egg in vertebrates</title><link>https://www.cell.com/cell/fulltext/S0092-8674(24)01093-6?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0092867424010936%3Fshowall%3Dtrue</link><description>
+&lt;![CDATA[
+&lt;p&gt;37 points points by bookofjoe on 2024-11-01T01:04:01 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42013091"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;A conserved fertilization complex bridges sperm and egg in vertebrates. A new drug that doesn't involve throwing a spanner in the works of anyone's contraceptive system. A way to express a virus to express an analogue during intracellular construction of children's bodies. A possible way to make a drug to block a contraceptive system that doesn’t involve anyone’s endocrine system, and we have a new drug for that. A potential way to create a virus that expresses an analogue of a virus.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:22 -0000</pubDate></item><item><title>28. Ink: React for interactive CLI apps</title><link>https://github.com/vadimdemedes/ink</link><description>
+&lt;![CDATA[
+&lt;p&gt;161 points points by brianzelip on 2024-11-01T13:15:47 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;summarize this text in one concise paragraph that capture the main points of GitHub. GitHub - vadimdemedes/ink: React for interactive command-line apps. GitHub-powered developer platform for AI-powered add-ons. GitHub is a free, open-source software platform for developers to develop and test their code on. It is available on GitHub.com. The GitHub site is free to use and is open to the public. The site is available in the U.S. and is expected to grow over the coming months.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42016639"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;React is the world's most popular and powerful declarative programming paradigm. It's being used for native apps, VR, 3d, CAD and electronics. It has issues, but being "built for DOM/web" is not one of them. A simple example of where it is better than most tools is you can simply import a re-usable "ranger-style" file browsing component, and adapt it for things like exploring a database, a spreadsheet, or an API spec.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:23 -0000</pubDate></item><item><title>29. CIL: C Intermediate Language</title><link>https://github.com/goblint/cil</link><description>
+&lt;![CDATA[
+&lt;p&gt;79 points points by tosh on 2024-10-28T09:57:38 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;GitHub - goblint/cil: C Intermediate Language. GitHub - C Intermediate language. GitHub-C Intermediate Language: C intermediate language. GitHub - JCPenney language. git-cipenney.org: C  Intermediate Language, C Intermediate, C intermediate, C  Intermediate. Git-Cipenkey: C, C-IoE, C, IOE, IOC, IIC, IEC, ICS, ICT, ICP, IPC, IIS, IEP, IEE, IEF, IFF, IFP, IAE, IFC, IFS, IOP, IMS, IRA, IFA, IBO, IBC, IJT, IAS, IFM, IAP, IBS, IAD, IHV, IAM, IBB, IBP, IBN, IBA, IETF, IWG, INS, IOT, IJS, IJDK, ISE, IP, IM, IOS, IWeb, IPay, IPhone, IPlay, IDropbox, IBlog, IPost, ISocial, IShopper, IVideo, IStream, IBook, IMovie, IPlayer, ITelegram, IPhotos, IBooks, IInterview, IReport, ITunes, IComments, IAm, IList, IView, IPreview, IReporter, IArchives, ISearch, IQuery, IWork, IReview, IMenu, INavigation, ITrack, ISave, IRead, IRefresh, ILink, IStore, ICard, ISchedule, IUseful, ISuggest, I'm-reading-a-new-page, I've-seen-it-all-before-and-it's-coming-back-to-me, I'll-tell-you-when-I-see-it, IWill-Be-Reading-A-New-Page-Next-Page, IThink-Away-Ahead-Of-It, I’ve-been-Read-Aware, ISee-It-A’s-Next, I-Report-Award, IWitness-Apost-Athletic-Actions, IShip-Apt-Awards, IMessage-Apsorts-“I’m-reading “A”, “Report A , ‘Report’,   “Report” and “Save”. “Use”: “By default”; “Show me what you’re reading.” “What is being read?”“What do you want me to see?’“How do I see it?“”  “How can I report it to you?"“Can you tell me what I see”? “If you can’t see it, what do you think I should see, what should I see? ” ‘What is the best way for you to see it’? ‘How do you report it?'’ “Is there a way for me to tell you what I saw?‘What do I want to report to you?' “.’   ‘Can you report to me what is being reported?‚’. ‘Are you seeing it? What do you need to report? .  . What do I need to see for it to be reported to you?‬”  ?  ?‼  “Can I report on it,    ’What is it reporting on?‡’ ’Can I get it back to me? ’’;.‘Can I use it to report back to you on the next version of the code?‪’ – if so, what does it report back on the latest version?•  ‘Is it available to me to report on the current version of it, or is it a new version of a previous version of this version of that version of what it is supposed to be reporting on the same thing? ” – if it is, it will be published.“GitHub is a tool to help developers write better code with AI,” GitHub is a platform for developers to write better software with AI. It is an open-source community. It has the potential to be a source of inspiration for developers. It can be used to build better code.�&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=41969416"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;CIL: C Intermediate Language is a new programming language. CIL was first published in 2001, and started in 2000. There is another CIL too: SELinux CIL, Common Intermediate Language. There are a finite number of names, and an even smaller number of good names. This is a fork of an earlier project and the name comes from that doesn't stop it! This would be very useful for adding simple extensions to the language. I tried to do this but couldn't figure out how to make LLVM do it.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:24 -0000</pubDate></item><item><title>30. A new dental scam is to pull healthy teeth to sell you expensive fake ones</title><link>https://arstechnica.com/health/2024/11/more-dentists-are-pulling-healthy-teeth-to-sell-pricy-implants-experts-warn/</link><description>
+&lt;![CDATA[
+&lt;p&gt;353 points points by pjmlp on 2024-11-01T14:47:34 &lt;/p&gt;
+&lt;h2&gt;Article Summary&lt;/h2&gt;
+&lt;p&gt;A new dental scam is to pull healthy teeth to sell you expensive fake ones - Ars Technica. A new way to get your teeth checked for cavities is to have your dentist pull your teeth out and replace them with fake ones to sell them to you for more money. Use this text to help you understand the difference between real teeth and fake ones. Use the weekly Newsquiz to test your knowledge of stories you saw on CNN.com.&lt;/p&gt;
+&lt;h2&gt;Comment Summary&lt;/h2&gt;
+&lt;a href="https://news.ycombinator.com/item?id=42017428"&gt;Comment Link&lt;/a&gt;
+&lt;p&gt;The nicer and higher tech the office is, the more procedures they are going to recommend you. I refuse to go to dentists that have "too nice" of an office. Dentists with shorter waiting times are more likely to propose unnecessary treatment. That reminds me of this 2020 study of dentists in Switzerland, previously discussed on HN in January 2023:HN: https://news.ycombinator.com/item?id=34322194Study: "Health Services as Credence Goods: a Field Experiment" -- https://academic.oup.com /ej/article-abstract/130/629/1346/57.&lt;/p&gt;
+]]
+            </description><pubDate>Sun, 03 Nov 2024 15:44:25 -0000</pubDate></item></channel></rss>

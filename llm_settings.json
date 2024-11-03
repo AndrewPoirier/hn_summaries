@@ -1,0 +1,11 @@
+{
+    "pretrained_model_name_or_path": "facebook/bart-large-cnn",
+    "prompt": "summarize this text in one concise paragraph that capture the main points: ",
+    "max_length": 1024,
+    "min_length": 100,
+    "length_penalty": 2.0,
+    "num_beams": 4,
+    "early_stopping": false,
+    "summary_max_length": 1000,
+    "skip_special_tokens": true
+}

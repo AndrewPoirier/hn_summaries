@@ -1,0 +1,6 @@
+{
+    "title": "HN Summaries",
+    "link": "http://andrewpoirier.github.io/hn_summarizer",
+    "description": "The top HN articles everyday - summarized",
+    "feed_file_path": "feed.xml"
+}

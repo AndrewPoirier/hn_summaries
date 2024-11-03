@@ -1,0 +1,10 @@
+{
+    "load_new_articles": true,
+    "generate_summaries": true,
+    "max_articles": 30,
+    "max_items_to_keep": 500,
+    "override_date": "2024-11-01",
+    "logging_folder": "logs/",
+    "articles_url": "https://news.ycombinator.com/front?day=",
+    "comment_url": "https://news.ycombinator.com/item?id="
+}
