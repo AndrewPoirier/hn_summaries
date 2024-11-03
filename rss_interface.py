@@ -4,12 +4,8 @@ import json
 import os
 from feedgenerator import Rss201rev2Feed
 import xml.etree.ElementTree as ET
-import html
-
-import pytz
 
 from article import Article
-import warnings
 
 # Load settings from settings.json
 with open('rss_settings.json', 'r') as f:

@@ -2,7 +2,6 @@ import requests
 from bs4 import BeautifulSoup
 from readability import Document
 from datetime import datetime, timedelta
-import lxml.html.clean
 import json
 import pickle
 
