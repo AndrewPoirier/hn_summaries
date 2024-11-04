@@ -50,22 +50,24 @@ class RssInterface:
 ]]
             """
             
-            # Convert rank to seconds and subtract from datestring
+            # Convert rank to seconds and subtract from datestring so RSS items show in order
             date_obj = datetime.strptime(article.datestring, "%Y-%m-%dT%H:%M:%S")
             adjusted_date = date_obj - timedelta(seconds=int(settings["max_articles"]) - int(article.rank))
             adjusted_datestring = adjusted_date.strftime("%Y-%m-%dT%H:%M:%S")
             
             date_obj = datetime.now()
-            time_increment = timedelta(seconds=int(settings["max_articles"]) - int(article.rank))
+            time_increment = timedelta(seconds=int(settings["max_articles"]) - (int(article.rank)*10))
             
             self.feed.add_item(
                 title=f"{article.rank}. {article.title}",
                 link=article.article_link,
                 description=description,
+                unique_id=article.comment_link,
+                unique_id_is_permalink=True, # not working
                 extra_kwargs={
                     "content:encoded": f"<![CDATA[{description}]]>"
                 },
-                pubdate=date_obj-time_increment
+                pubdate=date_obj - time_increment
             )
             
     def save_feed(self):
