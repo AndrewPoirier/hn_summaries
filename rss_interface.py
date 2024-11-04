@@ -44,11 +44,22 @@ class RssInterface:
 <p>{article.score} points by {article.user} on {article.datestring} </p>
 <h2>Article Summary</h2>
 <p>{article.generated_article_summary}</p>
-<h2>Comment Summary</h2>
-<a href="{article.comment_link}">Comment Link</a>
-<p>{article.generated_comment_summary}</p>
-]]
             """
+            
+            # handle comments - early items had no comments, later items have comments list
+            if hasattr(article, 'comments') and article.comments:
+                description += f"<h2>Top Comments</h2>"
+                description+= f"<a href='{article.comment_link}'>Comment Link</a>"
+                description += "<p><ol>"
+                for comment in article.comments:
+                    description += f"<li>{comment.text}</li>"
+                description += "</ol></p>]]"
+            else:
+                description += f"<h2>Comment Summary</h2>"
+                description+= f"<a href='{article.comment_link}'>Comment Link</a>"
+                description += f"<p>{article.generated_comment_summary}</p>"
+            description += "]]"
+            
             
             # Convert rank to seconds and subtract from datestring so RSS items show in order
             date_obj = datetime.strptime(article.datestring, "%Y-%m-%dT%H:%M:%S")

@@ -24,7 +24,18 @@ class Article:
         self.error_msg = None
         self.comment_link = settings["comment_url"] + self.article_id
         self.generated_article_summary = self.retrieve_article_summary() if self.generate_summaries else ""  # Generate the article summary if required
-        self.generated_comment_summary = self.retrieve_comment_summary() if self.generate_summaries else ""  # Generate the comment summary
+        # self.generated_comment_summary = self.retrieve_comment_summary() if self.generate_summaries else ""  # Generate the comment summary
+        self.comments = []
+        
+        self.retrieve_comments() if self.generate_summaries else [] # Retrieve comments
+
+    class Comment:
+        def __init__(self, position, text):
+            self.position = position
+            self.text = text
+
+        def __repr__(self):
+            return f"Comment(position={self.position}, text={self.text}, child={self.child})"
 
     def __repr__(self):
         return f"Article(rank={self.rank}, title={self.title}, article_link={self.article_link}, comment_link={self.comment_link}, score={self.score}, user={self.user}, article_id={self.article_id}, datestring={self.datestring}, generated_article_summary={self.generated_article_summary}, generated_comment_summary={self.generated_comment_summary})"
@@ -69,6 +80,26 @@ class Article:
             generated_comment_summary = summarize(content)
             
         return generated_comment_summary
+    
+    def retrieve_comments(self):
+        # Fetch the comments page
+        comments_soup = self.fetch_soup(self.comment_link)
+        
+        comment_position = 1
+        # comment_tables = comments_soup.find("table", attrs={"class": "comment-tree"}).find_all("table", attrs={"border": "0"}).find("td", attrs={"indent": "0"}).parent("table")
+        comment_items = comments_soup.find_all("td", attrs={"indent": "0"})
+        for table in comment_items:            
+            tr = table.parent
+            
+            comment_text = tr.find("div", attrs={"class": "commtext c00"}).text
+            self.comments.append(Article.Comment(comment_position, comment_text))
+            
+            if comment_position >= settings["max_comments"]:
+                break
+            
+            comment_position += 1
+            
+        
     
     def fetch_soup(self, url):
         soup = None
