@@ -187,17 +187,39 @@ def log(articles):
             f.write(f"Date: {article.datestring}\n")
             
             f.write(f"Generated Article Summary: {article.generated_article_summary}\n")
-            f.write(f"Generated Comment Summary: {article.generated_comment_summary}\n")
+            
+            if article.has_comments:
+                f.write(f"Comments: {article.comments}")
+                
+            f.write(f"Error Raise: {article.error_raise}\n")
+            f.write(f"Error Message: {article.error_msg}\n")
+            
             f.write("\n\n")
 
 
 
+# article = Article(
+#     rank="1", 
+#     title="Test Article", 
+#     article_link="https://spectrum.ieee.org/touchscreens",
+#     score="100",
+#     user="testuser",
+#     article_id="42033241",
+#     datestring="2024-10-31T16:41:22",
+#     generate_summaries=True
+# )
+
+
+# exit()
 
 date = get_date()
 
 # Load the collection from the file using pickle
-with open('articles.pkl', 'rb') as file:
-    articles = pickle.load(file)
+if os.path.exists('articles.pkl'):
+    with open('articles.pkl', 'rb') as file:
+        articles = pickle.load(file)
+else:
+    articles = []
 
 # load new articles
 if bool(settings["load_new_articles"]):
@@ -231,7 +253,7 @@ rss.save_feed()
     # TODO: RSS output or text output
     # TODO: improve comment summary to return the top 3 comments, rather than a summary. Or summaries of the top three comments?
     # TODO: handle Show|Ask|Launch HN: - don't need article plus comments, grab the OP post
-    
-
-
-
+    # TODO: error handling - article.error_raise
+    # TODO: settings summary - downloading 30 articles, 3 comments
+    # TODO: dry-run mode
+    # TODO: move pickle file to data folder

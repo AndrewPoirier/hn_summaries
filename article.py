@@ -23,11 +23,17 @@ class Article:
         self.error_raise = False
         self.error_msg = None
         self.comment_link = settings["comment_url"] + self.article_id
-        self.generated_article_summary = self.retrieve_article_summary() if self.generate_summaries else ""  # Generate the article summary if required
-        # self.generated_comment_summary = self.retrieve_comment_summary() if self.generate_summaries else ""  # Generate the comment summary
+        self.generated_article_summary = None 
         self.comments = []
+        self.has_comments = False
         
-        self.retrieve_comments() if self.generate_summaries else [] # Retrieve comments
+        if self.generate_summaries:
+            self.retrieve_article_summary()
+            self.retrieve_comments()
+        
+        if hasattr(self, 'comments') and self.comments:
+            self.has_comments = True
+            
 
     class Comment:
         def __init__(self, position, text):
@@ -35,10 +41,27 @@ class Article:
             self.text = text
 
         def __repr__(self):
-            return f"Comment(position={self.position}, text={self.text}, child={self.child})"
+            return f"Comment(position={self.position}, text={self.text})"
 
     def __repr__(self):
-        return f"Article(rank={self.rank}, title={self.title}, article_link={self.article_link}, comment_link={self.comment_link}, score={self.score}, user={self.user}, article_id={self.article_id}, datestring={self.datestring}, generated_article_summary={self.generated_article_summary}, generated_comment_summary={self.generated_comment_summary})"
+        output = f"""
+Article(
+    rank={self.rank}, 
+    title={self.title}, 
+    article_link={self.article_link}, 
+    comment_link={self.comment_link}, 
+    score={self.score}, 
+    user={self.user}, 
+    article_id={self.article_id}, 
+    datestring={self.datestring}, 
+    generated_article_summary={self.generated_article_summary},
+"""
+        if self.has_comments:
+            output += f"    Comments: {self.comments},\n"
+            
+        output += f"    error_raised={self.error_raise}, error_msg={self.error_msg})\n"
+        output += f"    error_msg={self.error_msg})"
+        return output
     
     def retrieve_article_summary(self):
         generated_article_summary = ""
@@ -52,34 +75,19 @@ class Article:
         if article_soup:
             # doc = Document(article_soup)
             cleaner = lxml.html.clean.Cleaner(style=False, scripts=False, javascript=False, comments=False, page_structure=False, safe_attrs_only=False)       
-            cleaned_html = cleaner.clean_html(article_soup.get_text())
+            cleaned_html = cleaner.clean_html(article_soup.get_text()) # TODO: improve code to pull article text
             doc = Document(cleaned_html)
             content = BeautifulSoup(doc.summary(), 'html.parser').get_text()
             
             # summarize the content
-            generated_article_summary = summarize(content)
+            summary = ""
+            try:
+                summary = summarize(content)
+            except ValueError as e:
+                self.error_raise = True
+                self.error_msg = str(e)
             
-        return generated_article_summary
-    
-    def retrieve_comment_summary(self):
-        generated_comment_summary = ""
-        
-        # Fetch the comments page
-        comments_soup = self.fetch_soup(self.comment_link)
-        
-        if comments_soup:
-        #     # Find all <span> elements with class "commtext"
-        #     commtext_spans = comments_soup.find_all("span", attrs={"class": "commtext"}).get_text()
-            
-            # doc = Document(comments_soup)
-            cleaner = lxml.html.clean.Cleaner(style=False, scripts=False, javascript=False, comments=False, page_structure=False, safe_attrs_only=False)       
-            cleaned_html = cleaner.clean_html(comments_soup.get_text())
-            doc = Document(cleaned_html)
-            content = BeautifulSoup(doc.summary(), 'html.parser').get_text()
-            
-            generated_comment_summary = summarize(content)
-            
-        return generated_comment_summary
+            self.generated_article_summary = summary
     
     def retrieve_comments(self):
         # Fetch the comments page
@@ -99,14 +107,12 @@ class Article:
             
             comment_position += 1
             
-        
-    
     def fetch_soup(self, url):
         soup = None
         
         # Fetch the HTML content
         try:
-            response = requests.get(url)
+            response = requests.get(url, timeout=30)
             response.raise_for_status()  # Raise an error for bad status codes
             # Parse the HTML content
             soup = BeautifulSoup(response.content, 'html.parser')

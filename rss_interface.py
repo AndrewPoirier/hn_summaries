@@ -22,18 +22,16 @@ class RssInterface:
     def create_feed(self):
         feed_file_path = rss_settings["feed_file_path"]
         
-        # Check if the feed file exists
-        if os.path.exists(feed_file_path):
-            title = rss_settings["title"]
-            link = rss_settings["link"]
-            description = rss_settings["description"]
-        
-            # If the file doesn't exist, create a new feed
-            return Rss201rev2Feed(
-                title=title,
-                link=link,
-                description=description
-            )
+        title = rss_settings["title"]
+        link = rss_settings["link"]
+        description = rss_settings["description"]
+    
+        # If the file doesn't exist, create a new feed
+        return Rss201rev2Feed(
+            title=title,
+            link=link,
+            description=description
+        )
             
     # Function to append a new article to the RSS feed
     def append_articles_to_feed(self, articles):

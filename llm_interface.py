@@ -11,11 +11,14 @@ model = BartForConditionalGeneration.from_pretrained(settings["pretrained_model_
 
 def summarize(text):
     # TODO: error handling
-    # TODO: learn how to adjust the model parameters
+    
+    # prompt_text = f"{settings['prompt']} ### {text}"˚
+    prompt_text = f"{settings['prompt']} End of prompt. Text begins: {text}"
+    # prompt_text = f"{text}"
     
     # Tokenize the input text
     inputs = tokenizer.encode(
-        text=settings["prompt"] + text,
+        text=prompt_text,
         return_tensors="pt", 
         max_length=settings["max_length"], 
         truncation=True
@@ -28,7 +31,7 @@ def summarize(text):
         min_length=settings["min_length"], 
         length_penalty=settings["length_penalty"], 
         num_beams=settings["num_beams"], 
-        early_stopping=settings["early_stopping"] # CHANGED THIS TO FALSE, HAVE NOT TESTED
+        early_stopping=settings["early_stopping"]
     )
     
     # Decode the summary
@@ -36,8 +39,8 @@ def summarize(text):
         token_ids=summary_ids[0], 
         skip_special_tokens=settings["skip_special_tokens"])
     
-    # Remove the prompt from the summary, NOT TESTED
-    if settings["prompt"] in summary:
-        summary = summary.split(settings["prompt"])[1]
+    # if the prompt leaks into the summary, it's not a good summary
+    if "Text begins" in summary:
+        raise ValueError(f"The summary contains parts of the prompt, indicating a poor summary. Summary: {summary}")        
     
     return summary
