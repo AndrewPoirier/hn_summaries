@@ -1,7 +1,9 @@
-beautifulsoup4==4.10.0
-requests==2.26.0
-transformers==4.11.3
-feedparser==6.0.8
-newspaper3k==0.2.8
-readability-lxml==0.8.1
-http.server
+beautifulsoup4
+requests
+transformers
+feedparser
+newspaper3k
+readability-lxml
+feedgenerator
+lxml_html_clean
+torch
