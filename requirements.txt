@@ -7,3 +7,5 @@ readability-lxml
 feedgenerator
 lxml_html_clean
 torch
+python-dotenv
+openai
