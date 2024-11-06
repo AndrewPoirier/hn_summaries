@@ -4,7 +4,8 @@ from readability import Document
 import lxml.html.clean
 import json
 
-from llm_interface import summarize
+# from llm_interface import summarize
+from openai_interface import summarize
 
 # Load settings from settings.json
 with open("settings.json", "r") as f:
@@ -28,7 +29,8 @@ class Article:
         self.has_comments = False
         
         if self.generate_summaries:
-            self.retrieve_article_summary()
+            # self.retrieve_llm_article_summary()
+            self.retrieve_openai_article_summary()
             self.retrieve_comments()
         
         if hasattr(self, 'comments') and self.comments:
@@ -63,7 +65,7 @@ Article(
         output += f"    error_msg={self.error_msg})"
         return output
     
-    def retrieve_article_summary(self):
+    def retrieve_llm_article_summary(self):
         generated_article_summary = ""
         
         # TODO: if Show|Ask|Launch HN....
@@ -83,6 +85,26 @@ Article(
             summary = ""
             try:
                 summary = summarize(content)
+            except Exception as e:
+                self.error_raise = True
+                self.error_msg = str(e)
+            
+            self.generated_article_summary = summary
+            
+    def retrieve_openai_article_summary(self):
+        generated_article_summary = ""
+        
+        # Fetch the article content
+        article_soup = self.fetch_soup(self.article_link)
+        
+        # Extract the page contents, clean out the non-content, and extract the text
+        if article_soup:
+            content = article_soup.get_text()
+            
+            # summarize the content
+            summary = ""
+            try:
+                summary = summarize(self.article_link)
             except ValueError as e:
                 self.error_raise = True
                 self.error_msg = str(e)
