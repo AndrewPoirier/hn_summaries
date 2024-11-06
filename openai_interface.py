@@ -7,6 +7,8 @@ from dotenv import load_dotenv
 with open('openai_settings.json', 'r') as f:
     settings = json.load(f)
 
+load_dotenv()
+
 client = OpenAI()
 client.api_key = os.getenv("OPENAI_API_KEY")
 
