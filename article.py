@@ -59,7 +59,7 @@ Article(
         if self.has_comments:
             output += f"    Comments: {self.comments},\n"
             
-        output += f"    error_raised={self.error_raise}, error_msg={self.error_msg})\n"
+        output += f"    error_raised={self.error_raise})\n"
         output += f"    error_msg={self.error_msg})"
         return output
     

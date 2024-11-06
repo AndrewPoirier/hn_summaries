@@ -169,29 +169,35 @@ def write_articles_to_files():
 
     with open(settings["logging_folder"] + "output.txt", "w", encoding="utf-8") as f:
         for article in articles:
-            f.write(str(article) + "\n")
+            try:
+                f.write(str(article) + "\n")
+            except:
+                print(f"Could not write article to output.txt: {article.title}")
             
     with open(settings["logging_folder"] + "pretty.txt", "w", encoding="utf-8") as f:
         for article in articles:
-            f.write(f"Title: {article.title}\n")
-            f.write(f"Article Link: {article.article_link}\n")
-            f.write(f"Comment Link: {article.comment_link}\n")
-            f.write(f"Score: {article.score}\n")
-            f.write(f"User: {article.user}\n")
-            
-            # Reformat the date
-            date_obj = datetime.strptime(article.datestring, "%Y-%m-%dT%H:%M:%S")
-            formatted_date = date_obj.strftime("%m/%d/%Y %I:%M:%S %p")
-            f.write(f"Date: {article.datestring}\n")
-            
-            f.write(f"Generated Article Summary: {article.generated_article_summary}\n")
-            
-            if article.has_comments:
-                f.write(f"Comments: {article.comments}")
+            try:
+                f.write(f"Title: {article.title}\n")
+                f.write(f"Article Link: {article.article_link}\n")
+                f.write(f"Comment Link: {article.comment_link}\n")
+                f.write(f"Score: {article.score}\n")
+                f.write(f"User: {article.user}\n")
                 
-            f.write(f"Error Raise: {article.error_raise}\n")
-            f.write(f"Error Message: {article.error_msg}\n")
-            
+                # Reformat the date
+                date_obj = datetime.strptime(article.datestring, "%Y-%m-%dT%H:%M:%S")
+                formatted_date = date_obj.strftime("%m/%d/%Y %I:%M:%S %p")
+                f.write(f"Date: {article.datestring}\n")
+                
+                f.write(f"Generated Article Summary: {article.generated_article_summary}\n")
+                
+                if article.has_comments:
+                    f.write(f"Comments: {article.comments}")
+                    
+                f.write(f"Error Raise: {article.error_raise}\n")
+                f.write(f"Error Message: {article.error_msg}\n")
+            except:
+                print(f"Could not write article to pretty.txt: {article.title}")
+                
             f.write("\n\n")
 
 
