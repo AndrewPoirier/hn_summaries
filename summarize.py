@@ -167,11 +167,11 @@ def write_articles_to_files():
     # Create the folder path if it doesn't exist
     os.makedirs(settings["logging_folder"], exist_ok=True)
 
-    with open(settings["logging_folder"] + "output.txt", "w") as f:
+    with open(settings["logging_folder"] + "output.txt", "w", encoding="utf-8") as f:
         for article in articles:
             f.write(str(article) + "\n")
             
-    with open(settings["logging_folder"] + "pretty.txt", "w") as f:
+    with open(settings["logging_folder"] + "pretty.txt", "w", encoding="utf-8") as f:
         for article in articles:
             f.write(f"Title: {article.title}\n")
             f.write(f"Article Link: {article.article_link}\n")
