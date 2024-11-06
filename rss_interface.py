@@ -60,10 +60,6 @@ class RssInterface:
                 # for comment in article.comments:
                 #     description += f"<div>{comment.text}</div>"
                 # description += "]]"
-            else:
-                description += f"<h2>Comment Summary</h2>"
-                description+= f"<a href='{article.comment_link}'>Comment Link</a>"
-                description += f"<p>{article.generated_comment_summary}</p>"
             description += "]]"
             
             
