@@ -98,7 +98,7 @@ def get_date():
     else:
         return (datetime.now() - timedelta(1)).strftime("%Y-%m-%d")
 
-def remove_article_by_id(article_collection, article_id):
+def remove_article_by_id(article_id):
     """
     Remove an article from the collection by its ID.
 
@@ -118,16 +118,15 @@ def remove_article_by_id(article_collection, article_id):
         # result would be True and the first article would be removed from the list.
     """
     # Iterate over the collection to find the article
-    for index, article in enumerate(article_collection):
+    for index, article in enumerate(articles):
         if article.article_id == article_id:
             # Remove the article if the id matches
-            del article_collection[index]
-            print(f"Article with article_id {article_id} removed.")
+            del articles[index]
+            print(f"article_id {article_id} removed")
             return True
-    print(f"Article with article_id {article_id} not found.")
     return False
 
-def trim_article_collection(articles, max_size=int(settings["max_items_to_keep"])):
+def trim_article_collection(max_size=int(settings["max_items_to_keep"])):
     """Ensure the article collection does not exceed max_size items.
 
     If the number of items exceeds max_size, remove the earliest items
@@ -142,9 +141,8 @@ def trim_article_collection(articles, max_size=int(settings["max_items_to_keep"]
     """
     while len(articles) > max_size:
         articles.pop(0)  # Remove the earliest item (first in the list)
-    print(f"Collection trimmed to {len(articles)} items.")
     
-def log(articles):
+def write_articles_to_files():
     """
     Logs the provided articles to text files in a specified logging folder.
     This function creates a logging folder if it does not exist and writes the
@@ -208,52 +206,65 @@ def log(articles):
 #     datestring="2024-10-31T16:41:22",
 #     generate_summaries=True
 # )
-
-
 # exit()
 
+# Print warnings
+if bool(settings["dry_run"]):
+    print("Warning: Dry run mode enabled. No data will be saved.")
+    
+if bool(settings["load_new_articles"]):
+    print("Warning: New articles will be loaded and added to the feed.")
+
+# Parameters
 date = get_date()
+print(f"Fetching articles for date: {date}")
 
 # Load the collection from the file using pickle
-if os.path.exists('articles.pkl'):
-    with open('articles.pkl', 'rb') as file:
+print("Loading articles from pickle")
+if os.path.exists(settings["data_file"]):
+    with open(settings["data_file"], 'rb') as file:
         articles = pickle.load(file)
 else:
     articles = []
+print(f"Loaded {len(articles)} articles.")
 
 # load new articles
-if bool(settings["load_new_articles"]):
+if bool(settings["load_new_articles"]) or bool(settings["dry_run"]):
+    print("Starting article download")
+    
+    # Get the new articles
     articles_to_load = return_articles(date, generate_summaries=settings["generate_summaries"], max_articles=settings["max_articles"])
+    
+    # For each article, remove it from the collection if it already exists, then add the new article
     for article in articles_to_load:
-        remove_article_by_id(articles, article.article_id)
+        remove_article_by_id(article.article_id)
         articles.append(article)
     
-# remove old articles over the max size limit
-trim_article_collection(articles)
+# remove old articles to get back below the max_items_to_keep setting
+print("Trimming article collection")
+trim_article_collection()
+print(f"Collection size: {len(articles)}")
 
 # persist articles to disk
-with open("articles.pkl", "wb") as f:
-    pickle.dump(articles, f)
+if not bool(settings["dry_run"]):
+    print("Saving articles to pickle")
+    with open(settings["data_file"], "wb") as f:
+        pickle.dump(articles, f)
+    print("Articles saved.")
+else:
+    print("Dry run mode enabled. Articles not saved.")
 
-print(len(articles))
-log(articles)
+print("Logging articles to text files")
+write_articles_to_files()
 
+# Rss feed
+print("Creating RSS feed")
 rss = RssInterface()
 rss.append_articles_to_feed(articles)
-rss.save_feed()
+if not bool(settings["dry_run"]):
+    print("Saving RSS feed")
+    rss.save_feed()
+else:
+    print("Dry run mode enabled. RSS feed not saved.")
     
-    
-# python3 -m http.server
-# http://localhost:8000/feed.xml
-# lsof -i :8000
-# kill 0
-
-
-    
-    # TODO: RSS output or text output
-    # TODO: improve comment summary to return the top 3 comments, rather than a summary. Or summaries of the top three comments?
-    # TODO: handle Show|Ask|Launch HN: - don't need article plus comments, grab the OP post
-    # TODO: error handling - article.error_raise
-    # TODO: settings summary - downloading 30 articles, 3 comments
-    # TODO: dry-run mode
-    # TODO: move pickle file to data folder
+print("Done")

@@ -94,12 +94,12 @@ Article(
         comments_soup = self.fetch_soup(self.comment_link)
         
         comment_position = 1
-        # comment_tables = comments_soup.find("table", attrs={"class": "comment-tree"}).find_all("table", attrs={"border": "0"}).find("td", attrs={"indent": "0"}).parent("table")
         comment_items = comments_soup.find_all("td", attrs={"indent": "0"})
         for table in comment_items:            
             tr = table.parent
             
-            comment_text = tr.find("div", attrs={"class": "commtext c00"}).text
+            comment_text = tr.find("div", attrs={"class": "commtext c00"}).get_text() # Get the comment text
+            # comment_text = tr.find("div", attrs={"class": "commtext c00"}).decode_contents() # Get the HTML content instead of just the text
             self.comments.append(Article.Comment(comment_position, comment_text))
             
             if comment_position >= settings["max_comments"]:

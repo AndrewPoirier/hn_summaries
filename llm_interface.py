@@ -10,7 +10,6 @@ tokenizer = BartTokenizer.from_pretrained(settings["pretrained_model_name_or_pat
 model = BartForConditionalGeneration.from_pretrained(settings["pretrained_model_name_or_path"])
 
 def summarize(text):
-    # TODO: error handling
     
     # prompt_text = f"{settings['prompt']} ### {text}"˚
     prompt_text = f"{settings['prompt']} End of prompt. Text begins: {text}"

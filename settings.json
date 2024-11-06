@@ -1,9 +1,12 @@
 {
+    "dry_run": false,
+
     "load_new_articles": true,
     "generate_summaries": true,
     "max_articles": 30,
     "max_items_to_keep": 500,
     "max_comments": 3,
+    "data_file": "data/articles.pkl",
     "logging_folder": "logs/",
     "articles_url": "https://news.ycombinator.com/front?day=",
     "comment_url": "https://news.ycombinator.com/item?id="

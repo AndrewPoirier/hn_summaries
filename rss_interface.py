@@ -48,10 +48,18 @@ class RssInterface:
             if hasattr(article, 'comments') and article.comments:
                 description += f"<h2>Top Comments</h2>"
                 description+= f"<a href='{article.comment_link}'>Comment Link</a>"
+                
+                # Add text comments
                 description += "<p><ol>"
                 for comment in article.comments:
                     description += f"<li>{comment.text}</li>"
                 description += "</ol></p>]]"
+                
+                # Add html comments
+                # description += ""
+                # for comment in article.comments:
+                #     description += f"<div>{comment.text}</div>"
+                # description += "]]"
             else:
                 description += f"<h2>Comment Summary</h2>"
                 description+= f"<a href='{article.comment_link}'>Comment Link</a>"
