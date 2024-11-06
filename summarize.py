@@ -208,12 +208,12 @@ def write_articles_to_files():
 # )
 # exit()
 
-# Print warnings
+# Print warnings - dry_run takes preference over load_new_articles
 if bool(settings["dry_run"]):
-    print("Warning: Dry run mode enabled. No data will be saved.")
-    
-if bool(settings["load_new_articles"]):
-    print("Warning: New articles will be loaded and added to the feed.")
+    print("\nWarning: Dry run mode enabled. No data will be saved.\n")
+else:
+    if bool(settings["load_new_articles"]):
+        print("\nWarning: New articles will be loaded and added to the feed.\n")
 
 # Parameters
 date = get_date()
