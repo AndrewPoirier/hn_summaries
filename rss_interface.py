@@ -47,7 +47,6 @@ class RssInterface:
             # handle comments - early items had no comments, later items have comments list
             if hasattr(article, 'comments') and article.comments:
                 description += f"<h2>Top Comments</h2>"
-                description+= f"<a href='{article.comment_link}'>Comment Link</a>"
                 
                 # Add text comments
                 description += "<p><ol>"
@@ -73,7 +72,7 @@ class RssInterface:
             
             self.feed.add_item(
                 title=f"{article.rank}. {article.title}",
-                link=article.article_link,
+                link=article.comment_link,
                 description=description,
                 unique_id=article.comment_link,
                 unique_id_is_permalink=True, # not working
