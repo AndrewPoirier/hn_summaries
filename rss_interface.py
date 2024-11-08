@@ -40,13 +40,12 @@ class RssInterface:
             description = f"""
 <![CDATA[
 <p>{article.score} points by {article.user} on {article.datestring} </p>
-<h2>Article Summary</h2>
 <p>{article.generated_article_summary}</p>
             """
             
             # handle comments - early items had no comments, later items have comments list
             if hasattr(article, 'comments') and article.comments:
-                description += f"<h2>Top Comments</h2>"
+                description += f"<p>Top Comments</p>"
                 
                 # Add text comments
                 description += "<p><ol>"
@@ -59,7 +58,7 @@ class RssInterface:
                 # for comment in article.comments:
                 #     description += f"<div>{comment.text}</div>"
                 # description += "]]"
-            description += "]]"
+            description += "]]>"
             
             
             # Convert rank to seconds and subtract from datestring so RSS items show in order
