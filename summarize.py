@@ -4,11 +4,16 @@ from readability import Document
 from datetime import datetime, timedelta
 import json
 import pickle
+import sys
+import os
 
 from llm_interface import summarize
 from rss_interface import RssInterface
 from article import Article
-import os
+
+# Adjust standard out and error since we're not in control over the text we output
+sys.stdout.reconfigure(encoding='utf-8')
+sys.stderr.reconfigure(encoding='utf-8')
 
 # Load settings from settings.json
 with open('settings.json', 'r') as f:
@@ -216,10 +221,10 @@ def write_articles_to_files():
 
 # Print warnings - dry_run takes preference over load_new_articles
 if bool(settings["dry_run"]):
-    print("\nWarning: Dry run mode enabled. No data will be saved.\n")
+    print("Warning: Dry run mode enabled. No data will be saved.\n")
 else:
     if bool(settings["load_new_articles"]):
-        print("\nWarning: New articles will be loaded and added to the feed.\n")
+        print("Warning: New articles will be loaded and added to the feed.\n")
 
 # Parameters
 date = get_date()
