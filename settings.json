@@ -3,11 +3,11 @@
 
     "load_new_articles": true,
     "generate_summaries": true,
-    "max_articles": 30,
-    "max_items_to_keep": 500,
+    "max_articles": 50,
+    "max_items_to_keep": 1000,
     "max_comments": 3,
     "data_file": "data/articles.pkl",
     "logging_folder": "logs/",
-    "articles_url": "https://news.ycombinator.com/front?day=",
+    "articles_url": "https://news.ycombinator.com/front?day={date}&p={page}",
     "comment_url": "https://news.ycombinator.com/item?id="
 }

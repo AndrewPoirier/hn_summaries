@@ -45,46 +45,51 @@ def return_articles(date, generate_summaries=True, max_articles=int(settings["ma
     
     articles = [] # return collection
     article_count = 0 #iterator to limit to max_articles
+    article_page = 1
     
-    url = settings["articles_url"] + date #build URL
-    
-    soup = fetch_soup(url) #get article page and convert to soup
-    
-    # Find all <tr> elements with class "athing"
-    athing_rows = soup.find_all("tr", attrs={"class": "athing"})
+    while article_count < max_articles:
+        url = settings["articles_url"].format(date=date, page=article_page)
 
-    # loop through each article and parse it into an Article object
-    for row in athing_rows:     
-        # parse article from row   
-        rank = row.find("span", attrs={"class": "rank"}).text.strip().replace(".", "")
-        title = row.find("span", attrs={"class": "titleline"}).find("a").text.strip()
-        article_link = row.find("span", attrs={"class": "titleline"}).find("a")["href"]
-        article_id = row["id"]
+        soup = fetch_soup(url) #get article page and convert to soup
         
-        # the following items are in the next TR 
-        score = row.next_sibling.find("span", attrs={"class": "score"}).text.strip()
-        user = row.next_sibling.find("a", attrs={"class": "hnuser"}).text.strip()
-        datestring = row.next_sibling.find("span", attrs={"class": "age"})["title"].split(" ")[0]
+        # Find all <tr> elements with class "athing"
+        athing_rows = soup.find_all("tr", attrs={"class": "athing"})
+
+        # loop through each article and parse it into an Article object
+        for row in athing_rows:     
+            # parse article from row   
+            rank = row.find("span", attrs={"class": "rank"}).text.strip().replace(".", "")
+            title = row.find("span", attrs={"class": "titleline"}).find("a").text.strip()
+            article_link = row.find("span", attrs={"class": "titleline"}).find("a")["href"]
+            article_id = row["id"]
+            
+            # the following items are in the next TR 
+            score = row.next_sibling.find("span", attrs={"class": "score"}).text.strip()
+            user = row.next_sibling.find("a", attrs={"class": "hnuser"}).text.strip()
+            datestring = row.next_sibling.find("span", attrs={"class": "age"})["title"].split(" ")[0]
+            
+            # print the current item to the console
+            print(f"{rank}. {title}")
+            
+            # create the Article class, which will do all the heavy-lifting
+            article = Article(rank, title, article_link, score, user, article_id, datestring, generate_summaries)
+            
+            # append the Article to the return collection
+            articles.append(article)
+            
+            # increment the iterator
+            article_count += 1
+            
+            # print the Article out to the console
+            print(article)
+            
+            # check iterator for max_articles
+            if article_count >= max_articles:
+                break
         
-        # print the current item to the console
-        print(f"{rank}. {title}")
-        
-        # create the Article class, which will do all the heavy-lifting
-        article = Article(rank, title, article_link, score, user, article_id, datestring, generate_summaries)
-        
-        # append the Article to the return collection
-        articles.append(article)
-        
-        # increment the iterator
-        article_count += 1
-        
-        # print the Article out to the console
-        print(article)
-        
-        # check iterator for max_articles
-        if article_count >= max_articles:
-            break
-    
+        # Iterate to the next page
+        article_page += 1
+
     return articles
 
 def get_date():
