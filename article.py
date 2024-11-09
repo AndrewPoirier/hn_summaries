@@ -127,8 +127,11 @@ Article(
         for table in comment_items:            
             tr = table.parent
             
-            comment_text = tr.find("div", attrs={"class": "commtext c00"}).get_text() # Get the comment text
-            # comment_text = tr.find("div", attrs={"class": "commtext c00"}).decode_contents() # Get the HTML content instead of just the text
+            # comment_text = tr.find("div", attrs={"class": "commtext c00"}).get_text() # Get the comment text
+
+            comment = tr.find("div", attrs={"class": "commtext c00"})
+            comment_text = comment.decode_contents() if comment else "" # Get the HTML content instead of just the text
+            
             self.comments.append(Article.Comment(comment_position, comment_text))
             
             if comment_position >= settings["max_comments"]:

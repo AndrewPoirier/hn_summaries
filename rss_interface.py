@@ -48,16 +48,17 @@ class RssInterface:
                 description += f"<p>Top Comments</p>"
                 
                 # Add text comments
-                description += "<p><ol>"
-                for comment in article.comments:
-                    description += f"<li>{comment.text}</li>"
-                description += "</ol></p>"
+                # description += "<p><ol>"
+                # for comment in article.comments:
+                #     description += f"<li>{comment.text}</li>"
+                # description += "</ol></p>"
                 
                 # Add html comments
-                # description += ""
-                # for comment in article.comments:
-                #     description += f"<div>{comment.text}</div>"
-                # description += "]]"
+                description += ""
+                for comment in article.comments:
+                    description += f"<div>{comment.text}</div>"
+                    description += "<hr />"
+                    
             description += "]]>"
             
             
