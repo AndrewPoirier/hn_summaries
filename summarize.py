@@ -45,7 +45,7 @@ def return_articles(date, generate_summaries=True, max_articles=int(settings["ma
     
     articles = [] # return collection
     article_count = 0 #iterator to limit to max_articles
-    article_page = 2
+    article_page = 1
     
     while article_count < max_articles:
         url = settings["articles_url"].format(date=date, page=article_page)
