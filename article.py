@@ -25,6 +25,7 @@ class Article:
         self.error_msg = None
         self.comment_link = settings["comment_url"] + self.article_id
         self.generated_article_summary = None 
+        self.top_text = None
         self.comments = []
         self.has_comments = False
         
@@ -58,6 +59,9 @@ Article(
     datestring={self.datestring}, 
     generated_article_summary={self.generated_article_summary},
 """
+        if self.top_text:
+            output += f"    top_text:{self.top_text}\n"
+
         if self.has_comments:
             output += f"    Comments: {self.comments},\n"
             
@@ -67,8 +71,6 @@ Article(
     
     def retrieve_llm_article_summary(self):
         generated_article_summary = ""
-        
-        # TODO: if Show|Ask|Launch HN....
         
         # Fetch the article content
         article_soup = self.fetch_soup(self.article_link)
@@ -114,6 +116,11 @@ Article(
     def retrieve_comments(self):
         # Fetch the comments page
         comments_soup = self.fetch_soup(self.comment_link)
+
+        # Capture OP comments in Show, Ask, Launch HNs
+        top_text = comments_soup.find("div", attrs={"class": "toptext"})
+        if top_text:
+            self.top_text = top_text.contents
         
         comment_position = 1
         comment_items = comments_soup.find_all("td", attrs={"indent": "0"})

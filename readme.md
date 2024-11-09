@@ -11,7 +11,7 @@
 - The number of articles to be downloaded and summarized. Max 30.
 ### max_items_to_keep (int)
 - Maximum number of items that should be kept in the pickle and RSS feed.
-### max_comments
+### max_comments (int)
 - The maximum number of comments to be retrieved.
 ### override_date (YYYY-MM-DD) (optional)
 - `"override_date": "2024-11-01"`

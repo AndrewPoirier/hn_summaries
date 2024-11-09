@@ -51,7 +51,7 @@ class RssInterface:
                 description += "<p><ol>"
                 for comment in article.comments:
                     description += f"<li>{comment.text}</li>"
-                description += "</ol></p>]]"
+                description += "</ol></p>"
                 
                 # Add html comments
                 # description += ""
