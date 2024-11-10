@@ -1,3 +1,4 @@
 {
-    "prompt": "Summarize this website into one concise paragraph that captures the main points. I know it's a website so just tell me the article text or the purpose of the website. Don't tell me it's a website."
+    "prompt": "Summarize this website into one concise paragraph that captures the main points. I know it's a website so just tell me the article text or the purpose of the website. Don't tell me it's a website.",
+    "model": "gpt-4o-mini"
 }

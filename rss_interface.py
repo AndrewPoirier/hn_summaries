@@ -43,21 +43,20 @@ class RssInterface:
 <p>{article.generated_article_summary}</p>
             """
             
-            # handle comments - early items had no comments, later items have comments list
             if hasattr(article, 'comments') and article.comments:
                 description += f"<p>Top Comments</p>"
                 
                 # Add text comments
-                # description += "<p><ol>"
-                # for comment in article.comments:
-                #     description += f"<li>{comment.text}</li>"
-                # description += "</ol></p>"
+                description += "<p><ol>"
+                for comment in article.comments:
+                    description += f"<li>{comment.text}</li>"
+                description += "</ol></p>"
                 
                 # Add html comments
-                description += ""
-                for comment in article.comments:
-                    description += f"<div>{comment.text}</div>"
-                    description += "<br /><hr /><br />"
+                # description += ""
+                # for comment in article.comments:
+                #     description += f"<div>{comment.text}</div>"
+                #     description += "<br /><hr /><br />"
                     
             description += "]]>"
             

@@ -120,7 +120,7 @@ Article(
         # Capture OP comments in Show, Ask, Launch HNs
         top_text = comments_soup.find("div", attrs={"class": "toptext"})
         if top_text:
-            self.top_text = top_text.contents
+            self.top_text = top_text.get_text()
         
         comment_position = 1
         comment_items = comments_soup.find_all("td", attrs={"indent": "0"})
@@ -130,8 +130,9 @@ Article(
             # comment_text = tr.find("div", attrs={"class": "commtext c00"}).get_text() # Get the comment text
 
             comment = tr.find("div", attrs={"class": "commtext c00"})
-            comment_text = comment.decode_contents() if comment else "" # Get the HTML content instead of just the text
-            
+            # comment_text = comment.decode_contents() if comment else "" # Get the HTML content instead of just the text
+            comment_text = comment.get_text() if comment else "" # Get the text content instead of the html
+
             self.comments.append(Article.Comment(comment_position, comment_text))
             
             if comment_position >= settings["max_comments"]:

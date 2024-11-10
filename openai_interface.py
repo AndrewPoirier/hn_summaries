@@ -15,7 +15,7 @@ client.api_key = os.getenv("OPENAI_API_KEY")
 def summarize(url):
     # Use the OpenAI API to summarize the text
     completion = client.chat.completions.create(
-        model="gpt-3.5-turbo",  # You can use "gpt-4" if available
+        model = settings["model"],
         messages=[
             {"role": "system", "content": settings['prompt']},
             {"role": "user", "content": f"Summarize the following website: {url}"}
