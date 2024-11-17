@@ -41,6 +41,7 @@ class RssInterface:
 <![CDATA[
 <p>{article.score} points by {article.user} on {article.datestring} </p>
 <p>{article.generated_article_summary}</p>
+<p><a href="{article.comment_link}">Comment Link</a></p>
             """
             
             if hasattr(article, 'comments') and article.comments:
@@ -71,7 +72,7 @@ class RssInterface:
             
             self.feed.add_item(
                 title=f"{article.rank}. {article.title}",
-                link=article.comment_link,
+                link=article.article_link,
                 description=description,
                 unique_id=article.comment_link,
                 unique_id_is_permalink=True, # not working
@@ -87,37 +88,3 @@ class RssInterface:
         # Save the updated feed to file
         with open(feed_file_path, "w", encoding="utf-8") as feed_file:
             self.feed.write(feed_file, 'utf-8')
-            
-            
-    # def parse_pretty_txt():
-    #     articles = []
-    #     rank = 1
-    #     with open(settings["logging_folder"] + "pretty.txt", "r") as file:
-    #         lines = file.readlines()
-    #         for i in range(0, len(lines), 10):  # Each article block is 8 lines long
-    #             title = lines[i].split(": ")[1].strip()
-    #             article_link = lines[i+1].split(": ")[1].strip()
-    #             comment_link = lines[i+2].split(": ")[1].strip()
-    #             score = lines[i+3].split(": ")[1].strip().split()[0]
-    #             user = lines[i+4].split(": ")[1].strip()
-    #             date = lines[i+5].split(": ")[1].strip()
-    #             article = Article(rank=rank, title=title, article_link=article_link, score=score, user=user, article_id="0", datestring=date, generate_summaries=False)
-    #             article.comment_link = comment_link
-    #             article.generated_article_summary = lines[i+6].split(": ")[1].strip()
-    #             article.generated_comment_summary = lines[i+7].split(": ")[1].strip()
-            
-    #             articles.append(article)
-    #             rank += 1
-    #     return articles
-
-
-# articles = parse_pretty_txt()
-# print(len(articles))
-
-
-# Path to your feed file
-# feed_file_path = rss_settings["feed_file_path"]
-
-# Create or load the feed
-# feed = create_or_load_feed()
-
