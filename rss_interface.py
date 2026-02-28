@@ -38,7 +38,6 @@ class RssInterface:
         for article in articles:
         
             description = f"""
-<![CDATA[
 <p>{article.score} points by {article.user} on {article.datestring} </p>
 <p>{article.generated_article_summary}</p>
 <p><a href="{article.comment_link}">Comment Link</a></p>
@@ -58,8 +57,6 @@ class RssInterface:
                 # for comment in article.comments:
                 #     description += f"<div>{comment.text}</div>"
                 #     description += "<br /><hr /><br />"
-                    
-            description += "]]>"
             
             
             # Convert rank to seconds and subtract from datestring so RSS items show in order
@@ -77,7 +74,7 @@ class RssInterface:
                 unique_id=article.comment_link,
                 unique_id_is_permalink=True, # not working
                 extra_kwargs={
-                    "content:encoded": f"<![CDATA[{description}]]>"
+                    "content:encoded": description
                 },
                 pubdate=date_obj - time_increment
             )
