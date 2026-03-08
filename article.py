@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from readability import Document
 import lxml.html.clean
 import json
+import time
 
 # from llm_interface import summarize
 from openai_interface import summarize
@@ -10,6 +11,10 @@ from openai_interface import summarize
 # Load settings from settings.json
 with open("settings.json", "r") as f:
     settings = json.load(f)
+
+RETRYABLE_STATUS_CODES = {429, 500, 502, 503, 504}
+MAX_RETRIES = 5
+RETRY_BACKOFF_BASE = 2  # seconds; delay = base ** attempt
 
 class Article:
     def __init__(self, rank, title, article_link, score, user, article_id, datestring, generate_summaries):
@@ -141,16 +146,27 @@ Article(
             comment_position += 1
             
     def fetch_soup(self, url):
-        soup = None
-        
-        # Fetch the HTML content
-        try:
-            response = requests.get(url, timeout=30)
-            response.raise_for_status()  # Raise an error for bad status codes
-            # Parse the HTML content
-            soup = BeautifulSoup(response.content, 'html.parser')
-        except requests.exceptions.RequestException as e:
-            self.error_raised = True
-            self.error_msg = str(e)
-            
-        return soup
+        for attempt in range(MAX_RETRIES):
+            try:
+                response = requests.get(url, timeout=30)
+                response.raise_for_status()
+                return BeautifulSoup(response.content, 'html.parser')
+            except requests.exceptions.HTTPError as e:
+                status = e.response.status_code if e.response is not None else None
+                if status in RETRYABLE_STATUS_CODES and attempt < MAX_RETRIES - 1:
+                    delay = RETRY_BACKOFF_BASE ** attempt
+                    print(f"HTTP {status} from {url}, retrying in {delay}s (attempt {attempt + 1}/{MAX_RETRIES})")
+                    time.sleep(delay)
+                else:
+                    self.error_raise = True
+                    self.error_msg = str(e)
+                    return None
+            except requests.exceptions.RequestException as e:
+                if attempt < MAX_RETRIES - 1:
+                    delay = RETRY_BACKOFF_BASE ** attempt
+                    print(f"Request error for {url}: {e}, retrying in {delay}s (attempt {attempt + 1}/{MAX_RETRIES})")
+                    time.sleep(delay)
+                else:
+                    self.error_raise = True
+                    self.error_msg = str(e)
+                    return None

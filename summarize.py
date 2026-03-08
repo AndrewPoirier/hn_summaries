@@ -6,6 +6,7 @@ import json
 import pickle
 import sys
 import os
+import time
 
 from llm_interface import summarize
 from rss_interface import RssInterface
@@ -19,18 +20,31 @@ sys.stderr.reconfigure(encoding='utf-8')
 with open('settings.json', 'r') as f:
     settings = json.load(f)
 
+RETRYABLE_STATUS_CODES = {429, 500, 502, 503, 504}
+MAX_RETRIES = 5
+RETRY_BACKOFF_BASE = 2  # seconds; delay = base ** attempt
+
 def fetch_soup(url):
-    soup = None
-    
-    try:
-        response = requests.get(url)
-        response.raise_for_status()  # Raise an error for bad status codes
-        
-        soup = BeautifulSoup(response.content, 'html.parser')
-    except requests.exceptions.RequestException as e:
-        raise RuntimeError(f"Error fetching articles from {url}: {e}")
-        
-    return soup
+    for attempt in range(MAX_RETRIES):
+        try:
+            response = requests.get(url, timeout=30)
+            response.raise_for_status()
+            return BeautifulSoup(response.content, 'html.parser')
+        except requests.exceptions.HTTPError as e:
+            status = e.response.status_code if e.response is not None else None
+            if status in RETRYABLE_STATUS_CODES and attempt < MAX_RETRIES - 1:
+                delay = RETRY_BACKOFF_BASE ** attempt
+                print(f"HTTP {status} from {url}, retrying in {delay}s (attempt {attempt + 1}/{MAX_RETRIES})")
+                time.sleep(delay)
+            else:
+                raise RuntimeError(f"Error fetching articles from {url}: {e}")
+        except requests.exceptions.RequestException as e:
+            if attempt < MAX_RETRIES - 1:
+                delay = RETRY_BACKOFF_BASE ** attempt
+                print(f"Request error for {url}: {e}, retrying in {delay}s (attempt {attempt + 1}/{MAX_RETRIES})")
+                time.sleep(delay)
+            else:
+                raise RuntimeError(f"Error fetching articles from {url}: {e}")
 
 def return_articles(date, generate_summaries=True, max_articles=int(settings["max_articles"])):
     """
