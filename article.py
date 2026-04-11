@@ -15,6 +15,7 @@ with open("settings.json", "r") as f:
 RETRYABLE_STATUS_CODES = {429, 500, 502, 503, 504}
 MAX_RETRIES = 5
 RETRY_BACKOFF_BASE = 2  # seconds; delay = base ** attempt
+HN_REQUEST_DELAY_SECONDS = settings.get("hn_request_delay_seconds", 0.75)
 
 class Article:
     def __init__(self, rank, title, article_link, score, user, article_id, datestring, generate_summaries):
@@ -122,6 +123,13 @@ Article(
         # Fetch the comments page
         comments_soup = self.fetch_soup(self.comment_link)
 
+        # If retries were exhausted (e.g., repeated 429s), keep the article and skip comments.
+        if comments_soup is None:
+            if not self.error_msg:
+                self.error_raise = True
+                self.error_msg = f"Could not retrieve comments from {self.comment_link}"
+            return
+
         # Capture OP comments in Show, Ask, Launch HNs
         top_text = comments_soup.find("div", attrs={"class": "toptext"})
         if top_text:
@@ -148,6 +156,8 @@ Article(
     def fetch_soup(self, url):
         for attempt in range(MAX_RETRIES):
             try:
+                if "news.ycombinator.com" in url and HN_REQUEST_DELAY_SECONDS > 0:
+                    time.sleep(HN_REQUEST_DELAY_SECONDS)
                 response = requests.get(url, timeout=30)
                 response.raise_for_status()
                 return BeautifulSoup(response.content, 'html.parser')

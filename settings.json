@@ -9,5 +9,6 @@
     "data_file": "data/articles.pkl",
     "logging_folder": "logs/",
     "articles_url": "https://news.ycombinator.com/front?day={date}&p={page}",
-    "comment_url": "https://news.ycombinator.com/item?id="
+    "comment_url": "https://news.ycombinator.com/item?id=",
+    "hn_request_delay_seconds": 0.75
 }

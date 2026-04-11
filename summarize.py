@@ -23,10 +23,13 @@ with open('settings.json', 'r') as f:
 RETRYABLE_STATUS_CODES = {429, 500, 502, 503, 504}
 MAX_RETRIES = 5
 RETRY_BACKOFF_BASE = 2  # seconds; delay = base ** attempt
+HN_REQUEST_DELAY_SECONDS = settings.get("hn_request_delay_seconds", 0.75)
 
 def fetch_soup(url):
     for attempt in range(MAX_RETRIES):
         try:
+            if "news.ycombinator.com" in url and HN_REQUEST_DELAY_SECONDS > 0:
+                time.sleep(HN_REQUEST_DELAY_SECONDS)
             response = requests.get(url, timeout=30)
             response.raise_for_status()
             return BeautifulSoup(response.content, 'html.parser')
