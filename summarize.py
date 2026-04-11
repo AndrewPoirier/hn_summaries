@@ -1,14 +1,13 @@
 import requests
 from bs4 import BeautifulSoup
-from readability import Document
 from datetime import datetime, timedelta
 import json
 import pickle
 import sys
 import os
 import time
+import random
 
-from llm_interface import summarize
 from rss_interface import RssInterface
 from article import Article
 
@@ -24,30 +23,70 @@ RETRYABLE_STATUS_CODES = {429, 500, 502, 503, 504}
 MAX_RETRIES = 5
 RETRY_BACKOFF_BASE = 2  # seconds; delay = base ** attempt
 HN_REQUEST_DELAY_SECONDS = settings.get("hn_request_delay_seconds", 0.75)
+REQUEST_USER_AGENT = settings.get("request_user_agent", "hn_summaries/1.0")
+REQUEST_TIMEOUT_SECONDS = settings.get("request_timeout_seconds", 45)
+CACHE_TTL_SECONDS = settings.get("request_cache_ttl_seconds", 3600)
+COOLDOWN_TRIGGER_429S = settings.get("cooldown_trigger_429s", 2)
+COOLDOWN_SECONDS = settings.get("cooldown_seconds", 120)
+
+_SOUP_CACHE = {}
+_CONSECUTIVE_429_COUNT = 0
+
+
+def _retry_delay_seconds(response, attempt):
+    if response is not None:
+        retry_after = response.headers.get("Retry-After")
+        if retry_after:
+            try:
+                return max(0, int(retry_after))
+            except ValueError:
+                pass
+    return RETRY_BACKOFF_BASE ** attempt
 
 def fetch_soup(url):
+    global _CONSECUTIVE_429_COUNT
+
+    cache_entry = _SOUP_CACHE.get(url)
+    now = time.time()
+    if cache_entry and now - cache_entry["timestamp"] <= CACHE_TTL_SECONDS:
+        return cache_entry["soup"]
+
     for attempt in range(MAX_RETRIES):
         try:
             if "news.ycombinator.com" in url and HN_REQUEST_DELAY_SECONDS > 0:
-                time.sleep(HN_REQUEST_DELAY_SECONDS)
-            response = requests.get(url, timeout=30)
+                time.sleep(HN_REQUEST_DELAY_SECONDS + random.uniform(0, 0.35))
+            response = requests.get(url, timeout=REQUEST_TIMEOUT_SECONDS, headers={"User-Agent": REQUEST_USER_AGENT})
             response.raise_for_status()
-            return BeautifulSoup(response.content, 'html.parser')
+            soup = BeautifulSoup(response.content, 'html.parser')
+            _SOUP_CACHE[url] = {
+                "timestamp": time.time(),
+                "soup": soup,
+            }
+            _CONSECUTIVE_429_COUNT = 0
+            return soup
         except requests.exceptions.HTTPError as e:
             status = e.response.status_code if e.response is not None else None
+            if status == 429:
+                _CONSECUTIVE_429_COUNT += 1
+                if _CONSECUTIVE_429_COUNT >= COOLDOWN_TRIGGER_429S:
+                    print(f"Consecutive 429 threshold reached ({_CONSECUTIVE_429_COUNT}). Cooling down for {COOLDOWN_SECONDS}s.")
+                    time.sleep(COOLDOWN_SECONDS)
+                    _CONSECUTIVE_429_COUNT = 0
             if status in RETRYABLE_STATUS_CODES and attempt < MAX_RETRIES - 1:
-                delay = RETRY_BACKOFF_BASE ** attempt
+                delay = _retry_delay_seconds(e.response, attempt)
                 print(f"HTTP {status} from {url}, retrying in {delay}s (attempt {attempt + 1}/{MAX_RETRIES})")
                 time.sleep(delay)
             else:
-                raise RuntimeError(f"Error fetching articles from {url}: {e}")
+                print(f"Error fetching articles from {url}: {e}")
+                return None
         except requests.exceptions.RequestException as e:
             if attempt < MAX_RETRIES - 1:
                 delay = RETRY_BACKOFF_BASE ** attempt
                 print(f"Request error for {url}: {e}, retrying in {delay}s (attempt {attempt + 1}/{MAX_RETRIES})")
                 time.sleep(delay)
             else:
-                raise RuntimeError(f"Error fetching articles from {url}: {e}")
+                print(f"Error fetching articles from {url}: {e}")
+                return None
 
 def return_articles(date, generate_summaries=True, max_articles=int(settings["max_articles"])):
     """
@@ -68,9 +107,15 @@ def return_articles(date, generate_summaries=True, max_articles=int(settings["ma
         url = settings["articles_url"].format(date=date, page=article_page)
 
         soup = fetch_soup(url) #get article page and convert to soup
+        if soup is None:
+            print(f"Stopping article fetch after repeated failures on page {article_page}.")
+            break
         
         # Find all <tr> elements with class "athing"
         athing_rows = soup.find_all("tr", attrs={"class": "athing"})
+        if not athing_rows:
+            print(f"No articles found on page {article_page}; stopping pagination.")
+            break
 
         # loop through each article and parse it into an Article object
         for row in athing_rows:     

@@ -1,9 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
-from readability import Document
 import lxml.html.clean
 import json
 import time
+import random
+import importlib
 
 # from llm_interface import summarize
 from openai_interface import summarize
@@ -16,6 +17,25 @@ RETRYABLE_STATUS_CODES = {429, 500, 502, 503, 504}
 MAX_RETRIES = 5
 RETRY_BACKOFF_BASE = 2  # seconds; delay = base ** attempt
 HN_REQUEST_DELAY_SECONDS = settings.get("hn_request_delay_seconds", 0.75)
+REQUEST_USER_AGENT = settings.get("request_user_agent", "hn_summaries/1.0")
+REQUEST_TIMEOUT_SECONDS = settings.get("request_timeout_seconds", 45)
+CACHE_TTL_SECONDS = settings.get("request_cache_ttl_seconds", 3600)
+COOLDOWN_TRIGGER_429S = settings.get("cooldown_trigger_429s", 2)
+COOLDOWN_SECONDS = settings.get("cooldown_seconds", 120)
+
+_SOUP_CACHE = {}
+_CONSECUTIVE_429_COUNT = 0
+
+
+def _retry_delay_seconds(response, attempt):
+    if response is not None:
+        retry_after = response.headers.get("Retry-After")
+        if retry_after:
+            try:
+                return max(0, int(retry_after))
+            except ValueError:
+                pass
+    return RETRY_BACKOFF_BASE ** attempt
 
 class Article:
     def __init__(self, rank, title, article_link, score, user, article_id, datestring, generate_summaries):
@@ -77,6 +97,13 @@ Article(
     
     def retrieve_llm_article_summary(self):
         generated_article_summary = ""
+
+        try:
+            Document = importlib.import_module("readability").Document
+        except ImportError:
+            self.error_raise = True
+            self.error_msg = "readability package is not installed"
+            return
         
         # Fetch the article content
         article_soup = self.fetch_soup(self.article_link)
@@ -154,17 +181,36 @@ Article(
             comment_position += 1
             
     def fetch_soup(self, url):
+        global _CONSECUTIVE_429_COUNT
+
+        cache_entry = _SOUP_CACHE.get(url)
+        now = time.time()
+        if cache_entry and now - cache_entry["timestamp"] <= CACHE_TTL_SECONDS:
+            return cache_entry["soup"]
+
         for attempt in range(MAX_RETRIES):
             try:
                 if "news.ycombinator.com" in url and HN_REQUEST_DELAY_SECONDS > 0:
-                    time.sleep(HN_REQUEST_DELAY_SECONDS)
-                response = requests.get(url, timeout=30)
+                    time.sleep(HN_REQUEST_DELAY_SECONDS + random.uniform(0, 0.35))
+                response = requests.get(url, timeout=REQUEST_TIMEOUT_SECONDS, headers={"User-Agent": REQUEST_USER_AGENT})
                 response.raise_for_status()
-                return BeautifulSoup(response.content, 'html.parser')
+                soup = BeautifulSoup(response.content, 'html.parser')
+                _SOUP_CACHE[url] = {
+                    "timestamp": time.time(),
+                    "soup": soup,
+                }
+                _CONSECUTIVE_429_COUNT = 0
+                return soup
             except requests.exceptions.HTTPError as e:
                 status = e.response.status_code if e.response is not None else None
+                if status == 429:
+                    _CONSECUTIVE_429_COUNT += 1
+                    if _CONSECUTIVE_429_COUNT >= COOLDOWN_TRIGGER_429S:
+                        print(f"Consecutive 429 threshold reached ({_CONSECUTIVE_429_COUNT}). Cooling down for {COOLDOWN_SECONDS}s.")
+                        time.sleep(COOLDOWN_SECONDS)
+                        _CONSECUTIVE_429_COUNT = 0
                 if status in RETRYABLE_STATUS_CODES and attempt < MAX_RETRIES - 1:
-                    delay = RETRY_BACKOFF_BASE ** attempt
+                    delay = _retry_delay_seconds(e.response, attempt)
                     print(f"HTTP {status} from {url}, retrying in {delay}s (attempt {attempt + 1}/{MAX_RETRIES})")
                     time.sleep(delay)
                 else:
