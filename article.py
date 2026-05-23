@@ -1,6 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-import lxml.html.clean
 import json
 import time
 import importlib
@@ -53,7 +52,6 @@ class Article:
         self.has_comments = False
         
         if self.generate_summaries:
-            # self.retrieve_llm_article_summary()
             self.retrieve_openai_article_summary()
             self.retrieve_comments()
         
@@ -92,50 +90,32 @@ Article(
         output += f"    error_msg={self.error_msg})"
         return output
     
-    def retrieve_llm_article_summary(self):
-        generated_article_summary = ""
-
-        try:
-            Document = importlib.import_module("readability").Document
-        except ImportError:
-            self.error_raise = True
-            self.error_msg = "readability package is not installed"
-            return
-        
-        # Fetch the article content
+    def retrieve_openai_article_summary(self):
+        # Fetch the article content so we can summarize the actual page text
         article_soup = self.fetch_soup(self.article_link)
-        
-        # Extract the page contents, clean out the non-content, and extract the text
+
         if article_soup:
-            # doc = Document(article_soup)
-            cleaner = lxml.html.clean.Cleaner(style=False, scripts=False, javascript=False, comments=False, page_structure=False, safe_attrs_only=False)       
-            cleaned_html = cleaner.clean_html(article_soup.get_text()) # TODO: improve code to pull article text
-            doc = Document(cleaned_html)
-            content = BeautifulSoup(doc.summary(), 'html.parser').get_text()
-            
-            # summarize the content
+            content = self._extract_main_text(article_soup)
+            if not content.strip():
+                return
+
             summary = ""
             try:
                 summary = summarize(content)
             except Exception as e:
                 self.error_raise = True
                 self.error_msg = str(e)
-            
-            self.generated_article_summary = summary
-            
-    def retrieve_openai_article_summary(self):
-        # Fetch the article content to confirm it is reachable before summarizing
-        article_soup = self.fetch_soup(self.article_link)
-
-        if article_soup:
-            summary = ""
-            try:
-                summary = summarize(self.article_link)
-            except ValueError as e:
-                self.error_raise = True
-                self.error_msg = str(e)
 
             self.generated_article_summary = summary
+
+    def _extract_main_text(self, soup):
+        # Prefer readability for main-content extraction; fall back to full text
+        try:
+            Document = importlib.import_module("readability").Document
+            doc = Document(str(soup))
+            return BeautifulSoup(doc.summary(), "html.parser").get_text(separator=" ", strip=True)
+        except Exception:
+            return soup.get_text(separator=" ", strip=True)
 
     def retrieve_comments(self):
         # Fetch top-level comments via the HN API using the story's kids list
