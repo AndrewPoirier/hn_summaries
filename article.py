@@ -3,11 +3,11 @@ from bs4 import BeautifulSoup
 import lxml.html.clean
 import json
 import time
-import random
 import importlib
 
+import hn_api
 # from llm_interface import summarize
-from openai_interface import summarize
+from summarizer import summarize
 
 # Load settings from settings.json
 with open("settings.json", "r") as f:
@@ -16,15 +16,11 @@ with open("settings.json", "r") as f:
 RETRYABLE_STATUS_CODES = {429, 500, 502, 503, 504}
 MAX_RETRIES = 5
 RETRY_BACKOFF_BASE = 2  # seconds; delay = base ** attempt
-HN_REQUEST_DELAY_SECONDS = settings.get("hn_request_delay_seconds", 0.75)
 REQUEST_USER_AGENT = settings.get("request_user_agent", "hn_summaries/1.0")
 REQUEST_TIMEOUT_SECONDS = settings.get("request_timeout_seconds", 45)
 CACHE_TTL_SECONDS = settings.get("request_cache_ttl_seconds", 3600)
-COOLDOWN_TRIGGER_429S = settings.get("cooldown_trigger_429s", 2)
-COOLDOWN_SECONDS = settings.get("cooldown_seconds", 120)
 
 _SOUP_CACHE = {}
-_CONSECUTIVE_429_COUNT = 0
 
 
 def _retry_delay_seconds(response, attempt):
@@ -38,7 +34,7 @@ def _retry_delay_seconds(response, attempt):
     return RETRY_BACKOFF_BASE ** attempt
 
 class Article:
-    def __init__(self, rank, title, article_link, score, user, article_id, datestring, generate_summaries):
+    def __init__(self, rank, title, article_link, score, user, article_id, datestring, generate_summaries, kids=None):
         self.rank = rank
         self.title = title
         self.article_link = article_link
@@ -47,10 +43,11 @@ class Article:
         self.article_id = article_id
         self.datestring = datestring
         self.generate_summaries = generate_summaries
+        self.kids = kids or []
         self.error_raise = False
         self.error_msg = None
-        self.comment_link = settings["comment_url"] + self.article_id
-        self.generated_article_summary = None 
+        self.comment_link = settings["comment_url"] + str(self.article_id)
+        self.generated_article_summary = None
         self.top_text = None
         self.comments = []
         self.has_comments = False
@@ -127,62 +124,40 @@ Article(
             self.generated_article_summary = summary
             
     def retrieve_openai_article_summary(self):
-        generated_article_summary = ""
-        
-        # Fetch the article content
+        # Fetch the article content to confirm it is reachable before summarizing
         article_soup = self.fetch_soup(self.article_link)
-        
-        # Extract the page contents, clean out the non-content, and extract the text
+
         if article_soup:
-            content = article_soup.get_text()
-            
-            # summarize the content
             summary = ""
             try:
                 summary = summarize(self.article_link)
             except ValueError as e:
                 self.error_raise = True
                 self.error_msg = str(e)
-            
+
             self.generated_article_summary = summary
-    
+
     def retrieve_comments(self):
-        # Fetch the comments page
-        comments_soup = self.fetch_soup(self.comment_link)
-
-        # If retries were exhausted (e.g., repeated 429s), keep the article and skip comments.
-        if comments_soup is None:
-            if not self.error_msg:
-                self.error_raise = True
-                self.error_msg = f"Could not retrieve comments from {self.comment_link}"
-            return
-
-        # Capture OP comments in Show, Ask, Launch HNs
-        top_text = comments_soup.find("div", attrs={"class": "toptext"})
-        if top_text:
-            self.top_text = top_text.get_text()
-        
+        # Fetch top-level comments via the HN API using the story's kids list
         comment_position = 1
-        comment_items = comments_soup.find_all("td", attrs={"indent": "0"})
-        for table in comment_items:            
-            tr = table.parent
-            
-            # comment_text = tr.find("div", attrs={"class": "commtext c00"}).get_text() # Get the comment text
+        for kid_id in self.kids:
+            item = hn_api.get_item(kid_id)
 
-            comment = tr.find("div", attrs={"class": "commtext c00"})
-            # comment_text = comment.decode_contents() if comment else "" # Get the HTML content instead of just the text
-            comment_text = comment.get_text() if comment else "" # Get the text content instead of the html
+            # Skip deleted, dead, or empty comments
+            if not item or item.get("deleted") or item.get("dead") or not item.get("text"):
+                continue
+
+            # The API returns comment text as HTML; strip tags to plain text
+            comment_text = BeautifulSoup(item["text"], "html.parser").get_text()
 
             self.comments.append(Article.Comment(comment_position, comment_text))
-            
+
             if comment_position >= settings["max_comments"]:
                 break
-            
-            comment_position += 1
-            
-    def fetch_soup(self, url):
-        global _CONSECUTIVE_429_COUNT
 
+            comment_position += 1
+
+    def fetch_soup(self, url):
         cache_entry = _SOUP_CACHE.get(url)
         now = time.time()
         if cache_entry and now - cache_entry["timestamp"] <= CACHE_TTL_SECONDS:
@@ -190,8 +165,6 @@ Article(
 
         for attempt in range(MAX_RETRIES):
             try:
-                if "news.ycombinator.com" in url and HN_REQUEST_DELAY_SECONDS > 0:
-                    time.sleep(HN_REQUEST_DELAY_SECONDS + random.uniform(0, 0.35))
                 response = requests.get(url, timeout=REQUEST_TIMEOUT_SECONDS, headers={"User-Agent": REQUEST_USER_AGENT})
                 response.raise_for_status()
                 soup = BeautifulSoup(response.content, 'html.parser')
@@ -199,16 +172,9 @@ Article(
                     "timestamp": time.time(),
                     "soup": soup,
                 }
-                _CONSECUTIVE_429_COUNT = 0
                 return soup
             except requests.exceptions.HTTPError as e:
                 status = e.response.status_code if e.response is not None else None
-                if status == 429:
-                    _CONSECUTIVE_429_COUNT += 1
-                    if _CONSECUTIVE_429_COUNT >= COOLDOWN_TRIGGER_429S:
-                        print(f"Consecutive 429 threshold reached ({_CONSECUTIVE_429_COUNT}). Cooling down for {COOLDOWN_SECONDS}s.")
-                        time.sleep(COOLDOWN_SECONDS)
-                        _CONSECUTIVE_429_COUNT = 0
                 if status in RETRYABLE_STATUS_CODES and attempt < MAX_RETRIES - 1:
                     delay = _retry_delay_seconds(e.response, attempt)
                     print(f"HTTP {status} from {url}, retrying in {delay}s (attempt {attempt + 1}/{MAX_RETRIES})")

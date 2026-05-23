@@ -1,13 +1,10 @@
-import requests
-from bs4 import BeautifulSoup
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import json
 import pickle
 import sys
 import os
-import time
-import random
 
+import hn_api
 from rss_interface import RssInterface
 from article import Article
 
@@ -19,138 +16,60 @@ sys.stderr.reconfigure(encoding='utf-8')
 with open('settings.json', 'r') as f:
     settings = json.load(f)
 
-RETRYABLE_STATUS_CODES = {429, 500, 502, 503, 504}
-MAX_RETRIES = 5
-RETRY_BACKOFF_BASE = 2  # seconds; delay = base ** attempt
-HN_REQUEST_DELAY_SECONDS = settings.get("hn_request_delay_seconds", 0.75)
-REQUEST_USER_AGENT = settings.get("request_user_agent", "hn_summaries/1.0")
-REQUEST_TIMEOUT_SECONDS = settings.get("request_timeout_seconds", 45)
-CACHE_TTL_SECONDS = settings.get("request_cache_ttl_seconds", 3600)
-COOLDOWN_TRIGGER_429S = settings.get("cooldown_trigger_429s", 2)
-COOLDOWN_SECONDS = settings.get("cooldown_seconds", 120)
-
-_SOUP_CACHE = {}
-_CONSECUTIVE_429_COUNT = 0
-
-
-def _retry_delay_seconds(response, attempt):
-    if response is not None:
-        retry_after = response.headers.get("Retry-After")
-        if retry_after:
-            try:
-                return max(0, int(retry_after))
-            except ValueError:
-                pass
-    return RETRY_BACKOFF_BASE ** attempt
-
-def fetch_soup(url):
-    global _CONSECUTIVE_429_COUNT
-
-    cache_entry = _SOUP_CACHE.get(url)
-    now = time.time()
-    if cache_entry and now - cache_entry["timestamp"] <= CACHE_TTL_SECONDS:
-        return cache_entry["soup"]
-
-    for attempt in range(MAX_RETRIES):
-        try:
-            if "news.ycombinator.com" in url and HN_REQUEST_DELAY_SECONDS > 0:
-                time.sleep(HN_REQUEST_DELAY_SECONDS + random.uniform(0, 0.35))
-            response = requests.get(url, timeout=REQUEST_TIMEOUT_SECONDS, headers={"User-Agent": REQUEST_USER_AGENT})
-            response.raise_for_status()
-            soup = BeautifulSoup(response.content, 'html.parser')
-            _SOUP_CACHE[url] = {
-                "timestamp": time.time(),
-                "soup": soup,
-            }
-            _CONSECUTIVE_429_COUNT = 0
-            return soup
-        except requests.exceptions.HTTPError as e:
-            status = e.response.status_code if e.response is not None else None
-            if status == 429:
-                _CONSECUTIVE_429_COUNT += 1
-                if _CONSECUTIVE_429_COUNT >= COOLDOWN_TRIGGER_429S:
-                    print(f"Consecutive 429 threshold reached ({_CONSECUTIVE_429_COUNT}). Cooling down for {COOLDOWN_SECONDS}s.")
-                    time.sleep(COOLDOWN_SECONDS)
-                    _CONSECUTIVE_429_COUNT = 0
-            if status in RETRYABLE_STATUS_CODES and attempt < MAX_RETRIES - 1:
-                delay = _retry_delay_seconds(e.response, attempt)
-                print(f"HTTP {status} from {url}, retrying in {delay}s (attempt {attempt + 1}/{MAX_RETRIES})")
-                time.sleep(delay)
-            else:
-                print(f"Error fetching articles from {url}: {e}")
-                return None
-        except requests.exceptions.RequestException as e:
-            if attempt < MAX_RETRIES - 1:
-                delay = RETRY_BACKOFF_BASE ** attempt
-                print(f"Request error for {url}: {e}, retrying in {delay}s (attempt {attempt + 1}/{MAX_RETRIES})")
-                time.sleep(delay)
-            else:
-                print(f"Error fetching articles from {url}: {e}")
-                return None
 
 def return_articles(date, generate_summaries=True, max_articles=int(settings["max_articles"])):
     """
-    Fetches and parses articles from a specified date, returning a list of Article objects.
+    Fetches stories from the HN Firebase API, keeps those created on the given
+    date, and returns a list of Article objects.
+
     Args:
-        date (str): The date for which to fetch articles in the format 'YYYY-MM-DD'.
-        generate_summaries (bool, optional): Flag to indicate whether to generate summaries for the articles. Defaults to True.
-        max_articles (int, optional): The maximum number of articles to fetch. Defaults to 30.
+        date (str): The target date in the format 'YYYY-MM-DD'.
+        generate_summaries (bool, optional): Whether to generate summaries. Defaults to True.
+        max_articles (int, optional): Maximum number of articles to return.
     Returns:
-        list: A list of Article objects parsed from the fetched data.
+        list: A list of Article objects.
     """
-    
-    articles = [] # return collection
-    article_count = 0 #iterator to limit to max_articles
-    article_page = 1
-    
-    while article_count < max_articles:
-        url = settings["articles_url"].format(date=date, page=article_page)
+    # Compute the UTC timestamp range for the target date
+    day_start = datetime.strptime(date, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+    start_ts = int(day_start.timestamp())
+    end_ts = int((day_start + timedelta(days=1)).timestamp())
 
-        soup = fetch_soup(url) #get article page and convert to soup
-        if soup is None:
-            print(f"Stopping article fetch after repeated failures on page {article_page}.")
-            break
-        
-        # Find all <tr> elements with class "athing"
-        athing_rows = soup.find_all("tr", attrs={"class": "athing"})
-        if not athing_rows:
-            print(f"No articles found on page {article_page}; stopping pagination.")
+    articles = []  # return collection
+    rank = 1       # rank reflects position within the current top-stories list
+
+    for story_id in hn_api.get_top_story_ids():
+        if len(articles) >= max_articles:
             break
 
-        # loop through each article and parse it into an Article object
-        for row in athing_rows:     
-            # parse article from row   
-            rank = row.find("span", attrs={"class": "rank"}).text.strip().replace(".", "")
-            title = row.find("span", attrs={"class": "titleline"}).find("a").text.strip()
-            article_link = row.find("span", attrs={"class": "titleline"}).find("a")["href"]
-            article_id = row["id"]
-            
-            # the following items are in the next TR 
-            score = row.next_sibling.find("span", attrs={"class": "score"}).text.strip()
-            user = row.next_sibling.find("a", attrs={"class": "hnuser"}).text.strip()
-            datestring = row.next_sibling.find("span", attrs={"class": "age"})["title"].split(" ")[0]
-            
-            # print the current item to the console
-            print(f"{rank}. {title}")
-            
-            # create the Article class, which will do all the heavy-lifting
-            article = Article(rank, title, article_link, score, user, article_id, datestring, generate_summaries)
-            
-            # append the Article to the return collection
-            articles.append(article)
-            
-            # increment the iterator
-            article_count += 1
-            
-            # print the Article out to the console
-            print(article)
-            
-            # check iterator for max_articles
-            if article_count >= max_articles:
-                break
-        
-        # Iterate to the next page
-        article_page += 1
+        item = hn_api.get_item(story_id)
+        if not item or item.get("type") != "story":
+            continue
+
+        item_time = item.get("time")
+        if item_time is None or not (start_ts <= item_time < end_ts):
+            continue
+
+        article_id = str(item["id"])
+        title = item.get("title", "")
+        article_link = item.get("url", f"https://news.ycombinator.com/item?id={article_id}")
+        score = item.get("score", 0)
+        user = item.get("by", "")
+        datestring = datetime.fromtimestamp(item_time, timezone.utc).strftime("%Y-%m-%dT%H:%M:%S")
+        kids = item.get("kids", [])
+
+        # print the current item to the console
+        print(f"{rank}. {title}")
+
+        # create the Article class, which will do all the heavy-lifting
+        article = Article(rank, title, article_link, score, user, article_id, datestring, generate_summaries, kids=kids)
+
+        # append the Article to the return collection
+        articles.append(article)
+
+        # print the Article out to the console
+        print(article)
+
+        rank += 1
 
     return articles
 
