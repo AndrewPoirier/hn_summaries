@@ -12,7 +12,38 @@ with open('rss_settings.json', 'r') as f:
     rss_settings = json.load(f)
 with open('settings.json', 'r') as f:
     settings = json.load(f)
-    
+
+
+class SelfLinkingRssFeed(Rss201rev2Feed):
+    """Rss201rev2Feed that emits the atom:self link readers use to confirm feed identity.
+
+    feedgenerator already declares the atom namespace on <rss> but never uses
+    it, so the declaration is dead weight without this.
+    """
+
+    def __init__(self, *args, feed_url=None, **kwargs):
+        self.feed_self_url = feed_url
+        super().__init__(*args, **kwargs)
+
+    def rss_attributes(self):
+        # Declare the namespace ourselves rather than relying on the installed
+        # feedgenerator to do it. Older versions don't, and an undeclared
+        # atom: prefix would make the document malformed. Setting the same
+        # key the newer versions set keeps this idempotent.
+        attrs = super().rss_attributes()
+        attrs["xmlns:atom"] = "http://www.w3.org/2005/Atom"
+        return attrs
+
+    def add_root_elements(self, handler):
+        super().add_root_elements(handler)
+        if self.feed_self_url:
+            handler.addQuickElement("atom:link", None, {
+                "href": self.feed_self_url,
+                "rel": "self",
+                "type": "application/rss+xml",
+            })
+
+
 class RssInterface:
     def __init__(self):
         self.rss_settings = rss_settings
@@ -27,10 +58,11 @@ class RssInterface:
         description = rss_settings["description"]
     
         # If the file doesn't exist, create a new feed
-        return Rss201rev2Feed(
+        return SelfLinkingRssFeed(
             title=title,
             link=link,
-            description=description
+            description=description,
+            feed_url=rss_settings.get("feed_url")
         )
             
     @staticmethod

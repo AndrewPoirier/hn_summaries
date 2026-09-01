@@ -1,7 +1,8 @@
 {
     "title": "HN Summaries",
-    "link": "http://andrewpoirier.github.io/hn_summarizer",
+    "link": "https://specialeducationcoaching.com/hn_summaries/",
     "description": "The top HN articles everyday - summarized",
+    "feed_url": "https://specialeducationcoaching.com/hn_summaries/feed.xml",
     "feed_file_path": "feed.xml",
     "max_feed_items": 500
 }
