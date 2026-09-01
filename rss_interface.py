@@ -1,5 +1,5 @@
 
-from datetime import datetime, timedelta
+from datetime import datetime, timezone
 import json
 import os
 from feedgenerator import Rss201rev2Feed
@@ -33,10 +33,32 @@ class RssInterface:
             description=description
         )
             
+    @staticmethod
+    def published_date(article):
+        """Return the article's real HN submission time as a UTC-aware datetime.
+
+        Readers key off pubDate, so it must be derived from the item itself and
+        stay byte-identical across rebuilds. Falls back to the epoch for an
+        unparseable datestring so a bad record sorts to the end of the feed
+        instead of masquerading as brand new.
+        """
+        try:
+            date_obj = datetime.strptime(article.datestring, "%Y-%m-%dT%H:%M:%S")
+        except (AttributeError, TypeError, ValueError):
+            return datetime.fromtimestamp(0, timezone.utc)
+        return date_obj.replace(tzinfo=timezone.utc)
+
     # Function to append a new article to the RSS feed
     def append_articles_to_feed(self, articles):
-        for article in articles:
-        
+        # Newest first in document order, then trim to the recent window. Rank
+        # is preserved in the title, so ties break toward the higher-ranked item.
+        ordered = sorted(articles, key=lambda a: (self.published_date(a), -int(a.rank)), reverse=True)
+        max_feed_items = int(rss_settings.get("max_feed_items", 150))
+        if max_feed_items > 0:
+            ordered = ordered[:max_feed_items]
+
+        for article in ordered:
+
             description = f"""
 <p>{article.score} points by {article.user} on {article.datestring} </p>
 <p>{article.generated_article_summary}</p>
@@ -58,15 +80,7 @@ class RssInterface:
                 #     description += f"<div>{comment.text}</div>"
                 #     description += "<br /><hr /><br />"
             
-            
-            # Convert rank to seconds and subtract from datestring so RSS items show in order
-            date_obj = datetime.strptime(article.datestring, "%Y-%m-%dT%H:%M:%S")
-            adjusted_date = date_obj - timedelta(seconds=int(settings["max_articles"]) - int(article.rank))
-            adjusted_datestring = adjusted_date.strftime("%Y-%m-%dT%H:%M:%S")
-            
-            date_obj = datetime.now()
-            time_increment = timedelta(seconds=int(settings["max_articles"]) - (int(article.rank)*10))
-            
+
             self.feed.add_item(
                 title=f"{article.rank}. {article.title}",
                 link=article.article_link,
@@ -76,7 +90,7 @@ class RssInterface:
                 extra_kwargs={
                     "content:encoded": description
                 },
-                pubdate=date_obj - time_increment
+                pubdate=self.published_date(article)
             )
             
     def save_feed(self):
