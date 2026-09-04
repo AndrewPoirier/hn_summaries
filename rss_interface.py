@@ -1,5 +1,5 @@
 
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 import json
 import os
 from feedgenerator import Rss201rev2Feed
@@ -66,30 +66,61 @@ class RssInterface:
         )
             
     @staticmethod
-    def published_date(article):
-        """Return the article's real HN submission time as a UTC-aware datetime.
+    def submission_day(article):
+        """The article's true HN submission day, as UTC midnight.
 
-        Readers key off pubDate, so it must be derived from the item itself and
-        stay byte-identical across rebuilds. Falls back to the epoch for an
-        unparseable datestring so a bad record sorts to the end of the feed
-        instead of masquerading as brand new.
+        Falls back to the epoch for an unparseable datestring so a bad record
+        sorts to the end of the feed instead of masquerading as brand new.
         """
         try:
             date_obj = datetime.strptime(article.datestring, "%Y-%m-%dT%H:%M:%S")
         except (AttributeError, TypeError, ValueError):
             return datetime.fromtimestamp(0, timezone.utc)
-        return date_obj.replace(tzinfo=timezone.utc)
+        return date_obj.replace(hour=0, minute=0, second=0, microsecond=0, tzinfo=timezone.utc)
+
+    @classmethod
+    def published_date(cls, article):
+        """pubDate: the true submission day, with time-of-day derived from rank.
+
+        Readers order by pubDate, so it is the only field that can carry the HN
+        ranking. Rank 1 takes the last slot of its day so it sorts first; the
+        lowest rank takes midnight. The day is truthful and the exact submission
+        time is still shown in the item body.
+
+        Every input is a stored field of the article, so this is identical on
+        every rebuild - which is what keeps the feed stable for strict readers.
+        """
+        slots = max(int(settings["max_articles"]), 1)
+        try:
+            rank = min(max(int(article.rank), 1), slots)
+        except (AttributeError, TypeError, ValueError):
+            rank = slots
+        return cls.submission_day(article) + timedelta(seconds=round((slots - rank) * 86400 / slots))
 
     # Function to append a new article to the RSS feed
     def append_articles_to_feed(self, articles):
-        # Newest first in document order, then trim to the recent window. Rank
-        # is preserved in the title, so ties break toward the higher-ranked item.
-        ordered = sorted(articles, key=lambda a: (self.published_date(a), -int(a.rank)), reverse=True)
+        # Newest first in document order, then trim to the recent window.
+        # article_id breaks ties so the ordering is deterministic.
+        ordered = sorted(articles, key=lambda a: (self.published_date(a), str(a.article_id)), reverse=True)
         max_feed_items = int(rss_settings.get("max_feed_items", 150))
         if max_feed_items > 0:
             ordered = ordered[:max_feed_items]
 
+        # A day can carry more than max_articles items (an overlapping re-run
+        # repeats a rank), which would collide two items onto one timestamp.
+        # Nudge duplicates back a second so every pubDate stays unique and
+        # strictly descending; slots are ~29 minutes apart, so this never
+        # reorders anything.
+        stamped = []
+        previous = None
         for article in ordered:
+            pubdate = self.published_date(article)
+            if previous is not None and pubdate >= previous:
+                pubdate = previous - timedelta(seconds=1)
+            stamped.append((article, pubdate))
+            previous = pubdate
+
+        for article, pubdate in stamped:
 
             description = f"""
 <p>{article.score} points by {article.user} on {article.datestring} </p>
@@ -122,7 +153,7 @@ class RssInterface:
                 extra_kwargs={
                     "content:encoded": description
                 },
-                pubdate=self.published_date(article)
+                pubdate=pubdate
             )
             
     def save_feed(self):
